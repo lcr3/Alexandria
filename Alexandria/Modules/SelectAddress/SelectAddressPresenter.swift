@@ -46,9 +46,9 @@ private extension MKCoordinateRegion {
     // Tokyo
     static var defaultRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2DMake(
-            36,
-            140
+            35.6895014,
+            139.6917337
         ),
-        span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
     )
 }
