@@ -24,12 +24,23 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                     Spacer()
                     LocationButton(.currentLocation) {
                         presenter.locationButtonTapped()
-                    }.frame(width: 44, height: 44)
-                        .labelStyle(.iconOnly)
-                        .symbolVariant(.fill)
-                        .cornerRadius(22)
-                        .tint(Color("Main"))
-                        .foregroundColor(.white)
+                    }
+                    .frame(width: 44, height: 44)
+                    .labelStyle(.iconOnly)
+                    .symbolVariant(.fill)
+                    .cornerRadius(22)
+                    .tint(Color("Main"))
+                    .foregroundColor(.white)
+                    .background(
+                        RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            .foregroundColor(Color("Main"))
+                            .shadow(
+                                color: Color.black.opacity(0.8),
+                                radius: 12,
+                                x: 6,
+                                y: 8
+                            )
+                    )
                 }
             }.padding()
         }.edgesIgnoringSafeArea(.all)
