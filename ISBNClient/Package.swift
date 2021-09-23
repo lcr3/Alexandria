@@ -9,10 +9,14 @@ let package = Package(
     products: [
         .library(
             name: "ISBNClient",
-            targets: ["ISBNClient"]),
+            targets: [
+                "ISBNClient"
+            ]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/ishkawa/APIKit.git", from: "5.2.0"),
+        .package(url: "https://github.com/AliSoftware/OHHTTPStubs.git", from: "9.1.0"),
     ],
     targets: [
         .target(
@@ -23,6 +27,10 @@ let package = Package(
         ),
         .testTarget(
             name: "ISBNClientTests",
-            dependencies: ["ISBNClient"]),
+            dependencies: [
+                "ISBNClient",
+                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs"),
+            ]
+        ),
     ]
 )
