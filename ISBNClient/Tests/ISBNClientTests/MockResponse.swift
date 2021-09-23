@@ -1,11 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by lcr on 2021/09/23.
-//  
-//
-
 struct MockJsonResponse {
     static var success: [String: Any] {
         [
