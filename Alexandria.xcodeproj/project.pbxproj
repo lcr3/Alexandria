@@ -13,6 +13,7 @@
 		2949E07526FC2342000BCB0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E07426FC2342000BCB0F /* Preview Assets.xcassets */; };
 		2949E07F26FC2342000BCB0F /* AlexandriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E07E26FC2342000BCB0F /* AlexandriaTests.swift */; };
 		2949E08926FC2342000BCB0F /* AlexandriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E08826FC2342000BCB0F /* AlexandriaUITests.swift */; };
+		2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E09926FC45B3000BCB0F /* ISBNClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +78,7 @@
 				2949E07D26FC2342000BCB0F /* AlexandriaTests */,
 				2949E08726FC2342000BCB0F /* AlexandriaUITests */,
 				2949E06B26FC233E000BCB0F /* Products */,
+				2949E09826FC45B3000BCB0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +127,13 @@
 			path = AlexandriaUITests;
 			sourceTree = "<group>";
 		};
+		2949E09826FC45B3000BCB0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +150,9 @@
 			dependencies = (
 			);
 			name = Alexandria;
+			packageProductDependencies = (
+				2949E09926FC45B3000BCB0F /* ISBNClient */,
+			);
 			productName = Alexandria;
 			productReference = 2949E06A26FC233E000BCB0F /* Alexandria.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +225,8 @@
 				Base,
 			);
 			mainGroup = 2949E06126FC233E000BCB0F;
+			packageReferences = (
+			);
 			productRefGroup = 2949E06B26FC233E000BCB0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -423,7 +438,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +468,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,7 +491,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UUF7376KJL;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,7 +516,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UUF7376KJL;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +618,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2949E09926FC45B3000BCB0F /* ISBNClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ISBNClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2949E06226FC233E000BCB0F /* Project object */;
 }
