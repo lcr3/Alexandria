@@ -7,4 +7,7 @@
    <FileRef
       location = "group:ISBNClient">
    </FileRef>
+   <FileRef
+      location = "group:LocationClient">
+   </FileRef>
 </Workspace>

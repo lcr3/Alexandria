@@ -14,6 +14,7 @@
 		2949E07F26FC2342000BCB0F /* AlexandriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E07E26FC2342000BCB0F /* AlexandriaTests.swift */; };
 		2949E08926FC2342000BCB0F /* AlexandriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E08826FC2342000BCB0F /* AlexandriaUITests.swift */; };
 		2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E09926FC45B3000BCB0F /* ISBNClient */; };
+		2949E09C26FC781A000BCB0F /* LocationClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E09B26FC781A000BCB0F /* LocationClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2949E09C26FC781A000BCB0F /* LocationClient in Frameworks */,
 				2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +154,7 @@
 			name = Alexandria;
 			packageProductDependencies = (
 				2949E09926FC45B3000BCB0F /* ISBNClient */,
+				2949E09B26FC781A000BCB0F /* LocationClient */,
 			);
 			productName = Alexandria;
 			productReference = 2949E06A26FC233E000BCB0F /* Alexandria.app */;
@@ -623,6 +626,10 @@
 		2949E09926FC45B3000BCB0F /* ISBNClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ISBNClient;
+		};
+		2949E09B26FC781A000BCB0F /* LocationClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
