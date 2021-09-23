@@ -23,7 +23,7 @@ extension LocationClient: LocationClientProtocol {
 }
 
 extension LocationClient: CLLocationManagerDelegate {
-    private func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("[LocationClient] Delegate event didUpdateLocations: \(locations)")
         guard let location = locations.first else {
             output?.onError(LocationClientError.placemarkIsEmpty)
@@ -33,7 +33,7 @@ extension LocationClient: CLLocationManagerDelegate {
         output?.onLocationUpdated(location)
     }
 
-    private func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("[LocationClient] Delegate event didFailWithError: \(error)")
         locationManager?.stopUpdatingLocation()
         output?.onError(error)

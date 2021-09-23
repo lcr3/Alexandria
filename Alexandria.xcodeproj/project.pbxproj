@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */; };
-		2949E07026FC233E000BCB0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06F26FC233E000BCB0F /* ContentView.swift */; };
 		2949E07226FC2342000BCB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E07126FC2342000BCB0F /* Assets.xcassets */; };
 		2949E07526FC2342000BCB0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E07426FC2342000BCB0F /* Preview Assets.xcassets */; };
 		2949E07F26FC2342000BCB0F /* AlexandriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E07E26FC2342000BCB0F /* AlexandriaTests.swift */; };
 		2949E08926FC2342000BCB0F /* AlexandriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E08826FC2342000BCB0F /* AlexandriaUITests.swift */; };
 		2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E09926FC45B3000BCB0F /* ISBNClient */; };
 		2949E09C26FC781A000BCB0F /* LocationClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E09B26FC781A000BCB0F /* LocationClient */; };
+		2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E09E26FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift */; };
+		2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E09F26FC78B0000BCB0F /* SelectAddressPresenter.swift */; };
+		2949E0A726FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A026FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift */; };
+		2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A126FC78B0000BCB0F /* SelectAddressInteractor.swift */; };
+		2949E0A926FC78B0000BCB0F /* SelectAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A226FC78B0000BCB0F /* SelectAddressView.swift */; };
+		2949E0AA26FC78B0000BCB0F /* SelectAddressViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A326FC78B0000BCB0F /* SelectAddressViewDependencies.swift */; };
+		2949E0AB26FC78B0000BCB0F /* SelectAddressWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */; };
+		2949E0AE26FC801C000BCB0F /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E0AD26FC801C000BCB0F /* Resources.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +44,20 @@
 /* Begin PBXFileReference section */
 		2949E06A26FC233E000BCB0F /* Alexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexandriaApp.swift; sourceTree = "<group>"; };
-		2949E06F26FC233E000BCB0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2949E07126FC2342000BCB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2949E07426FC2342000BCB0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2949E07A26FC2342000BCB0F /* AlexandriaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlexandriaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2949E07E26FC2342000BCB0F /* AlexandriaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexandriaTests.swift; sourceTree = "<group>"; };
 		2949E08426FC2342000BCB0F /* AlexandriaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlexandriaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2949E08826FC2342000BCB0F /* AlexandriaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexandriaUITests.swift; sourceTree = "<group>"; };
+		2949E09E26FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressInteractorDependencies.swift; sourceTree = "<group>"; };
+		2949E09F26FC78B0000BCB0F /* SelectAddressPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressPresenter.swift; sourceTree = "<group>"; };
+		2949E0A026FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressPresenterDependencies.swift; sourceTree = "<group>"; };
+		2949E0A126FC78B0000BCB0F /* SelectAddressInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressInteractor.swift; sourceTree = "<group>"; };
+		2949E0A226FC78B0000BCB0F /* SelectAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressView.swift; sourceTree = "<group>"; };
+		2949E0A326FC78B0000BCB0F /* SelectAddressViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewDependencies.swift; sourceTree = "<group>"; };
+		2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressWireFrame.swift; sourceTree = "<group>"; };
+		2949E0AD26FC801C000BCB0F /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +111,11 @@
 		2949E06C26FC233E000BCB0F /* Alexandria */ = {
 			isa = PBXGroup;
 			children = (
+				2949E09D26FC7875000BCB0F /* Modules */,
 				2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */,
-				2949E06F26FC233E000BCB0F /* ContentView.swift */,
 				2949E07126FC2342000BCB0F /* Assets.xcassets */,
 				2949E07326FC2342000BCB0F /* Preview Content */,
+				2949E0AD26FC801C000BCB0F /* Resources.xcassets */,
 			);
 			path = Alexandria;
 			sourceTree = "<group>";
@@ -134,6 +149,28 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2949E09D26FC7875000BCB0F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2949E0AC26FC78BD000BCB0F /* SelectAddress */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2949E0AC26FC78BD000BCB0F /* SelectAddress */ = {
+			isa = PBXGroup;
+			children = (
+				2949E09E26FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift */,
+				2949E09F26FC78B0000BCB0F /* SelectAddressPresenter.swift */,
+				2949E0A026FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift */,
+				2949E0A126FC78B0000BCB0F /* SelectAddressInteractor.swift */,
+				2949E0A226FC78B0000BCB0F /* SelectAddressView.swift */,
+				2949E0A326FC78B0000BCB0F /* SelectAddressViewDependencies.swift */,
+				2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */,
+			);
+			path = SelectAddress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2949E0AE26FC801C000BCB0F /* Resources.xcassets in Resources */,
 				2949E07526FC2342000BCB0F /* Preview Assets.xcassets in Resources */,
 				2949E07226FC2342000BCB0F /* Assets.xcassets in Resources */,
 			);
@@ -272,8 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2949E07026FC233E000BCB0F /* ContentView.swift in Sources */,
+				2949E0A726FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift in Sources */,
+				2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */,
 				2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */,
+				2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */,
+				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,
+				2949E0AA26FC78B0000BCB0F /* SelectAddressViewDependencies.swift in Sources */,
+				2949E0A926FC78B0000BCB0F /* SelectAddressView.swift in Sources */,
+				2949E0AB26FC78B0000BCB0F /* SelectAddressWireFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

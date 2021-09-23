@@ -12,7 +12,7 @@ import SwiftUI
 struct AlexandriaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SelectAddressWireFrame.makeSelectAddressView()
         }
     }
 }
