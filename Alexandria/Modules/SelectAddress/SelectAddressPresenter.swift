@@ -1,14 +1,17 @@
+import CalilClient
 import Combine
 import CoreLocation
 import MapKit
 
 protocol SelectAddressPresenterProtocol {
     var region: MKCoordinateRegion { get set }
+    var nearLibraries: [Library] { get set }
     func locationButtonTapped()
 }
 
 final class SelectAddressPresenter: ObservableObject {
     @Published var region: MKCoordinateRegion
+    @Published var nearLibraries: [Library]
 
     private var dependencies: SelectAddressPresenterDependenciesProtocol
     private let interactor: SelectAddressInteractorProtocol
@@ -17,6 +20,7 @@ final class SelectAddressPresenter: ObservableObject {
         self.dependencies = dependencies
         self.interactor = interactor
         self.region = .defaultRegion
+        self.nearLibraries = []
     }
 }
 
@@ -28,17 +32,30 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
 
 extension SelectAddressPresenter: SelectAddressInteractorOutput {
     func onUpdate(location: CLLocation) {
-        self.region = MKCoordinateRegion(
+        region = MKCoordinateRegion(
             center: CLLocationCoordinate2DMake(
                 location.coordinate.latitude,
                 location.coordinate.longitude
             ),
             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         )
+
+        interactor.searchNearbyLibraries(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude
+        )
     }
 
     func onError(_: Error) {
-        self.region = .defaultRegion
+        region = .defaultRegion
+    }
+
+    func successGet(libraries: [Library]) {
+        self.nearLibraries = libraries
+    }
+
+    func failureGetLibraries(_: Error) {
+
     }
 }
 

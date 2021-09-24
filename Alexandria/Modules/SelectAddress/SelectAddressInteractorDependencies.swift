@@ -1,9 +1,12 @@
+import CalilClient
 import LocationClient
 
 protocol SelectAddressInteractorDependenciesProtocol {
-    var client: LocationClient { get set }
+    var calilClient: CalilClient { get }
+    var locationClient: LocationClient { get }
 }
 
 struct SelectAddressInteractorDependencies: SelectAddressInteractorDependenciesProtocol {
-    var client: LocationClient
+    let calilClient: CalilClient
+    var locationClient: LocationClient
 }
