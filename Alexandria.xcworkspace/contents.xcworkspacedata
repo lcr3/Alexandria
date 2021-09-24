@@ -5,6 +5,9 @@
       location = "group:Alexandria.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:CalilClient">
+   </FileRef>
+   <FileRef
       location = "group:ISBNClient">
    </FileRef>
    <FileRef

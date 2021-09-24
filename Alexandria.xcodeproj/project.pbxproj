@@ -22,6 +22,7 @@
 		2949E0AA26FC78B0000BCB0F /* SelectAddressViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A326FC78B0000BCB0F /* SelectAddressViewDependencies.swift */; };
 		2949E0AB26FC78B0000BCB0F /* SelectAddressWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */; };
 		2949E0AE26FC801C000BCB0F /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E0AD26FC801C000BCB0F /* Resources.xcassets */; };
+		2949E0B026FDBD81000BCB0F /* CalilClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E0AF26FDBD81000BCB0F /* CalilClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2949E0B026FDBD81000BCB0F /* CalilClient in Frameworks */,
 				2949E09C26FC781A000BCB0F /* LocationClient in Frameworks */,
 				2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */,
 			);
@@ -192,6 +194,7 @@
 			packageProductDependencies = (
 				2949E09926FC45B3000BCB0F /* ISBNClient */,
 				2949E09B26FC781A000BCB0F /* LocationClient */,
+				2949E0AF26FDBD81000BCB0F /* CalilClient */,
 			);
 			productName = Alexandria;
 			productReference = 2949E06A26FC233E000BCB0F /* Alexandria.app */;
@@ -674,6 +677,10 @@
 		2949E09B26FC781A000BCB0F /* LocationClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LocationClient;
+		};
+		2949E0AF26FDBD81000BCB0F /* CalilClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CalilClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

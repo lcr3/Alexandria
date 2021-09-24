@@ -3,7 +3,6 @@ import MapKit
 import SwiftUI
 
 protocol SelectAddressViewProtocol {
-    
 }
 
 struct SelectAddressView: View, SelectAddressViewProtocol {
