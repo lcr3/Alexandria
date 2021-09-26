@@ -23,6 +23,7 @@
 		2949E0AB26FC78B0000BCB0F /* SelectAddressWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */; };
 		2949E0AE26FC801C000BCB0F /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E0AD26FC801C000BCB0F /* Resources.xcassets */; };
 		2949E0B026FDBD81000BCB0F /* CalilClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E0AF26FDBD81000BCB0F /* CalilClient */; };
+		2949E0B226FDCB48000BCB0F /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0B126FDCB48000BCB0F /* LibraryListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		2949E0A326FC78B0000BCB0F /* SelectAddressViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewDependencies.swift; sourceTree = "<group>"; };
 		2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressWireFrame.swift; sourceTree = "<group>"; };
 		2949E0AD26FC801C000BCB0F /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
+		2949E0B126FDCB48000BCB0F /* LibraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				2949E0A226FC78B0000BCB0F /* SelectAddressView.swift */,
 				2949E0A326FC78B0000BCB0F /* SelectAddressViewDependencies.swift */,
 				2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */,
+				2949E0B126FDCB48000BCB0F /* LibraryListView.swift */,
 			);
 			path = SelectAddress;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			files = (
 				2949E0A726FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift in Sources */,
 				2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */,
+				2949E0B226FDCB48000BCB0F /* LibraryListView.swift in Sources */,
 				2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */,
 				2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */,
 				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,

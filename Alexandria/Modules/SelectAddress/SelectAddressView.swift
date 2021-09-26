@@ -42,6 +42,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                     )
                 }
             }.padding()
+            LibraryListView(items: $presenter.nearLibraries)
         }.edgesIgnoringSafeArea(.all)
     }
     
