@@ -20,6 +20,22 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
             VStack {
                 Spacer()
                 HStack {
+                    Button("OK") {
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 44)
+                    .tint(.main)
+                    .foregroundColor(.white)
+                    .background(
+                        RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            .foregroundColor(.main)
+                            .shadow(
+                                color: Color.black.opacity(0.8),
+                                radius: 12,
+                                x: 6,
+                                y: 8
+                            )
+                    )
                     Spacer()
                     LocationButton(.currentLocation) {
                         presenter.locationButtonTapped()
