@@ -28,11 +28,11 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                     .labelStyle(.iconOnly)
                     .symbolVariant(.fill)
                     .cornerRadius(22)
-                    .tint(Color("Main"))
+                    .tint(.main)
                     .foregroundColor(.white)
                     .background(
                         RoundedRectangle(cornerRadius: 22, style: .continuous)
-                            .foregroundColor(Color("Main"))
+                            .foregroundColor(.main)
                             .shadow(
                                 color: Color.black.opacity(0.8),
                                 radius: 12,
@@ -42,7 +42,12 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                     )
                 }
             }.padding()
-            LibraryListView(items: $presenter.nearLibraries)
+            VStack {
+                LibraryListView(
+                    items: $presenter.nearLibraries
+                ).padding(.top, 80)
+                Spacer()
+            }
         }.edgesIgnoringSafeArea(.all)
     }
     

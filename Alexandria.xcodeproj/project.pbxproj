@@ -24,6 +24,7 @@
 		2949E0AE26FC801C000BCB0F /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E0AD26FC801C000BCB0F /* Resources.xcassets */; };
 		2949E0B026FDBD81000BCB0F /* CalilClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E0AF26FDBD81000BCB0F /* CalilClient */; };
 		2949E0B226FDCB48000BCB0F /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0B126FDCB48000BCB0F /* LibraryListView.swift */; };
+		2949E0B52701D683000BCB0F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0B42701D683000BCB0F /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		2949E0A426FC78B0000BCB0F /* SelectAddressWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressWireFrame.swift; sourceTree = "<group>"; };
 		2949E0AD26FC801C000BCB0F /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		2949E0B126FDCB48000BCB0F /* LibraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
+		2949E0B42701D683000BCB0F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		2949E06C26FC233E000BCB0F /* Alexandria */ = {
 			isa = PBXGroup;
 			children = (
+				2949E0B32701D679000BCB0F /* Component */,
 				2949E09D26FC7875000BCB0F /* Modules */,
 				2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */,
 				2949E07126FC2342000BCB0F /* Assets.xcassets */,
@@ -176,6 +179,14 @@
 				2949E0B126FDCB48000BCB0F /* LibraryListView.swift */,
 			);
 			path = SelectAddress;
+			sourceTree = "<group>";
+		};
+		2949E0B32701D679000BCB0F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2949E0B42701D683000BCB0F /* Color.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +330,7 @@
 				2949E0A726FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift in Sources */,
 				2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */,
 				2949E0B226FDCB48000BCB0F /* LibraryListView.swift in Sources */,
+				2949E0B52701D683000BCB0F /* Color.swift in Sources */,
 				2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */,
 				2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */,
 				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,
