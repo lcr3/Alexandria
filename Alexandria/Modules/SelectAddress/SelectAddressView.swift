@@ -56,7 +56,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                                 y: 8
                             )
                     )
-                }
+                }.padding(.bottom, 16)
             }.padding()
             VStack {
                 LibraryListView(
