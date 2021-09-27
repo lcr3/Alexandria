@@ -7,6 +7,7 @@ public struct Library: Decodable, Identifiable {
     public var id: String {
         return systemId
     }
+    public let name: String
     public let address: String
     public let pref: String
     public let libid: String
@@ -16,6 +17,7 @@ public struct Library: Decodable, Identifiable {
 
     public init(object: Any) throws {
         guard let dictionary = object as? [String: Any],
+              let name = dictionary["formal"] as? String,
               let address = dictionary["address"] as? String,
               let pref = dictionary["pref"] as? String,
               let libid = dictionary["libid"] as? String,
@@ -24,6 +26,7 @@ public struct Library: Decodable, Identifiable {
               let category = dictionary["category"] as? String else {
                   throw ResponseError.unexpectedObject(object)
               }
+        self.name = name
         self.address = address
         self.pref = pref
         self.libid = libid
@@ -32,7 +35,8 @@ public struct Library: Decodable, Identifiable {
         self.category = category
     }
 
-    public init(address: String = "", pref: String = "", libid: String = "", systemId: String = "", systemName: String = "", category: String = "") {
+    public init(name: String = "", address: String = "", pref: String = "", libid: String = "", systemId: String = "", systemName: String = "", category: String = "") {
+        self.name = name
         self.address = address
         self.pref = pref
         self.libid = libid
