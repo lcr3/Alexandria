@@ -25,6 +25,7 @@
 		2949E0B026FDBD81000BCB0F /* CalilClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E0AF26FDBD81000BCB0F /* CalilClient */; };
 		2949E0B52701D683000BCB0F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0B42701D683000BCB0F /* Color.swift */; };
 		2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0B727031B8B000BCB0F /* LibraryListView.swift */; };
+		2949E0BA27031C2D000BCB0F /* StorageClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E0B927031C2D000BCB0F /* StorageClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2949E0B026FDBD81000BCB0F /* CalilClient in Frameworks */,
+				2949E0BA27031C2D000BCB0F /* StorageClient in Frameworks */,
 				2949E09C26FC781A000BCB0F /* LocationClient in Frameworks */,
 				2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */,
 			);
@@ -217,6 +219,7 @@
 				2949E09926FC45B3000BCB0F /* ISBNClient */,
 				2949E09B26FC781A000BCB0F /* LocationClient */,
 				2949E0AF26FDBD81000BCB0F /* CalilClient */,
+				2949E0B927031C2D000BCB0F /* StorageClient */,
 			);
 			productName = Alexandria;
 			productReference = 2949E06A26FC233E000BCB0F /* Alexandria.app */;
@@ -705,6 +708,10 @@
 		2949E0AF26FDBD81000BCB0F /* CalilClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CalilClient;
+		};
+		2949E0B927031C2D000BCB0F /* StorageClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StorageClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

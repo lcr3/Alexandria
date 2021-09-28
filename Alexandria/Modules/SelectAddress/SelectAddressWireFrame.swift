@@ -1,6 +1,7 @@
 import CalilClient
-import SwiftUI
 import LocationClient
+import StorageClient
+import SwiftUI
 
 protocol SelectAddressWireFrameProtocol {
    static func makeSelectAddressView() -> AnyView
@@ -11,7 +12,8 @@ struct SelectAddressWireFrame: SelectAddressWireFrameProtocol {
         
         let interactorDependencies = SelectAddressInteractorDependencies(
             calilClient: CalilClient(),
-            locationClient: LocationClient()
+            locationClient: LocationClient(),
+            storageClient: StorageClient()
         )
         let interactor = SelectAddressInteractor(dependencies: interactorDependencies)
         

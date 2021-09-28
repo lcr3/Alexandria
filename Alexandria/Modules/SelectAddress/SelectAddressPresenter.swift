@@ -33,6 +33,11 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
 
 extension SelectAddressPresenter: SelectAddressInteractorOutput {
     func okButtonTapped() {
+        // show alert
+        interactor.saveLocation(
+            latitude: region.center.latitude,
+            longitude: region.center.longitude
+        )
     }
 
     func onUpdate(location: CLLocation) {
