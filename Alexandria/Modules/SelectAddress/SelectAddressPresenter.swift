@@ -7,6 +7,7 @@ protocol SelectAddressPresenterProtocol {
     var region: MKCoordinateRegion { get set }
     var nearLibraries: [Library] { get set }
     func locationButtonTapped()
+    func okButtonTapped()
 }
 
 final class SelectAddressPresenter: ObservableObject {
@@ -31,6 +32,9 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
 }
 
 extension SelectAddressPresenter: SelectAddressInteractorOutput {
+    func okButtonTapped() {
+    }
+
     func onUpdate(location: CLLocation) {
         region = MKCoordinateRegion(
             center: CLLocationCoordinate2DMake(
