@@ -19,7 +19,7 @@ struct SearchBookView: View, SearchBookViewProtocol {
     }
 }
 
-struct AboutMeView_Previews: PreviewProvider {
+struct SearchBookView_Previews: PreviewProvider {
     static var previews: some View {
         SearchBookWireFrame.makeSearchBookView()
     }

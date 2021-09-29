@@ -2,6 +2,7 @@ import CalilClient
 import Combine
 import CoreLocation
 import MapKit
+import SwiftUI
 
 protocol SelectAddressPresenterProtocol {
     var region: MKCoordinateRegion { get set }
@@ -65,6 +66,12 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
 
     func failureGetLibraries(_: Error) {
 
+    }
+
+    func linkBuilder<Content: View>(@ViewBuilder content: () -> Content) -> some View {
+        NavigationLink(destination: SearchBookWireFrame.makeSearchBookView()) {
+            content()
+        }
     }
 }
 
