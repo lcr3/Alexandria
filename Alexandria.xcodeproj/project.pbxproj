@@ -26,6 +26,13 @@
 		2949E0B52701D683000BCB0F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0B42701D683000BCB0F /* Color.swift */; };
 		2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0B727031B8B000BCB0F /* LibraryListView.swift */; };
 		2949E0BA27031C2D000BCB0F /* StorageClient in Frameworks */ = {isa = PBXBuildFile; productRef = 2949E0B927031C2D000BCB0F /* StorageClient */; };
+		2949E0C5270453F4000BCB0F /* SearchBookInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0BE270453F4000BCB0F /* SearchBookInteractorDependencies.swift */; };
+		2949E0C6270453F4000BCB0F /* SearchBookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0BF270453F4000BCB0F /* SearchBookPresenter.swift */; };
+		2949E0C7270453F4000BCB0F /* SearchBookPresenterDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C0270453F4000BCB0F /* SearchBookPresenterDependencies.swift */; };
+		2949E0C8270453F4000BCB0F /* SearchBookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C1270453F4000BCB0F /* SearchBookInteractor.swift */; };
+		2949E0C9270453F4000BCB0F /* SearchBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C2270453F4000BCB0F /* SearchBookView.swift */; };
+		2949E0CA270453F4000BCB0F /* SearchBookViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C3270453F4000BCB0F /* SearchBookViewDependencies.swift */; };
+		2949E0CB270453F4000BCB0F /* SearchBookWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C4270453F4000BCB0F /* SearchBookWireFrame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +71,13 @@
 		2949E0AD26FC801C000BCB0F /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		2949E0B42701D683000BCB0F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2949E0B727031B8B000BCB0F /* LibraryListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
+		2949E0BE270453F4000BCB0F /* SearchBookInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookInteractorDependencies.swift; sourceTree = "<group>"; };
+		2949E0BF270453F4000BCB0F /* SearchBookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookPresenter.swift; sourceTree = "<group>"; };
+		2949E0C0270453F4000BCB0F /* SearchBookPresenterDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookPresenterDependencies.swift; sourceTree = "<group>"; };
+		2949E0C1270453F4000BCB0F /* SearchBookInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookInteractor.swift; sourceTree = "<group>"; };
+		2949E0C2270453F4000BCB0F /* SearchBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookView.swift; sourceTree = "<group>"; };
+		2949E0C3270453F4000BCB0F /* SearchBookViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewDependencies.swift; sourceTree = "<group>"; };
+		2949E0C4270453F4000BCB0F /* SearchBookWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookWireFrame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				2949E0AC26FC78BD000BCB0F /* SelectAddress */,
+				2949E0BD270453D8000BCB0F /* SearchBook */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -197,6 +212,20 @@
 				2949E0B727031B8B000BCB0F /* LibraryListView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		2949E0BD270453D8000BCB0F /* SearchBook */ = {
+			isa = PBXGroup;
+			children = (
+				2949E0BE270453F4000BCB0F /* SearchBookInteractorDependencies.swift */,
+				2949E0BF270453F4000BCB0F /* SearchBookPresenter.swift */,
+				2949E0C0270453F4000BCB0F /* SearchBookPresenterDependencies.swift */,
+				2949E0C1270453F4000BCB0F /* SearchBookInteractor.swift */,
+				2949E0C2270453F4000BCB0F /* SearchBookView.swift */,
+				2949E0C3270453F4000BCB0F /* SearchBookViewDependencies.swift */,
+				2949E0C4270453F4000BCB0F /* SearchBookWireFrame.swift */,
+			);
+			path = SearchBook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,13 +367,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2949E0C7270453F4000BCB0F /* SearchBookPresenterDependencies.swift in Sources */,
 				2949E0A726FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift in Sources */,
+				2949E0CB270453F4000BCB0F /* SearchBookWireFrame.swift in Sources */,
+				2949E0C5270453F4000BCB0F /* SearchBookInteractorDependencies.swift in Sources */,
 				2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */,
 				2949E0B52701D683000BCB0F /* Color.swift in Sources */,
 				2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */,
+				2949E0C6270453F4000BCB0F /* SearchBookPresenter.swift in Sources */,
 				2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */,
+				2949E0C9270453F4000BCB0F /* SearchBookView.swift in Sources */,
 				2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */,
+				2949E0C8270453F4000BCB0F /* SearchBookInteractor.swift in Sources */,
 				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,
+				2949E0CA270453F4000BCB0F /* SearchBookViewDependencies.swift in Sources */,
 				2949E0AA26FC78B0000BCB0F /* SelectAddressViewDependencies.swift in Sources */,
 				2949E0A926FC78B0000BCB0F /* SelectAddressView.swift in Sources */,
 				2949E0AB26FC78B0000BCB0F /* SelectAddressWireFrame.swift in Sources */,
