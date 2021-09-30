@@ -9,7 +9,14 @@ struct SearchBookView: View, SearchBookViewProtocol {
     private let dependencies: SearchBookViewDependenciesProtocol
     
     var body: some View {
-        Text(presenter.exampleProperty)
+        VStack {
+            TextField("書籍名を入力", text: $presenter.searchBookName)
+            Button("検索") {
+
+            }
+            .frame(width: .infinity)
+            .padding(.top, 24)
+        }.padding()
     }
     
     init(presenter: SearchBookPresenter,
