@@ -69,7 +69,7 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
     }
 
     func linkBuilder<Content: View>(@ViewBuilder content: () -> Content) -> some View {
-        NavigationLink(destination: SearchBookWireFrame.makeSearchBookView()) {
+        NavigationLink(destination: SearchISBNWireFrame.makeSearchISBNView()) {
             content()
         }
     }
