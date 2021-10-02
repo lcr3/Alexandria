@@ -1,4 +1,5 @@
 import Combine
+import ISBNClient
 
 protocol SearchISBNPresenterProtocol {
     var searchISBNBookName: String { get set }
@@ -28,6 +29,14 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
         if searchISBNBookName.isEmpty {
             return
         }
-        
+        interactor.searchBooks(name: searchISBNBookName)
+    }
+}
+
+extension SearchISBNPresenter: SearchISBNInteractorOutput {
+    func successSearchBooks(_ books: [ISBNBook]) {
+    }
+
+    func failureSearchBooks(_: Error) {
     }
 }
