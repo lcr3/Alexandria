@@ -1,9 +1,11 @@
 import APIKit
+import Foundation
 
-public struct ISBNBook {
-    var title: String
-    var author: String
-    var isbn: String
+public struct ISBNBook: Identifiable {
+    public var id = UUID()
+    public var title: String
+    public var author: String
+    public var isbn: String
 
     public init(object: Any) throws {
         guard let dictionary = object as? [String: Any],
