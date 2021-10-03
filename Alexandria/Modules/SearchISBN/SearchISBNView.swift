@@ -10,12 +10,17 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
     
     var body: some View {
         VStack {
-            TextField("書籍名を入力", text: $presenter.searchISBNBookName)
-            Button("検索") {
-
+            HStack {
+                TextField("書籍名を入力", text: $presenter.searchISBNBookName)
+                Button("検索") {
+                    presenter.searchButtonTapped()
+                }
+                .padding(.top, 24)
+            }.frame(height: 44)
+            Spacer()
+            List(presenter.books) { book in
+                Text(book.title)
             }
-            .frame(width: .infinity)
-            .padding(.top, 24)
         }.padding()
     }
     

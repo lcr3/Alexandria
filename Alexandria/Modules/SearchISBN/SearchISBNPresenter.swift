@@ -8,13 +8,13 @@ protocol SearchISBNPresenterProtocol {
 }
 
 final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
-    @Published var searchISBNBookName: String
+    @Published var searchISBNBookName: String = ""
+    @Published var books: [ISBNBook] = []
     
     private var dependencies: SearchISBNPresenterDependenciesProtocol
     private let interactor: SearchISBNInteractorProtocol
     
     init(dependencies: SearchISBNPresenterDependenciesProtocol, interactor: SearchISBNInteractorProtocol) {
-        self.searchISBNBookName = ""
         self.dependencies = dependencies
         self.interactor = interactor
     }
@@ -35,6 +35,7 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
 
 extension SearchISBNPresenter: SearchISBNInteractorOutput {
     func successSearchBooks(_ books: [ISBNBook]) {
+        self.books = books
     }
 
     func failureSearchBooks(_: Error) {
