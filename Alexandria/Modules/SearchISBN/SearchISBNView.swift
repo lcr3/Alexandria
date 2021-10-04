@@ -9,19 +9,33 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
     private let dependencies: SearchISBNViewDependenciesProtocol
     
     var body: some View {
-        VStack {
-            HStack {
-                TextField("書籍名を入力", text: $presenter.searchISBNBookName)
-                Button("検索") {
-                    presenter.searchButtonTapped()
+        ZStack {
+            List {
+                Section {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.systemGray)
+                            .padding(.leading, -12)
+                        TextField("書籍名", text: $presenter.searchISBNBookName)
+                        Button("検索") {
+                            presenter.searchButtonTapped()
+                        }
+                    }
+                    .overlay(
+                        HStack {
+                            Spacer()
+                            if presenter.isSearching {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.systemGray)
+                                    .onTapGesture {
+                                        presenter.deleteButtonTapped()
+                                    }
+                            }
+                        }
+                    )
                 }
-                .padding(.top, 24)
-            }.frame(height: 44)
-            Spacer()
-            List(presenter.books) { book in
-                Text(book.title)
             }
-        }.padding()
+        }.edgesIgnoringSafeArea(.all)
     }
     
     init(presenter: SearchISBNPresenter,

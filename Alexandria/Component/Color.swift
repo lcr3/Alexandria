@@ -6,9 +6,10 @@
 //  
 //
 
-import SwiftUI
 import Foundation
+import SwiftUI
 
 public extension Color {
     static let main = Color("Main")
+    static let systemGray = Color(UIColor.systemGray)
 }
