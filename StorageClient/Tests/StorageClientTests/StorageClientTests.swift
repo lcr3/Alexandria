@@ -14,7 +14,7 @@ final class StorageClientTests: XCTestCase {
         super.tearDown()
     }
 
-    func testSetGetIsDisplayCloud() throws {
+    func testSetGetLocation() throws {
         // Test init value
         XCTAssertEqual(client.location.latitude, 0)
         XCTAssertEqual(client.location.longitude, 0)
@@ -33,6 +33,24 @@ final class StorageClientTests: XCTestCase {
         client.saveLocation(latitude: expectLatiude, longitude: expectLongitude)
         XCTAssertEqual(client.location.latitude, expectLatiude)
         XCTAssertEqual(client.location.longitude, expectLongitude)
+    }
+
+    func testSetGetLibraryIds() throws {
+        // Test init value
+        XCTAssertEqual(client.libraryIds, [])
+
+        // Execute
+        var expectLibraryIds = ["lib_1", "lib_2", "lib_3", "lib_4"]
+        client.saveLibraryIds(expectLibraryIds)
+
+        // Verify
+        XCTAssertEqual(client.libraryIds, expectLibraryIds)
+
+        expectLibraryIds = ["lib_10", "lib_20", "lib_30"]
+        client.saveLibraryIds(expectLibraryIds)
+
+        // Verify
+        XCTAssertEqual(client.libraryIds, expectLibraryIds)
     }
 
     func testReset() throws {
