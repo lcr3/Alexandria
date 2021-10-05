@@ -33,6 +33,7 @@
 		2949E0C9270453F4000BCB0F /* SearchISBNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C2270453F4000BCB0F /* SearchISBNView.swift */; };
 		2949E0CA270453F4000BCB0F /* SearchISBNViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */; };
 		2949E0CB270453F4000BCB0F /* SearchISBNWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */; };
+		2949E0CE270BDEA4000BCB0F /* SearchISBNPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		2949E0C2270453F4000BCB0F /* SearchISBNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNView.swift; sourceTree = "<group>"; };
 		2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNViewDependencies.swift; sourceTree = "<group>"; };
 		2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNWireFrame.swift; sourceTree = "<group>"; };
+		2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 		2949E0BD270453D8000BCB0F /* SearchISBN */ = {
 			isa = PBXGroup;
 			children = (
+				2949E0CC270BDE89000BCB0F /* Preview */,
 				2949E0BE270453F4000BCB0F /* SearchISBNInteractorDependencies.swift */,
 				2949E0BF270453F4000BCB0F /* SearchISBNPresenter.swift */,
 				2949E0C0270453F4000BCB0F /* SearchISBNPresenterDependencies.swift */,
@@ -226,6 +229,14 @@
 				2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */,
 			);
 			path = SearchISBN;
+			sourceTree = "<group>";
+		};
+		2949E0CC270BDE89000BCB0F /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +388,7 @@
 				2949E0C6270453F4000BCB0F /* SearchISBNPresenter.swift in Sources */,
 				2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */,
 				2949E0C9270453F4000BCB0F /* SearchISBNView.swift in Sources */,
+				2949E0CE270BDEA4000BCB0F /* SearchISBNPreview.swift in Sources */,
 				2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */,
 				2949E0C8270453F4000BCB0F /* SearchISBNInteractor.swift in Sources */,
 				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,

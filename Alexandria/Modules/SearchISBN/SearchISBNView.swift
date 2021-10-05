@@ -47,6 +47,6 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
 
 struct SearchISBNView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchISBNWireFrame.makeSearchISBNView()
+        SearchISBNWireFrame.makeSearchISBNView(books: MockSearchISBN.books)
     }
 }

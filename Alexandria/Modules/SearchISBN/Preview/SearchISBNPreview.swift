@@ -6,4 +6,13 @@
 //  
 //
 
-import Foundation
+import ISBNClient
+
+struct MockSearchISBN {
+    static var books: [ISBNBook] {
+        [
+            ISBNBook(title: "君主論"),
+            ISBNBook(title: "ガリア戦記")
+        ]
+    }
+}
