@@ -18,4 +18,11 @@ public struct ISBNBook: Identifiable {
         self.author = author
         self.isbn = isbn
     }
+
+    public init(id: UUID = UUID(), title: String = "", author: String = "", isbn: String = "") {
+        self.id = id
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+    }
 }
