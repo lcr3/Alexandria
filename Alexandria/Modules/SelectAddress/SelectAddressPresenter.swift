@@ -34,6 +34,9 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
     }
 
     func okButtonTapped() {
+        if nearLibraries.isEmpty { return }
+        let nearLibraryIds = nearLibraries.compactMap { $0.systemId }
+        interactor.saveLibraryIds(nearLibraryIds)
         self.isPresented.wrappedValue = false
     }
 }

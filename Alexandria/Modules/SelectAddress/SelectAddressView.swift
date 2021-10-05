@@ -31,6 +31,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                                 .foregroundColor(.white)
                                 .background(ShadowView())
                         }
+                        .disabled(presenter.nearLibraries.isEmpty)
 
                     }
                     Spacer()
