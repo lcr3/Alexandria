@@ -4,11 +4,11 @@ import StorageClient
 import SwiftUI
 
 protocol SelectAddressWireFrameProtocol {
-   static func makeSelectAddressView() -> AnyView
+    static func makeSelectAddressView(isPresented: Binding<Bool>) -> AnyView
 }
 
 struct SelectAddressWireFrame: SelectAddressWireFrameProtocol {
-    static func makeSelectAddressView() -> AnyView {
+    static func makeSelectAddressView(isPresented: Binding<Bool>) -> AnyView {
         
         let interactorDependencies = SelectAddressInteractorDependencies(
             calilClient: CalilClient(),
@@ -18,7 +18,11 @@ struct SelectAddressWireFrame: SelectAddressWireFrameProtocol {
         let interactor = SelectAddressInteractor(dependencies: interactorDependencies)
         
         let presenterDependencies = SelectAddressPresenterDepenencies()
-        let presenter = SelectAddressPresenter(dependencies: presenterDependencies, interactor: interactor)
+        let presenter = SelectAddressPresenter(
+            dependencies: presenterDependencies,
+            interactor: interactor,
+            isPresented: isPresented
+        )
         interactor.output = presenter
 
         let viewDependencies = SelectAddressViewDependencies()

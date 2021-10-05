@@ -21,37 +21,40 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                 VStack {
                     Spacer()
                     HStack {
-                        presenter.linkBuilder {
+                        Button {
+                            presenter.okButtonTapped()
+                        } label: {
                             Text("OK")
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 44)
-                            .tint(.main)
-                            .foregroundColor(.white)
-                            .background(ShadowView())
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 44)
+                                .tint(.main)
+                                .foregroundColor(.white)
+                                .background(ShadowView())
                         }
-                        Spacer()
-                        LocationButton(.currentLocation) {
-                            presenter.locationButtonTapped()
-                        }
-                        .frame(width: 44, height: 44)
-                        .labelStyle(.iconOnly)
-                        .symbolVariant(.fill)
-                        .cornerRadius(22)
-                        .tint(.main)
-                        .foregroundColor(.white)
-                        .background(ShadowView())
-                    }.padding(.bottom, 16)
-                }.padding()
-                VStack {
-                    LibraryListView(
-                        items: $presenter.nearLibraries
-                    ).padding(.top, 80)
+
+                    }
                     Spacer()
-                }
-            }.edgesIgnoringSafeArea(.all)
-        }
+                    LocationButton(.currentLocation) {
+                        presenter.locationButtonTapped()
+                    }
+                    .frame(width: 44, height: 44)
+                    .labelStyle(.iconOnly)
+                    .symbolVariant(.fill)
+                    .cornerRadius(22)
+                    .tint(.main)
+                    .foregroundColor(.white)
+                    .background(ShadowView())
+                }.padding(.bottom, 16)
+            }.padding()
+            VStack {
+                LibraryListView(
+                    items: $presenter.nearLibraries
+                ).padding(.top, 80)
+                Spacer()
+            }
+        }.edgesIgnoringSafeArea(.all)
     }
-    
+
     init(presenter: SelectAddressPresenter,
          dependencies: SelectAddressViewDependenciesProtocol) {
         self.presenter = presenter
@@ -59,11 +62,11 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
     }
 }
 
-struct AboutMeView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectAddressWireFrame.makeSelectAddressView()
-    }
-}
+//struct AboutMeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectAddressWireFrame.makeSelectAddressView(isPresented: Binding<Bool>)
+//    }
+//}
 
 struct ShadowView: View {
     var body: some View {

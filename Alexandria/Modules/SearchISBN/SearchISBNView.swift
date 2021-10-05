@@ -9,19 +9,20 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
     private let dependencies: SearchISBNViewDependenciesProtocol
     
     var body: some View {
-        List {
-            Section {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.systemGray)
-                        .padding(.leading, -12)
-                    TextField("書籍名", text: $presenter.searchISBNBookName)
-                    Button("検索") {
-                        presenter.searchButtonTapped()
-                    }
-                }
-                .overlay(
+        NavigationView {
+            List {
+                Section {
                     HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.systemGray)
+                            .padding(.leading, -12)
+                        TextField("書籍名", text: $presenter.searchISBNBookName)
+                        Button("検索") {
+                            presenter.searchButtonTapped()
+                        }
+                    }
+                    .overlay(
+                        HStack {
                         if presenter.isSearching {
                             Spacer()
                             Image(systemName: "xmark.circle.fill")
@@ -31,26 +32,32 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                                 }
                         }
                     }.padding(.trailing, 44)
-                )
-            }
-            Section {
-                ForEach(presenter.books) { book in
-                    HStack {
-                        Text(book.title)
-                        if !book.imageUrl.isEmpty {
-                            Spacer()
-                            AsyncImage(url: URL(string: book.imageUrl))
-                                .frame(maxWidth: 44, maxHeight: 44)
-                        }
+                    )
+                }
+                Section {
+                    ForEach(presenter.books) { book in
+                        HStack {
+                            Text(book.title)
+                            if !book.imageUrl.isEmpty {
+                                Spacer()
+                                AsyncImage(url: URL(string: book.imageUrl))
+                                    .frame(maxWidth: 44, maxHeight: 44)
+                            }
 
+                        }
                     }
                 }
             }
+            .animation(.easeIn, value: 2)
+            .listStyle(InsetGroupedListStyle())
         }
-        .animation(.easeIn, value: 2)
-        .listStyle(InsetGroupedListStyle())
-    }
+        .sheet(isPresented: $presenter.isShowSecond) {
+            // check
+        } content: {
+            SelectAddressWireFrame.makeSelectAddressView(isPresented: $presenter.isShowSecond)
+        }
 
+    }
 
     init(presenter: SearchISBNPresenter,
          dependencies: SearchISBNViewDependenciesProtocol) {

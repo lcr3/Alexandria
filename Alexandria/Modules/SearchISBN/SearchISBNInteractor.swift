@@ -7,6 +7,7 @@ protocol SearchISBNInteractorOutput: AnyObject {
 
 protocol SearchISBNInteractorProtocol {
     func searchBooks(name: String)
+    func isSavedNearLibraries() -> Bool
 }
 
 final class SearchISBNInteractor: SearchISBNInteractorProtocol {
@@ -26,5 +27,9 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
                 self.output?.failureSearchBooks(error)
             }
         }
+    }
+
+    func isSavedNearLibraries() -> Bool {
+        return !dependencies.storegeClient.libraryIds.isEmpty
     }
 }

@@ -14,15 +14,17 @@ protocol SelectAddressPresenterProtocol {
 final class SelectAddressPresenter: ObservableObject {
     @Published var region: MKCoordinateRegion
     @Published var nearLibraries: [Library]
+    @Published var isPresented: Binding<Bool>
 
     private var dependencies: SelectAddressPresenterDependenciesProtocol
     private let interactor: SelectAddressInteractorProtocol
     
-    init(dependencies: SelectAddressPresenterDependenciesProtocol, interactor: SelectAddressInteractorProtocol) {
+    init(dependencies: SelectAddressPresenterDependenciesProtocol, interactor: SelectAddressInteractorProtocol, isPresented: Binding<Bool>) {
         self.dependencies = dependencies
         self.interactor = interactor
         self.region = .defaultRegion
         self.nearLibraries = []
+        self.isPresented = isPresented
     }
 }
 
@@ -30,17 +32,13 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
     func locationButtonTapped() {
         interactor.requestLocation()
     }
+
+    func okButtonTapped() {
+        self.isPresented.wrappedValue = false
+    }
 }
 
 extension SelectAddressPresenter: SelectAddressInteractorOutput {
-    func okButtonTapped() {
-        // show alert
-        interactor.saveLocation(
-            latitude: region.center.latitude,
-            longitude: region.center.longitude
-        )
-    }
-
     func onUpdate(location: CLLocation) {
         region = MKCoordinateRegion(
             center: CLLocationCoordinate2DMake(
@@ -68,11 +66,11 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
 
     }
 
-    func linkBuilder<Content: View>(@ViewBuilder content: () -> Content) -> some View {
-        NavigationLink(destination: SearchISBNWireFrame.makeSearchISBNView()) {
-            content()
-        }
-    }
+//    func linkBuilder<Content: View>(@ViewBuilder content: () -> Content) -> some View {
+//        NavigationLink(destination: SearchISBNWireFrame.makeSearchISBNView()) {
+//            content()
+//        }
+//    }
 }
 
 private extension MKCoordinateRegion {
