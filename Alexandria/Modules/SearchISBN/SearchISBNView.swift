@@ -9,35 +9,41 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
     private let dependencies: SearchISBNViewDependenciesProtocol
     
     var body: some View {
-        ZStack {
-            List {
-                Section {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.systemGray)
-                            .padding(.leading, -12)
-                        TextField("書籍名", text: $presenter.searchISBNBookName)
-                        Button("検索") {
-                            presenter.searchButtonTapped()
-                        }
+        List {
+            Section {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.systemGray)
+                        .padding(.leading, -12)
+                    TextField("書籍名", text: $presenter.searchISBNBookName)
+                    Button("検索") {
+                        presenter.searchButtonTapped()
                     }
-                    .overlay(
-                        HStack {
+                }
+                .overlay(
+                    HStack {
+                        if presenter.isSearching {
                             Spacer()
-                            if presenter.isSearching {
-                                Image(systemName: "xmark.circle.fill")
-                                    .foregroundColor(.systemGray)
-                                    .onTapGesture {
-                                        presenter.deleteButtonTapped()
-                                    }
-                            }
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.systemGray)
+                                .onTapGesture {
+                                    presenter.deleteButtonTapped()
+                                }
                         }
-                    )
+                    }.padding(.trailing, 44)
+                )
+            }
+            Section {
+                ForEach(presenter.books) { book in
+                    Text(book.title)
                 }
             }
-        }.edgesIgnoringSafeArea(.all)
+        }
+        .animation(.easeIn, value: 2)
+        .listStyle(InsetGroupedListStyle())
     }
-    
+
+
     init(presenter: SearchISBNPresenter,
          dependencies: SearchISBNViewDependenciesProtocol) {
         self.presenter = presenter

@@ -25,6 +25,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
 extension SearchISBNPresenter: SearchISBNViewProtocol {
     func editSeachBookName(_ name: String) {
         searchISBNBookName = name
+        isSearching = !searchISBNBookName.isEmpty
     }
 
     func searchButtonTapped() {
@@ -36,6 +37,7 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
 
     func deleteButtonTapped() {
         searchISBNBookName = ""
+        isSearching = false
     }
 }
 
