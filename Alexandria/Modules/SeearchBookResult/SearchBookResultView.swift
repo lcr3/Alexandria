@@ -10,16 +10,21 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
     
     var body: some View {
         VStack {
-            List {
-                ForEach(presenter.libraryBooks) { libraryBook in
-                    if libraryBook.libraryStates.isEmpty {
-                        Section(libraryBook.name) {
-                            Text("蔵書なし")
-                        }
-                    } else {
-                        Section(libraryBook.name) {
-                            ForEach(libraryBook.libraryStates) { state in
-                                Text("\(state.name):\(state.state.rawValue)")
+            if presenter.isLoading {
+                Text("検索中...📚")
+                .font(.body)
+            } else {
+                List {
+                    ForEach(presenter.libraryBooks) { libraryBook in
+                        if libraryBook.libraryStates.isEmpty {
+                            Section(libraryBook.name) {
+                                Text("蔵書なし")
+                            }
+                        } else {
+                            Section(libraryBook.name) {
+                                ForEach(libraryBook.libraryStates) { state in
+                                    Text("\(state.name):\(state.state.rawValue)")
+                                }
                             }
                         }
                     }
