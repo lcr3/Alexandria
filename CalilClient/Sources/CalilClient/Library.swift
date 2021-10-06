@@ -12,6 +12,8 @@ public struct Library: Decodable, Identifiable {
     public let systemId: String
     public let systemName: String
     public let category: String
+    public let latitude: Double
+    public let longitude: Double
 
     public init(object: Any) throws {
         guard let dictionary = object as? [String: Any],
@@ -21,7 +23,8 @@ public struct Library: Decodable, Identifiable {
               let libid = dictionary["libid"] as? String,
               let systemId = dictionary["systemid"] as? String,
               let systemName = dictionary["systemname"] as? String,
-              let category = dictionary["category"] as? String else {
+              let category = dictionary["category"] as? String,
+              let geocode = dictionary["geocode"] as? String else {
                   throw ResponseError.unexpectedObject(object)
               }
         self.name = name
@@ -31,9 +34,24 @@ public struct Library: Decodable, Identifiable {
         self.systemId = systemId
         self.systemName = systemName
         self.category = category
+        let location = geocode.components(separatedBy: ",")
+        guard let longitude = Double(location[0]),
+        let latitude = Double(location[1]) else {
+            throw ResponseError.unexpectedObject(object)
+        }
+        self.latitude = latitude
+        self.longitude = longitude
     }
 
-    public init(name: String = "", address: String = "", pref: String = "", libid: String = "", systemId: String = "", systemName: String = "", category: String = "") {
+    public init(name: String = "",
+                address: String = "",
+                pref: String = "",
+                libid: String = "",
+                systemId: String = "",
+                systemName: String = "",
+                category: String = "",
+                latitude: Double = 0,
+                longitude: Double = 0) {
         self.name = name
         self.address = address
         self.pref = pref
@@ -41,5 +59,7 @@ public struct Library: Decodable, Identifiable {
         self.systemId = systemId
         self.systemName = systemName
         self.category = category
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }
