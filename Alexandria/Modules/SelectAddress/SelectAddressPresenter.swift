@@ -15,6 +15,8 @@ final class SelectAddressPresenter: ObservableObject {
     @Published var region: MKCoordinateRegion
     @Published var nearLibraries: [Library]
     @Published var isPresented: Binding<Bool>
+    @Published var userTrackingMode: MapUserTrackingMode
+    @Published var libraryAnnotations: [AnnotationItem]
 
     private var dependencies: SelectAddressPresenterDependenciesProtocol
     private let interactor: SelectAddressInteractorProtocol
@@ -25,6 +27,8 @@ final class SelectAddressPresenter: ObservableObject {
         self.region = .defaultRegion
         self.nearLibraries = []
         self.isPresented = isPresented
+        self.userTrackingMode = .follow
+        self.libraryAnnotations = []
     }
 }
 
@@ -63,6 +67,18 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
 
     func successGet(libraries: [Library]) {
         self.nearLibraries = libraries
+        var annotations: [AnnotationItem] = []
+        libraries.forEach { library in
+            annotations.append(
+                AnnotationItem(
+                    coordinate: .init(
+                        latitude: library.latitude,
+                        longitude: library.longitude
+                    )
+                )
+            )
+        }
+        self.libraryAnnotations = annotations
     }
 
     func failureGetLibraries(_: Error) {
@@ -85,4 +101,10 @@ private extension MKCoordinateRegion {
         ),
         span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
     )
+}
+
+
+struct AnnotationItem: Identifiable {
+    var coordinate: CLLocationCoordinate2D
+    let id = UUID()
 }

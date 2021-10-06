@@ -9,50 +9,51 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
     @ObservedObject private var presenter: SelectAddressPresenter
     private let dependencies: SelectAddressViewDependenciesProtocol
 
-    @State private var userTrackingMode: MapUserTrackingMode = .follow
     var body: some View {
-        NavigationView {
-            ZStack {
-                Map(
-                    coordinateRegion: $presenter.region,
-                    showsUserLocation: true,
-                    userTrackingMode: $userTrackingMode
-                )
-                VStack {
-                    Spacer()
-                    HStack {
-                        Button {
-                            presenter.okButtonTapped()
-                        } label: {
-                            Text("OK")
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 44)
-                                .tint(.main)
-                                .foregroundColor(.white)
-                                .background(ShadowView())
-                        }
-                        .disabled(presenter.nearLibraries.isEmpty)
+        ZStack {
+            Map(
+                coordinateRegion: $presenter.region,
+                showsUserLocation: true,
+                userTrackingMode: $presenter.userTrackingMode,
+                annotationItems: presenter.libraryAnnotations) { item in
+                    MapMarker(coordinate: item.coordinate, tint: .red)
+            }
+
+            VStack {
+                Spacer()
+                HStack {
+                    Button {
+                        presenter.okButtonTapped()
+                    } label: {
+                        Text("OK")
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 44)
+                            .tint(.main)
+                            .foregroundColor(.white)
 
                     }
-                    Spacer()
-                    LocationButton(.currentLocation) {
-                        presenter.locationButtonTapped()
-                    }
-                    .frame(width: 44, height: 44)
-                    .labelStyle(.iconOnly)
-                    .symbolVariant(.fill)
-                    .cornerRadius(22)
-                    .tint(.main)
-                    .foregroundColor(.white)
-                    .background(ShadowView())
-                }.padding(.bottom, 16)
-            }.padding()
-            VStack {
-                LibraryListView(
-                    items: $presenter.nearLibraries
-                ).padding(.top, 80)
+                    .disabled(presenter.nearLibraries.isEmpty)
+
+                }
                 Spacer()
-            }
+                LocationButton(.currentLocation) {
+                    presenter.locationButtonTapped()
+                }
+                .frame(width: 44, height: 44)
+                .labelStyle(.iconOnly)
+                .symbolVariant(.fill)
+                .cornerRadius(22)
+                .tint(.main)
+                .foregroundColor(.white)
+            }.padding(.bottom, 16)
+
+            //            .padding()
+            //            VStack {
+            //                LibraryListView(
+            //                    items: $presenter.nearLibraries
+            //                ).padding(.top, 80)
+            //                Spacer()
+            //            }
         }.edgesIgnoringSafeArea(.all)
     }
 
@@ -63,11 +64,11 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
     }
 }
 
-//struct AboutMeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SelectAddressWireFrame.makeSelectAddressView(isPresented: Binding<Bool>)
-//    }
-//}
+struct SelectAdressView_Previews: PreviewProvider {
+    static var previews: some View {
+        SelectAddressWireFrame.makeSelectAddressView(isPresented: .constant(false))
+    }
+}
 
 struct ShadowView: View {
     var body: some View {
