@@ -38,3 +38,36 @@ struct SearchNearbyLibrariesRequest: Request {
         return books
     }
 }
+
+
+struct SearchForBooksInTheLibrariesRequest: Request {
+    typealias Response = LibrarayResponse
+
+    var baseURL: URL {
+        return URL(string: "https://api.calil.jp")!
+    }
+
+    var method: HTTPMethod {
+        return .get
+    }
+
+    var path: String {
+        return "/check"
+    }
+
+    var parameters: Any?
+
+    public init(isbn: String, libraryIds: [String]) {
+        parameters = ["appkey": "ee9d6e54dd4601e91d0d962975ff704d",
+                      "isbn": isbn,
+                      "systemid": libraryIds.joined(separator: ","),
+                      "format": "json",
+                      "callback": "no"
+        ]
+    }
+
+    func response(from object: Any, urlResponse: HTTPURLResponse) throws -> LibrarayResponse {
+        let response = try LibrarayResponse(object: object)
+        return response
+    }
+}
