@@ -6,6 +6,7 @@ protocol SearchISBNPresenterProtocol {
     func editSeachBookName(_ name: String)
     func searchButtonTapped()
     func deleteButtonTapped()
+    func libraryIds() -> [String]
 }
 
 final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
@@ -13,7 +14,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var books: [ISBNBook] = []
     @Published var isSearching = false
     @Published var isShowSecond = false
-
+//    @Published var exampleProperty: String = "Hello World!" {
     private var dependencies: SearchISBNPresenterDependenciesProtocol
     private let interactor: SearchISBNInteractorProtocol
     
@@ -40,6 +41,10 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     func deleteButtonTapped() {
         searchISBNBookName = ""
         isSearching = false
+    }
+
+    func libraryIds() -> [String] {
+        interactor.libraryIds()
     }
 }
 

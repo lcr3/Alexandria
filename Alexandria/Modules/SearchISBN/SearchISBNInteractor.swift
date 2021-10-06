@@ -1,11 +1,13 @@
 import ISBNClient
 
 protocol SearchISBNInteractorOutput: AnyObject {
+    
     func successSearchBooks(_ books: [ISBNBook])
     func failureSearchBooks(_: Error)
 }
 
 protocol SearchISBNInteractorProtocol {
+    func libraryIds() -> [String]
     func searchBooks(name: String)
     func isSavedNearLibraries() -> Bool
 }
@@ -31,5 +33,9 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
 
     func isSavedNearLibraries() -> Bool {
         return !dependencies.storegeClient.libraryIds.isEmpty
+    }
+
+    func libraryIds() -> [String] {
+        return dependencies.storegeClient.libraryIds
     }
 }

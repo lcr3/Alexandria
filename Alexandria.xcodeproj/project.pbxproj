@@ -34,6 +34,14 @@
 		2949E0CA270453F4000BCB0F /* SearchISBNViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */; };
 		2949E0CB270453F4000BCB0F /* SearchISBNWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */; };
 		2949E0CE270BDEA4000BCB0F /* SearchISBNPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */; };
+		2949E0D7270C418F000BCB0F /* SearchBookResultInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D0270C418E000BCB0F /* SearchBookResultInteractorDependencies.swift */; };
+		2949E0D8270C418F000BCB0F /* SearchBookResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D1270C418E000BCB0F /* SearchBookResultPresenter.swift */; };
+		2949E0D9270C418F000BCB0F /* SearchBookResultPresenterDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D2270C418E000BCB0F /* SearchBookResultPresenterDependencies.swift */; };
+		2949E0DA270C418F000BCB0F /* SearchBookResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D3270C418E000BCB0F /* SearchBookResultInteractor.swift */; };
+		2949E0DB270C418F000BCB0F /* SearchBookResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D4270C418E000BCB0F /* SearchBookResultView.swift */; };
+		2949E0DC270C418F000BCB0F /* SearchBookResultViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D5270C418E000BCB0F /* SearchBookResultViewDependencies.swift */; };
+		2949E0DD270C418F000BCB0F /* SearchBookResultWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D6270C418E000BCB0F /* SearchBookResultWireFrame.swift */; };
+		29A9F276270C4C800041DC3B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A9F275270C4C7F0041DC3B /* Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +88,14 @@
 		2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNViewDependencies.swift; sourceTree = "<group>"; };
 		2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNWireFrame.swift; sourceTree = "<group>"; };
 		2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNPreview.swift; sourceTree = "<group>"; };
+		2949E0D0270C418E000BCB0F /* SearchBookResultInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultInteractorDependencies.swift; sourceTree = "<group>"; };
+		2949E0D1270C418E000BCB0F /* SearchBookResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultPresenter.swift; sourceTree = "<group>"; };
+		2949E0D2270C418E000BCB0F /* SearchBookResultPresenterDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultPresenterDependencies.swift; sourceTree = "<group>"; };
+		2949E0D3270C418E000BCB0F /* SearchBookResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultInteractor.swift; sourceTree = "<group>"; };
+		2949E0D4270C418E000BCB0F /* SearchBookResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultView.swift; sourceTree = "<group>"; };
+		2949E0D5270C418E000BCB0F /* SearchBookResultViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultViewDependencies.swift; sourceTree = "<group>"; };
+		2949E0D6270C418E000BCB0F /* SearchBookResultWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultWireFrame.swift; sourceTree = "<group>"; };
+		29A9F275270C4C7F0041DC3B /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +195,9 @@
 		2949E09D26FC7875000BCB0F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2949E0AC26FC78BD000BCB0F /* SelectAddress */,
 				2949E0BD270453D8000BCB0F /* SearchISBN */,
+				2949E0AC26FC78BD000BCB0F /* SelectAddress */,
+				2949E0CF270C4145000BCB0F /* SeearchBookResult */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -235,6 +252,29 @@
 			isa = PBXGroup;
 			children = (
 				2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		2949E0CF270C4145000BCB0F /* SeearchBookResult */ = {
+			isa = PBXGroup;
+			children = (
+				29A9F274270C4C720041DC3B /* Preview */,
+				2949E0D0270C418E000BCB0F /* SearchBookResultInteractorDependencies.swift */,
+				2949E0D1270C418E000BCB0F /* SearchBookResultPresenter.swift */,
+				2949E0D2270C418E000BCB0F /* SearchBookResultPresenterDependencies.swift */,
+				2949E0D3270C418E000BCB0F /* SearchBookResultInteractor.swift */,
+				2949E0D4270C418E000BCB0F /* SearchBookResultView.swift */,
+				2949E0D5270C418E000BCB0F /* SearchBookResultViewDependencies.swift */,
+				2949E0D6270C418E000BCB0F /* SearchBookResultWireFrame.swift */,
+			);
+			path = SeearchBookResult;
+			sourceTree = "<group>";
+		};
+		29A9F274270C4C720041DC3B /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				29A9F275270C4C7F0041DC3B /* Mock.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -381,6 +421,7 @@
 				2949E0C7270453F4000BCB0F /* SearchISBNPresenterDependencies.swift in Sources */,
 				2949E0A726FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift in Sources */,
 				2949E0CB270453F4000BCB0F /* SearchISBNWireFrame.swift in Sources */,
+				2949E0DC270C418F000BCB0F /* SearchBookResultViewDependencies.swift in Sources */,
 				2949E0C5270453F4000BCB0F /* SearchISBNInteractorDependencies.swift in Sources */,
 				2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */,
 				2949E0B52701D683000BCB0F /* Color.swift in Sources */,
@@ -388,12 +429,19 @@
 				2949E0C6270453F4000BCB0F /* SearchISBNPresenter.swift in Sources */,
 				2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */,
 				2949E0C9270453F4000BCB0F /* SearchISBNView.swift in Sources */,
+				29A9F276270C4C800041DC3B /* Mock.swift in Sources */,
+				2949E0DD270C418F000BCB0F /* SearchBookResultWireFrame.swift in Sources */,
+				2949E0DA270C418F000BCB0F /* SearchBookResultInteractor.swift in Sources */,
 				2949E0CE270BDEA4000BCB0F /* SearchISBNPreview.swift in Sources */,
 				2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */,
 				2949E0C8270453F4000BCB0F /* SearchISBNInteractor.swift in Sources */,
 				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,
+				2949E0D8270C418F000BCB0F /* SearchBookResultPresenter.swift in Sources */,
+				2949E0D9270C418F000BCB0F /* SearchBookResultPresenterDependencies.swift in Sources */,
 				2949E0CA270453F4000BCB0F /* SearchISBNViewDependencies.swift in Sources */,
 				2949E0AA26FC78B0000BCB0F /* SelectAddressViewDependencies.swift in Sources */,
+				2949E0D7270C418F000BCB0F /* SearchBookResultInteractorDependencies.swift in Sources */,
+				2949E0DB270C418F000BCB0F /* SearchBookResultView.swift in Sources */,
 				2949E0A926FC78B0000BCB0F /* SelectAddressView.swift in Sources */,
 				2949E0AB26FC78B0000BCB0F /* SelectAddressWireFrame.swift in Sources */,
 			);

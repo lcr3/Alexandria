@@ -36,14 +36,20 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                 }
                 Section {
                     ForEach(presenter.books) { book in
-                        HStack {
-                            Text(book.title)
-                            if !book.imageUrl.isEmpty {
-                                Spacer()
-                                AsyncImage(url: URL(string: book.imageUrl))
-                                    .frame(maxWidth: 44, maxHeight: 44)
-                            }
+                        NavigationLink(destination: SearchBookResultWireFrame.makeSearchBookResultView(
+                            isbn: book.isbn,
+                            libraryIds: presenter.libraryIds()
+                            )
+                        ) {
+                            HStack {
+                                Text(book.title)
+                                if !book.imageUrl.isEmpty {
+                                    Spacer()
+                                    AsyncImage(url: URL(string: book.imageUrl))
+                                        .frame(maxWidth: 44, maxHeight: 44)
+                                }
 
+                            }
                         }
                     }
                 }
