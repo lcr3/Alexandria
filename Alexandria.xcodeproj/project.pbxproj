@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935B7D6270ECED600145B4F /* ActivityIndicator.swift */; };
 		2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */; };
 		2949E07226FC2342000BCB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E07126FC2342000BCB0F /* Assets.xcassets */; };
 		2949E07526FC2342000BCB0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E07426FC2342000BCB0F /* Preview Assets.xcassets */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2935B7D6270ECED600145B4F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		2949E06A26FC233E000BCB0F /* Alexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexandriaApp.swift; sourceTree = "<group>"; };
 		2949E07126FC2342000BCB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				2949E0B42701D683000BCB0F /* Color.swift */,
+				2935B7D6270ECED600145B4F /* ActivityIndicator.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				2949E0C7270453F4000BCB0F /* SearchISBNPresenterDependencies.swift in Sources */,
 				2949E0A726FC78B0000BCB0F /* SelectAddressPresenterDependencies.swift in Sources */,
 				2949E0CB270453F4000BCB0F /* SearchISBNWireFrame.swift in Sources */,
+				2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */,
 				2949E0DC270C418F000BCB0F /* SearchBookResultViewDependencies.swift in Sources */,
 				2949E0C5270453F4000BCB0F /* SearchISBNInteractorDependencies.swift in Sources */,
 				2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */,

@@ -14,7 +14,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var books: [ISBNBook] = []
     @Published var isSearching = false
     @Published var isShowSecond = false
-//    @Published var exampleProperty: String = "Hello World!" {
+
     private var dependencies: SearchISBNPresenterDependenciesProtocol
     private let interactor: SearchISBNInteractorProtocol
     
