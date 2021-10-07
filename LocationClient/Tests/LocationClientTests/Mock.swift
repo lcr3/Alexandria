@@ -1,7 +1,7 @@
 import CoreLocation
 @testable import LocationClient
 
-public class MockLocationManager: LocationManagerProtocol {
+private class MockLocationManager: LocationManagerProtocol {
     public init(location: CLLocation? = nil) {
         guard let location = location else {
             return
@@ -42,7 +42,7 @@ public class MockLocationManager: LocationManagerProtocol {
     }
 }
 
-public class MockLocationClientOutput: LocationClientOutput {
+private class MockLocationClientOutput: LocationClientOutput {
     public var callCountOnLocationUpdated = 0
     public var callCountOnError = 0
     public var location: CLLocation?
