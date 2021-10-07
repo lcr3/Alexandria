@@ -3,13 +3,13 @@ import LocationClient
 import StorageClient
 
 protocol SelectAddressInteractorDependenciesProtocol {
-    var calilClient: CalilClient { get }
-    var locationClient: LocationClient { get }
+    var calilClient: CalilClientProtocol { get }
+    var locationClient: LocationClientProtocol { get set }
     var storageClient: StorageClient { get }
 }
 
 struct SelectAddressInteractorDependencies: SelectAddressInteractorDependenciesProtocol {
-    let calilClient: CalilClient
-    let locationClient: LocationClient
+    let calilClient: CalilClientProtocol
+    var locationClient: LocationClientProtocol
     let storageClient: StorageClient
 }

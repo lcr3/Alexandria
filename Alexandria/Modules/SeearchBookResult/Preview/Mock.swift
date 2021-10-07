@@ -7,6 +7,8 @@
 //
 
 import CalilClient
+import CoreLocation
+import LocationClient
 
 public struct MockCalilClient {
 }
@@ -18,5 +20,15 @@ extension MockCalilClient: CalilClientProtocol {
 
     public func searchForBooksInTheLibraries(isbn: String, libraryIds: [String], completion: @escaping (Result<[LibraryBook], Error>) -> Void) {
         completion(.success([]))
+    }
+}
+
+public struct MockLocationClient {
+    public var output: LocationClientOutput?
+}
+
+extension MockLocationClient: LocationClientProtocol {
+    public func requestLocation() {
+        output?.onLocationUpdated(.init(latitude: 135, longitude: 35))
     }
 }

@@ -19,7 +19,7 @@ protocol SelectAddressInteractorProtocol {
 }
 
 final class SelectAddressInteractor {
-    private let dependencies: SelectAddressInteractorDependenciesProtocol
+    private var dependencies: SelectAddressInteractorDependenciesProtocol
     weak var output: SelectAddressInteractorOutput?
 
     init(dependencies: SelectAddressInteractorDependenciesProtocol) {
