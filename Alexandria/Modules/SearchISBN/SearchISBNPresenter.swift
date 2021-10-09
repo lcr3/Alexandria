@@ -9,6 +9,7 @@ protocol SearchISBNPresenterProtocol {
     func searchButtonTapped()
     func deleteButtonTapped()
     func isCurrentLocationNotSetAlertOKButtonTapped()
+    func errorAlertOkButtonTapped()
     func libraryIds() -> [String]
 }
 
@@ -18,6 +19,8 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var isSearching = false
     @Published var isShowModal = false
     @Published var isCurrentLocationNotSet = false
+    @Published var isShowError = false
+    @Published var error: Error?
 
     private var dependencies: SearchISBNPresenterDependenciesProtocol
     private let interactor: SearchISBNInteractorProtocol
@@ -57,6 +60,11 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
         isShowModal = true
     }
 
+    func errorAlertOkButtonTapped() {
+        isShowError = false
+        error = nil
+    }
+
     func libraryIds() -> [String] {
         interactor.libraryIds()
     }
@@ -68,5 +76,7 @@ extension SearchISBNPresenter: SearchISBNInteractorOutput {
     }
 
     func failureSearchBooks(_: Error) {
+        self.isShowError = true
+        self.error = error
     }
 }

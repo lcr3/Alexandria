@@ -68,6 +68,13 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                 }
             }
+            .alert("エラー", isPresented: $presenter.isShowError) {
+                VStack {
+                    Button("OK", role: .cancel) {
+                        presenter.errorAlertOkButtonTapped()
+                    }
+                }
+            }
             .sheet(isPresented: $presenter.isShowModal) {
                 // check
             } content: {
@@ -75,7 +82,6 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     isPresented: $presenter.isShowModal
                 )
             }
-
         }
     }
 
