@@ -11,51 +11,56 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
 
     var body: some View {
         VStack {
-            Map(
-                coordinateRegion: $presenter.region,
-                showsUserLocation: true,
-                userTrackingMode: $presenter.userTrackingMode,
-                annotationItems: presenter.libraryAnnotations) { item in
-                MapMarker(coordinate: item.coordinate, tint: .red)
-            }.overlay(
-                LocationButton(.currentLocation) {
-                presenter.locationButtonTapped()
-            }
+            VStack {
+                List {
+                    Section {
+                        Map(
+                            coordinateRegion: $presenter.region,
+                            showsUserLocation: true,
+                            userTrackingMode: $presenter.userTrackingMode,
+                            annotationItems: presenter.libraryAnnotations) { item in
+                            MapMarker(coordinate: item.coordinate, tint: .red)
+                        }.frame(height: 300)
+                    }
+                        Section(header: Text("近隣の図書館検索結果")) {
+                            ForEach(presenter.nearLibraries) { library in
+                            HStack {
+                                Image(systemName: "mappin.circle.fill")
+                                    .foregroundColor(.red)
+                                VStack {
+                                    Text(library.name)
+                                        .font(.headline)
+                                }
+                            }
+                        }
+                    }
+                }
+                HStack {
+                    Button("対象図書館を確定する") {
+                        presenter.okButtonTapped()
+                    }
+                    .frame(minWidth: 0.0, maxWidth: .infinity)
+                    .frame(height: 44)
+                    .foregroundColor(.white)
+                    .background(presenter.nearLibraries.isEmpty ? .gray: .blue)
+                    .cornerRadius(14)
+                    .disabled(presenter.nearLibraries.isEmpty)
+
+                    Spacer()
+                    LocationButton(.currentLocation) {
+                    presenter.locationButtonTapped()
+                    }
                     .frame(width: 44, height: 44)
                     .labelStyle(.iconOnly)
                     .symbolVariant(.fill)
                     .cornerRadius(22)
                     .tint(.blue)
                     .foregroundColor(.white)
-                    .padding(),
-                alignment: .bottomTrailing
-            )
-                .cornerRadius(40)
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button("OK") {
-                        presenter.okButtonTapped()
-                    }
-                    .frame(minWidth: 0.0, maxWidth: .infinity)
-                    .frame(height: 44)
-                    .foregroundColor(.white)
-                    .background(.blue)
-                    .cornerRadius(22)
-                    .disabled(presenter.nearLibraries.isEmpty)
-                    Spacer()
-                }
+                    .padding()
+                }.padding()
             }.padding(.bottom, 16)
+        }.background(Color.listBackground)
 
-            //            .padding()
-            //            VStack {
-            //                LibraryListView(
-            //                    items: $presenter.nearLibraries
-            //                ).padding(.top, 80)
-            //                Spacer()
-            //            }
-        }.padding()
     }
     init(presenter: SelectAddressPresenter,
          dependencies: SelectAddressViewDependenciesProtocol) {
