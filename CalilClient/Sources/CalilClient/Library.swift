@@ -8,6 +8,7 @@ public struct Library: Decodable, Identifiable {
     public let name: String
     public let address: String
     public let pref: String
+    public let city: String
     public let libid: String
     public let systemId: String
     public let systemName: String
@@ -20,6 +21,7 @@ public struct Library: Decodable, Identifiable {
               let name = dictionary["formal"] as? String,
               let address = dictionary["address"] as? String,
               let pref = dictionary["pref"] as? String,
+              let city = dictionary["city"] as? String,
               let libid = dictionary["libid"] as? String,
               let systemId = dictionary["systemid"] as? String,
               let systemName = dictionary["systemname"] as? String,
@@ -30,6 +32,7 @@ public struct Library: Decodable, Identifiable {
         self.name = name
         self.address = address
         self.pref = pref
+        self.city = city
         self.libid = libid
         self.systemId = systemId
         self.systemName = systemName
@@ -46,6 +49,7 @@ public struct Library: Decodable, Identifiable {
     public init(name: String = "",
                 address: String = "",
                 pref: String = "",
+                city: String = "",
                 libid: String = "",
                 systemId: String = "",
                 systemName: String = "",
@@ -55,6 +59,7 @@ public struct Library: Decodable, Identifiable {
         self.name = name
         self.address = address
         self.pref = pref
+        self.city = city
         self.libid = libid
         self.systemId = systemId
         self.systemName = systemName
