@@ -1,11 +1,14 @@
 import Combine
 import ISBNClient
+import SwiftUI
 
 protocol SearchISBNPresenterProtocol {
     var searchISBNBookName: String { get set }
+    var isCurrentLocationNotSet: Bool { get }
     func editSeachBookName(_ name: String)
     func searchButtonTapped()
     func deleteButtonTapped()
+    func isCurrentLocationNotSetAlertOKButtonTapped()
     func libraryIds() -> [String]
 }
 
@@ -13,7 +16,8 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var searchISBNBookName: String = ""
     @Published var books: [ISBNBook] = []
     @Published var isSearching = false
-    @Published var isShowSecond = false
+    @Published var isShowModal = false
+    @Published var isCurrentLocationNotSet = false
 
     private var dependencies: SearchISBNPresenterDependenciesProtocol
     private let interactor: SearchISBNInteractorProtocol
@@ -21,7 +25,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     init(dependencies: SearchISBNPresenterDependenciesProtocol, interactor: SearchISBNInteractorProtocol) {
         self.dependencies = dependencies
         self.interactor = interactor
-        self.isShowSecond = !interactor.isSavedNearLibraries()
+        self.isShowModal = !interactor.isSavedNearLibraries()
     }
 }
 
@@ -32,6 +36,11 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     }
 
     func searchButtonTapped() {
+        if !interactor.isSavedNearLibraries() {
+            isCurrentLocationNotSet = true
+            return
+        }
+
         if searchISBNBookName.isEmpty {
             return
         }
@@ -41,6 +50,11 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     func deleteButtonTapped() {
         searchISBNBookName = ""
         isSearching = false
+    }
+
+    func isCurrentLocationNotSetAlertOKButtonTapped() {
+        isCurrentLocationNotSet = false
+        isShowModal = true
     }
 
     func libraryIds() -> [String] {

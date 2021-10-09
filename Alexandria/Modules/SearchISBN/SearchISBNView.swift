@@ -61,13 +61,21 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     ActivityIndicator()
                 }
             }
-            .sheet(isPresented: $presenter.isShowSecond) {
+            .alert("位置情報が設定されていません", isPresented: $presenter.isCurrentLocationNotSet) {
+                VStack {
+                    Button("設定する", role: .cancel) {
+                        presenter.isCurrentLocationNotSetAlertOKButtonTapped()
+                    }
+                }
+            }
+            .sheet(isPresented: $presenter.isShowModal) {
                 // check
             } content: {
                 SelectAddressWireFrame.makeSelectAddressView(
-                    isPresented: $presenter.isShowSecond
+                    isPresented: $presenter.isShowModal
                 )
             }
+
         }
     }
 
