@@ -68,11 +68,15 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                 }
             }
-            .alert("エラー", isPresented: $presenter.isShowError) {
-                VStack {
-                    Button("OK", role: .cancel) {
-                        presenter.errorAlertOkButtonTapped()
-                    }
+            .alert("エラー", isPresented: $presenter.isShowError, presenting: presenter.error) { error in
+                switch error {
+                case .noMatch:
+                    Text("該当する書籍はありませんでした")
+                case .error(let message):
+                    Text(message)
+                }
+                Button("OK", role: .cancel) {
+                    presenter.errorAlertOkButtonTapped()
                 }
             }
             .sheet(isPresented: $presenter.isShowModal) {

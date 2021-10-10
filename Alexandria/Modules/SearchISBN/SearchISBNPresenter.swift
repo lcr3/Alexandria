@@ -20,7 +20,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var isShowModal = false
     @Published var isCurrentLocationNotSet = false
     @Published var isShowError = false
-    @Published var error: Error?
+    @Published var error: SearchISBNError?
 
     private var dependencies: SearchISBNPresenterDependenciesProtocol
     private let interactor: SearchISBNInteractorProtocol
@@ -75,7 +75,7 @@ extension SearchISBNPresenter: SearchISBNInteractorOutput {
         self.books = books
     }
 
-    func failureSearchBooks(_: Error) {
+    func failureSearchBooks(_: SearchISBNError) {
         self.isShowError = true
         self.error = error
     }

@@ -3,7 +3,7 @@ import ISBNClient
 protocol SearchISBNInteractorOutput: AnyObject {
     
     func successSearchBooks(_ books: [ISBNBook])
-    func failureSearchBooks(_: Error)
+    func failureSearchBooks(_: SearchISBNError)
 }
 
 protocol SearchISBNInteractorProtocol {
@@ -24,9 +24,14 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
         dependencies.isbnClient.searchISBN(title: name) { result in
             switch result {
             case .success(let books):
+                if books.isEmpty {
+                    self.output?.failureSearchBooks(.noMatch)
+                    return
+                }
                 self.output?.successSearchBooks(books)
             case .failure(let error):
-                self.output?.failureSearchBooks(error)
+                print(error)
+                self.output?.failureSearchBooks(.error("取得に失敗しました。"))
             }
         }
     }
@@ -38,4 +43,9 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
     func libraryIds() -> [String] {
         return dependencies.storegeClient.libraryIds
     }
+}
+
+enum SearchISBNError: Error {
+    case noMatch
+    case error(String)
 }
