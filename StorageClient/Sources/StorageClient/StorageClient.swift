@@ -5,7 +5,7 @@ public struct Location {
     let longitude: Double
 }
 
-public protocol StoregeClientProtocol {
+public protocol StorageClientProtocol {
     var location: Location { get }
     var libraryIds: [String] { get }
 
@@ -25,7 +25,7 @@ public struct StorageClient {
     }
 }
 
-extension StorageClient: StoregeClientProtocol {
+extension StorageClient: StorageClientProtocol {
     public var location: Location {
         return Location(
             latitude: userDafaults.double(forKey: latitudeKey),
@@ -39,7 +39,6 @@ extension StorageClient: StoregeClientProtocol {
         }
         return ids
     }
-
 
     public func saveLocation(latitude: Double, longitude: Double) {
         userDafaults.set(latitude, forKey: latitudeKey)
