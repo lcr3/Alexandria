@@ -3,7 +3,8 @@ import Foundation
 
 public struct LibraryBook: Decodable, Identifiable {
     public var id: UUID = UUID()
-    public let name: String
+    public var name: String
+    public let systemName: String
     public let state: String
     public let reserveUrl: String
     public let libraryStates: [LibraryState]
@@ -19,7 +20,8 @@ public struct LibraryBook: Decodable, Identifiable {
         try libKeys.forEach { libraryState in
             libraryStates.append(try LibraryState(object: libraryState))
         }
-        self.name = dictionary.0
+        self.name = ""
+        self.systemName = dictionary.0
         self.state = status
         self.reserveUrl = reserveUrl
         self.libraryStates = libraryStates

@@ -7,16 +7,24 @@ public protocol CalilClientProtocol {
 }
 
 public struct CalilClient {
-    public init() {}
     private let requestInterval = 2.5
+    private let libraryNameClient: LibraryNameClient
+
+    public init() {
+        self.libraryNameClient = LibraryNameClient()
+    }
 }
 
 extension CalilClient: CalilClientProtocol {
+
     public func searchNearbyLibraries(latitude: Double, longitude: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
         let request = SearchNearbyLibrariesRequest(latitude: latitude, longitude: longitude)
         Session.send(request) { result in
             switch result {
             case .success(let libraries):
+                libraries.forEach { library in
+                    libraryNameClient.set(name: library.name, key: library.systemId)
+                }
                 completion(.success(libraries))
             case .failure(let error):
                 completion(.failure(error))
@@ -38,7 +46,12 @@ extension CalilClient: CalilClientProtocol {
                 case .success(let response):
                     if response.isFinish {
                         print("検索終了")
-                        completion(.success(response.libraryBooks))
+                        var fixLibraryBooks: [LibraryBook] = []
+                        for var libraryBook in response.libraryBooks {
+                            libraryBook.name = libraryNameClient.get(key: libraryBook.systemName)
+                            fixLibraryBooks.append(libraryBook)
+                        }
+                        completion(.success(fixLibraryBooks))
                     } else {
                         print("検索続行")
                         DispatchQueue.main.asyncAfter(deadline: .now() + self.requestInterval) {
@@ -52,5 +65,25 @@ extension CalilClient: CalilClientProtocol {
             }
         }
         poll()
+    }
+}
+
+// 図書検索で返ってくるデータに図書館の名前が紐付いていない
+struct LibraryNameClient {
+    private let userDafaults: UserDefaults
+
+    public init() {
+        self.userDafaults = UserDefaults.standard
+    }
+
+    public func get(key: String) -> String {
+        guard let name = userDafaults.string(forKey: key) else {
+            return ""
+        }
+        return name
+    }
+
+    public func set(name: String, key: String) {
+        userDafaults.set(name, forKey: key)
     }
 }
