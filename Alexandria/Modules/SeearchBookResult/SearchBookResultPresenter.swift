@@ -5,11 +5,14 @@ protocol SearchBookResultPresenterProtocol {
     var isbn: String { get}
     var libraryIds: [String] { get }
     var libraryBooks: [LibraryBook] { get set }
+
+    func onApear()
 }
 
 final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, ObservableObject {
     let isbn: String
     let libraryIds: [String]
+
     @Published var libraryBooks: [LibraryBook]
     @Published var isLoading: Bool
     

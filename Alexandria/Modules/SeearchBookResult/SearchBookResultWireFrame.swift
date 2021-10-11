@@ -1,14 +1,16 @@
 import CalilClient
+import StorageClient
 import SwiftUI
 
 protocol SearchBookResultWireFrameProtocol {
-    static func makeSearchBookResultView(isbn: String, libraryIds: [String], calilClient: CalilClientProtocol) -> AnyView
+    static func makeSearchBookResultView(isbn: String, libraryIds: [String], calilClient: CalilClientProtocol, storageClient: StorageClientProtocol) -> AnyView
 }
 
 struct SearchBookResultWireFrame: SearchBookResultWireFrameProtocol {
-    static func makeSearchBookResultView(isbn: String, libraryIds: [String], calilClient: CalilClientProtocol = CalilClient()) -> AnyView {
+    static func makeSearchBookResultView(isbn: String, libraryIds: [String], calilClient: CalilClientProtocol = CalilClient(), storageClient: StorageClientProtocol = StorageClient()) -> AnyView {
         let interactorDependencies = SearchBookResultInteractorDependencies(
-            calilClient: calilClient
+            calilClient: calilClient,
+            storageClient: storageClient
         )
         let interactor = SearchBookResultInteractor(dependencies: interactorDependencies)
         

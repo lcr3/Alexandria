@@ -10,14 +10,16 @@ protocol SearchBookResultInteractorProtocol {
     func searchForBooksInTheLibraries(isbn: String, libraryIds: [String])
 }
 
-final class SearchBookResultInteractor: SearchBookResultInteractorProtocol {
+final class SearchBookResultInteractor {
     private let dependencies: SearchBookResultInteractorDependenciesProtocol
     var output: SearchBookResultInteractorOutput?
 
     init(dependencies: SearchBookResultInteractorDependenciesProtocol) {
         self.dependencies = dependencies
     }
+}
 
+extension SearchBookResultInteractor: SearchBookResultInteractorProtocol {
     func searchForBooksInTheLibraries(isbn: String, libraryIds: [String]) {
         dependencies.calilClient.searchForBooksInTheLibraries(isbn: isbn, libraryIds: libraryIds) { result in
             switch result {
