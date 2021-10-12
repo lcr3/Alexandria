@@ -34,31 +34,30 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }.padding(.trailing, 44)
                     )
                 }
-                Section {
-                    ForEach(presenter.books) { book in
-                        NavigationLink(destination: SearchBookResultWireFrame.makeSearchBookResultView(
-                            title: book.title,
-                            isbn: book.isbn,
-                            libraryIds: presenter.libraryIds()
-                        )
-                        ) {
-                            HStack {
-                                Text(book.title)
-                                if !book.imageUrl.isEmpty {
-                                    Spacer()
-                                    AsyncImage(url: URL(string: book.imageUrl))
-                                        .frame(maxWidth: .infinity, maxHeight: 44)
+                if presenter.isSearching {
+                    ActivityIndicator()
+                } else {
+                    Section {
+                        ForEach(presenter.books) { book in
+                            NavigationLink(destination: SearchBookResultWireFrame.makeSearchBookResultView(
+                                title: book.title,
+                                isbn: book.isbn,
+                                libraryIds: presenter.libraryIds()
+                            )
+                            ) {
+                                HStack {
+                                    Text(book.title)
+                                    if !book.imageUrl.isEmpty {
+                                        Spacer()
+                                        AsyncImage(url: URL(string: book.imageUrl))
+                                            .frame(maxWidth: .infinity, maxHeight: 44)
+                                    }
                                 }
-
                             }
                         }
                     }
-                }
-                .animation(.easeIn, value: 2)
-                .listStyle(InsetGroupedListStyle())
-
-                if presenter.isSearching {
-                    ActivityIndicator()
+                    .animation(.easeIn, value: 2)
+                    .listStyle(InsetGroupedListStyle())
                 }
             }
             .navigationTitle(Text("図書を検索"))
@@ -87,6 +86,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     isPresented: $presenter.isShowModal
                 )
             }
+
         }
     }
 

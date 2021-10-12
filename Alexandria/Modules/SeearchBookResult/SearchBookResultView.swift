@@ -11,8 +11,7 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
     var body: some View {
         VStack {
             if presenter.isLoading {
-                Text("検索中...📚")
-                    .font(.body)
+                ActivityIndicator()
             } else {
                 List {
                     ForEach(presenter.libraryBooks) { libraryBook in
