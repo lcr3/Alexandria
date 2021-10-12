@@ -12,6 +12,7 @@ protocol SearchBookResultPresenterProtocol {
 final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, ObservableObject {
     let isbn: String
     let libraryIds: [String]
+    let title: String
 
     @Published var libraryBooks: [LibraryBook]
     @Published var isLoading: Bool
@@ -19,11 +20,12 @@ final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, Observ
     private var dependencies: SearchBookResultPresenterDependenciesProtocol
     private let interactor: SearchBookResultInteractorProtocol
     
-    init(dependencies: SearchBookResultPresenterDependenciesProtocol, interactor: SearchBookResultInteractorProtocol, isbn: String = "", libraryIds: [String] = []) {
+    init(dependencies: SearchBookResultPresenterDependenciesProtocol, interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
         self.dependencies = dependencies
         self.interactor = interactor
         self.isbn = isbn
         self.libraryIds = libraryIds
+        self.title = title
         self.libraryBooks = []
         self.isLoading = false
     }

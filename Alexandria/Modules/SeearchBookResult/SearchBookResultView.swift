@@ -12,7 +12,7 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
         VStack {
             if presenter.isLoading {
                 Text("検索中...📚")
-                .font(.body)
+                    .font(.body)
             } else {
                 List {
                     ForEach(presenter.libraryBooks) { libraryBook in
@@ -37,11 +37,12 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                 }
             }
         }
+        .navigationTitle(Text(presenter.title))
         .onAppear {
             presenter.onApear()
         }
+
     }
-    
     init(presenter: SearchBookResultPresenter,
          dependencies: SearchBookResultViewDependenciesProtocol) {
         self.presenter = presenter
@@ -52,6 +53,7 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
 struct AboutMeView_Previews: PreviewProvider {
     static var previews: some View {
         SearchBookResultWireFrame.makeSearchBookResultView(
+            title: "サンプル",
             isbn: "test",
             libraryIds: [],
             calilClient: MockCalilClient()
