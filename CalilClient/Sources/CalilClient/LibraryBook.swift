@@ -53,4 +53,8 @@ public enum BookState: String, Decodable {
     case closed = "休館中"
     case none = "蔵書なし"
     case unknown = "不明"
+
+    public var isAvailable: Bool {
+        self == .available
+    }
 }

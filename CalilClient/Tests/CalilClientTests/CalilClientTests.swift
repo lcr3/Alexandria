@@ -14,9 +14,11 @@ final class CalilClientTests: XCTestCase {
     override func tearDownWithError() throws {
         super.tearDown()
         HTTPStubs.removeAllStubs()
+        let appDomain = Bundle.main.bundleIdentifier
+        UserDefaults.standard.removePersistentDomain(forName: appDomain!)
     }
 
-    func testSuccessResponse() throws {
+    func testSuccessSearchLibrary() throws {
         // setup
         let testExpectation = expectation(description: "testSuccessResponse")
         stub(condition: pathEndsWith("/library")) { _ in
@@ -41,6 +43,65 @@ final class CalilClientTests: XCTestCase {
                 XCTAssertEqual(library?.systemId, "Tokyo_Chiyoda")
                 XCTAssertEqual(library?.systemName, "東京都千代田区")
                 XCTAssertEqual(library?.category, "MEDIUM")
+
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Tokyo_Chiyoda"), "千代田区立神田まちかど図書館")
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Special_Sonposoken"), "損害保険事業総合研究所図書館")
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Nihon_Rik"), "日本大学理工学部駿河台図書館")
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Nihon_Den"), "日本大学図書館歯学部分館")
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Tmd"), "東京医科歯科大学図書館")
+            case .failure(_):
+                XCTFail("Unexpected error")
+            }
+            testExpectation.fulfill()
+        }
+        wait(for: [testExpectation], timeout: 3.0)
+    }
+
+    func testFailerSearchLibrary() throws {
+        // setup
+        let testExpectation = expectation(description: "testSuccessResponse")
+        stub(condition: pathEndsWith("/library")) { _ in
+            return HTTPStubsResponse(
+                error: NSError(
+                    domain: NSURLErrorDomain,
+                    code: URLError.notConnectedToInternet.rawValue
+                )
+            )
+        }
+
+        // execute
+        client.searchNearbyLibraries(latitude: 35.6895014, longitude: 139.6917337) { result in
+            switch result {
+            case .success(_):
+                XCTFail("Unexpected error")
+            case .failure(_):
+                // verify
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Tokyo_Chiyoda"), nil)
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Special_Sonposoken"), nil)
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Nihon_Rik"), nil)
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Nihon_Den"), nil)
+                XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Tmd"), nil)
+            }
+            testExpectation.fulfill()
+        }
+        wait(for: [testExpectation], timeout: 3.0)
+    }
+
+    func testSuccessSearchBook() throws {
+        // setup
+        let testExpectation = expectation(description: "testSuccessResponse")
+        stub(condition: pathEndsWith("/check")) { _ in
+            return HTTPStubsResponse(
+                jsonObject: MockJsonResponse.finishSuccess,
+                statusCode: 200,
+                headers: nil
+            )
+        }
+
+        client.searchForBooksInTheLibraries(isbn: "4334926940", libraryIds: []) { result in
+            switch result {
+            case .success(let libraryBooks):
+                XCTAssertEqual(libraryBooks.count, 5)
             case .failure(_):
                 XCTFail("Unexpected error")
             }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935B7D6270ECED600145B4F /* ActivityIndicator.swift */; };
+		29493301271569C800B4724E /* StateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29493300271569C800B4724E /* StateIcon.swift */; };
 		2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */; };
 		2949E07226FC2342000BCB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E07126FC2342000BCB0F /* Assets.xcassets */; };
 		2949E07526FC2342000BCB0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2949E07426FC2342000BCB0F /* Preview Assets.xcassets */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		2935B7D6270ECED600145B4F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		29493300271569C800B4724E /* StateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateIcon.swift; sourceTree = "<group>"; };
 		2949E06A26FC233E000BCB0F /* Alexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexandriaApp.swift; sourceTree = "<group>"; };
 		2949E07126FC2342000BCB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		294932FF271569B900B4724E /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				29493300271569C800B4724E /* StateIcon.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		2949E06126FC233E000BCB0F = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +272,7 @@
 		2949E0CF270C4145000BCB0F /* SeearchBookResult */ = {
 			isa = PBXGroup;
 			children = (
+				294932FF271569B900B4724E /* SubViews */,
 				29A9F274270C4C720041DC3B /* Preview */,
 				2949E0D0270C418E000BCB0F /* SearchBookResultInteractorDependencies.swift */,
 				2949E0D1270C418E000BCB0F /* SearchBookResultPresenter.swift */,
@@ -429,6 +440,7 @@
 				2949E0C5270453F4000BCB0F /* SearchISBNInteractorDependencies.swift in Sources */,
 				2949E0A626FC78B0000BCB0F /* SelectAddressPresenter.swift in Sources */,
 				2949E0B52701D683000BCB0F /* Color.swift in Sources */,
+				29493301271569C800B4724E /* StateIcon.swift in Sources */,
 				2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */,
 				2949E0C6270453F4000BCB0F /* SearchISBNPresenter.swift in Sources */,
 				2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */,

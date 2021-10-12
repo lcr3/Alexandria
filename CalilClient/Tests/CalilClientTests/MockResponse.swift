@@ -38,7 +38,8 @@ struct MockJsonResponse {
                 "systemname": "損保総研図書館",
                 "formal": "損害保険事業総合研究所図書館",
                 "url_pc": "http://www.sonposoken.or.jp/library",
-                "post": "101-8335", "systemid": "Special_Sonposoken",
+                "post": "101-8335",
+                "systemid": "Special_Sonposoken",
             ],
             [
                 "isil": "JP-1003795",
@@ -101,4 +102,48 @@ struct MockJsonResponse {
             ],
         ]
     }
+
+    static var finishSuccess: [String: Any] {
+        [
+            "session": "asdasdasd",
+            "continue": 0,
+            "books": [
+                "4334926940": [
+                    "Univ_Nihon_Den": [
+                        "libkey": [:],
+                        "reserveurl": "",
+                        "status": "Cache",
+                    ],
+                    "Univ_Tmd": [
+                        "libkey": [:],
+                        "reserveurl": "",
+                        "status": "Cache",
+                    ],
+                    "Tokyo_Chiyoda": [
+                        "libkey": [
+                            "千代田": "貸出中",
+                            "四番町": "貸出可",
+                            "日比谷": "館内のみ",
+
+                        ],
+                        "reserveurl": "https://opc.library.chiyoda.tokyo.jp/winj/opac/switch-detail-iccap.do?bibid=1140045479",
+                        "status": "Cache",
+                    ],
+                    "Univ_Nihon_Rik": [
+                        "libkey": [
+                            "船橋図書館": "予約中",
+                        ],
+                        "reserveurl": "http://cstlib.cin.nihon-u.ac.jp/opac/opac_details/?lang=0&amode=11&bibid=1000339418",
+                        "status": "Cache",
+                    ],
+                    "Special_Sonposoken": [
+                        "libkey": [:],
+                        "reserveurl": "",
+                        "status": "Cache",
+                    ]
+                ]
+            ]
+        ]
+    }
 }
+

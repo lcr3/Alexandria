@@ -18,12 +18,18 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                     ForEach(presenter.libraryBooks) { libraryBook in
                         if libraryBook.libraryStates.isEmpty {
                             Section(libraryBook.name) {
-                                Text("蔵書なし")
+                                HStack {
+                                    StateIcon(isAvailable: false)
+                                    Text("蔵書なし")
+                                }
                             }
                         } else {
                             Section(libraryBook.name) {
-                                ForEach(libraryBook.libraryStates) { state in
-                                    Text("\(state.name):\(state.state.rawValue)")
+                                ForEach(libraryBook.libraryStates) { libraryState in
+                                    HStack {
+                                        StateIcon(isAvailable: libraryState.state.isAvailable)
+                                        Text("\(libraryState.name): \(libraryState.state.rawValue)")
+                                    }
                                 }
                             }
                         }

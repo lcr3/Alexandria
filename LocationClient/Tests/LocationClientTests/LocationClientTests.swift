@@ -3,14 +3,14 @@ import XCTest
 @testable import LocationClient
 
 final class LocationClientTests: XCTestCase {
-    var mockManager: MockLocationManager!
-    var mockOutput: MockLocationClientOutput!
+    var mockManager: TestMockLocationManager!
+    var mockOutput: TestMockLocationClientOutput!
     var client: LocationClient!
 
     override func setUpWithError() throws {
         super.setUp()
-        mockManager = MockLocationManager()
-        mockOutput = MockLocationClientOutput()
+        mockManager = TestMockLocationManager()
+        mockOutput = TestMockLocationClientOutput()
         client = LocationClient(locationManager: mockManager)
         client.output = mockOutput
     }
