@@ -2,11 +2,10 @@ import CalilClient
 import Combine
 
 protocol SearchBookResultPresenterProtocol {
-    var isbn: String { get}
+    var isbn: String { get }
     var libraryIds: [String] { get }
     var libraryBooks: [LibraryBook] { get set }
-
-    func onApear()
+    var selectedBook: LibraryBook? { get }
 }
 
 final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, ObservableObject {
@@ -16,6 +15,7 @@ final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, Observ
 
     @Published var libraryBooks: [LibraryBook]
     @Published var isLoading: Bool
+    @Published var selectedBook: LibraryBook?
     
     private var dependencies: SearchBookResultPresenterDependenciesProtocol
     private let interactor: SearchBookResultInteractorProtocol
@@ -26,11 +26,7 @@ final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, Observ
         self.isbn = isbn
         self.libraryIds = libraryIds
         self.title = title
-        self.libraryBooks = []
-        self.isLoading = false
-    }
-
-    func onApear() {
+        libraryBooks = []
         isLoading = true
         interactor.searchForBooksInTheLibraries(isbn: isbn, libraryIds: libraryIds)
     }

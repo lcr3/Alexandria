@@ -46,6 +46,7 @@
 		295E5BD4271674550044D7AF /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E5BD3271674550044D7AF /* LazyView.swift */; };
 		295E5BD627169EAE0044D7AF /* SearchISBNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E5BD527169EAE0044D7AF /* SearchISBNError.swift */; };
 		29A9F276270C4C800041DC3B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A9F275270C4C7F0041DC3B /* Mock.swift */; };
+		29BB98B32716DCF70069AE68 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 29BB98B22716DCF70069AE68 /* BetterSafariView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 				2949E0BA27031C2D000BCB0F /* StorageClient in Frameworks */,
 				2949E09C26FC781A000BCB0F /* LocationClient in Frameworks */,
 				2949E09A26FC45B3000BCB0F /* ISBNClient in Frameworks */,
+				29BB98B32716DCF70069AE68 /* BetterSafariView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +322,7 @@
 				2949E09B26FC781A000BCB0F /* LocationClient */,
 				2949E0AF26FDBD81000BCB0F /* CalilClient */,
 				2949E0B927031C2D000BCB0F /* StorageClient */,
+				29BB98B22716DCF70069AE68 /* BetterSafariView */,
 			);
 			productName = Alexandria;
 			productReference = 2949E06A26FC233E000BCB0F /* Alexandria.app */;
@@ -394,6 +397,7 @@
 			);
 			mainGroup = 2949E06126FC233E000BCB0F;
 			packageReferences = (
+				29BB98B12716DCF70069AE68 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
 			);
 			productRefGroup = 2949E06B26FC233E000BCB0F /* Products */;
 			projectDirPath = "";
@@ -816,6 +820,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		29BB98B12716DCF70069AE68 /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stleamist/BetterSafariView";
+			requirement = {
+				kind = exactVersion;
+				version = 2.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		2949E09926FC45B3000BCB0F /* ISBNClient */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -832,6 +847,11 @@
 		2949E0B927031C2D000BCB0F /* StorageClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StorageClient;
+		};
+		29BB98B22716DCF70069AE68 /* BetterSafariView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29BB98B12716DCF70069AE68 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
+			productName = BetterSafariView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

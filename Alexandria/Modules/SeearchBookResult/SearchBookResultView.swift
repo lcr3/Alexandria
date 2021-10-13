@@ -1,5 +1,6 @@
-import SwiftUI
+import BetterSafariView
 import CalilClient
+import SwiftUI
 
 protocol SearchBookResultViewProtocol {
 }
@@ -26,6 +27,18 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                                     HStack {
                                         StateIcon(isAvailable: libraryState.state.isAvailable)
                                         Text("\(libraryState.name): \(libraryState.state.rawValue)")
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(.footnote).weight(.semibold))
+                                            .foregroundColor(.gray)
+                                            .foregroundColor(Color(UIColor.tertiaryLabel))
+                                    }
+                                    .contentShape(Rectangle())
+                                    .onTapGesture {
+                                        if libraryBook.reserveUrl.isEmpty {
+                                            return
+                                        }
+                                        presenter.selectedBook = libraryBook
                                     }
                                 }
                             }
@@ -35,9 +48,6 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
             }
             .navigationTitle(Text(presenter.title))
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                presenter.onApear()
-            }
             if presenter.isLoading {
                 ZStack {
                     Color.gray.opacity(0.6)
@@ -45,6 +55,17 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                                       style: .large, color: UIColor.white)
                 }.edgesIgnoringSafeArea(.all)
             }
+        }
+        .safariView(item: $presenter.selectedBook) {
+            // onDismiss
+        } content: { book in
+            SafariView(
+                url: URL(string: book.reserveUrl)!,
+                configuration: SafariView.Configuration(
+                    entersReaderIfAvailable: false,
+                    barCollapsingEnabled: true
+                )
+            )
         }
     }
 
