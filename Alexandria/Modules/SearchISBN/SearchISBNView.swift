@@ -70,9 +70,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                 Alert(
                     title: Text(error.title),
                     message: Text(error.description),
-                    dismissButton: .default(Text("OK"), action: {
-                        presenter.errorAlertOkButtonTapped()
-                    })
+                    dismissButton: .default(Text("OK"))
                 )
             })
             .sheet(isPresented: $presenter.isShowModal) {

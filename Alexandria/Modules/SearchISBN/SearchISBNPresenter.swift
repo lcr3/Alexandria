@@ -9,7 +9,6 @@ protocol SearchISBNPresenterProtocol {
     func searchButtonTapped()
     func deleteButtonTapped()
     func isCurrentLocationNotSetAlertOKButtonTapped()
-    func errorAlertOkButtonTapped()
     func libraryIds() -> [String]
 }
 
@@ -57,10 +56,6 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     func isCurrentLocationNotSetAlertOKButtonTapped() {
         isCurrentLocationNotSet = false
         isShowModal = true
-    }
-
-    func errorAlertOkButtonTapped() {
-        error = nil
     }
 
     func libraryIds() -> [String] {
