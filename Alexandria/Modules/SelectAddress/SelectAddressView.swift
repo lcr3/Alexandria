@@ -48,15 +48,14 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
 
                     Spacer()
                     LocationButton(.currentLocation) {
-                    presenter.locationButtonTapped()
+                        presenter.locationButtonTapped()
                     }
+                    .cornerRadius(22)
                     .frame(width: 44, height: 44)
                     .labelStyle(.iconOnly)
                     .symbolVariant(.fill)
-                    .cornerRadius(22)
                     .tint(.blue)
                     .foregroundColor(.white)
-                    .padding()
                 }.padding()
             }.padding(.bottom, 16)
         }.background(Color.listBackground)
