@@ -78,10 +78,11 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                 }
             }
             .sheet(isPresented: $presenter.isShowModal) {
-                // check
             } content: {
-                SelectAddressWireFrame.makeSelectAddressView(
-                    isPresented: $presenter.isShowModal
+                LazyView(
+                    SelectAddressWireFrame.makeSelectAddressView(
+                        isPresented: $presenter.isShowModal
+                    )
                 )
             }
 
