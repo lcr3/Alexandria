@@ -39,11 +39,12 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                 } else {
                     Section {
                         ForEach(presenter.books) { book in
-                            NavigationLink(destination: SearchBookResultWireFrame.makeSearchBookResultView(
+                            NavigationLink(destination: LazyView(
+                                            SearchBookResultWireFrame.makeSearchBookResultView(
                                 title: book.title,
                                 isbn: book.isbn,
                                 libraryIds: presenter.libraryIds()
-                            )
+                            ))
                             ) {
                                 HStack {
                                     Text(book.title)
