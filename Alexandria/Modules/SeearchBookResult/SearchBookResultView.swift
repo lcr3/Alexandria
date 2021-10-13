@@ -9,10 +9,8 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
     private let dependencies: SearchBookResultViewDependenciesProtocol
     
     var body: some View {
-        VStack {
-            if presenter.isLoading {
-                ActivityIndicator()
-            } else {
+        ZStack {
+            VStack {
                 List {
                     ForEach(presenter.libraryBooks) { libraryBook in
                         if libraryBook.libraryStates.isEmpty {
@@ -35,13 +33,21 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                     }
                 }
             }
+            .navigationTitle(Text(presenter.title))
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                presenter.onApear()
+            }
+            if presenter.isLoading {
+                ZStack {
+                    Color.gray.opacity(0.6)
+                    ActivityIndicator(isAnimating: $presenter.isLoading,
+                                      style: .large, color: UIColor.white)
+                }.edgesIgnoringSafeArea(.all)
+            }
         }
-        .navigationTitle(Text(presenter.title))
-        .onAppear {
-            presenter.onApear()
-        }
-
     }
+
     init(presenter: SearchBookResultPresenter,
          dependencies: SearchBookResultViewDependenciesProtocol) {
         self.presenter = presenter

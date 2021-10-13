@@ -9,10 +9,17 @@
 import SwiftUI
 
 struct ActivityIndicator: UIViewRepresentable {
-    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
-        return UIActivityIndicatorView(style: .large)
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+    let color: UIColor
+
+    func makeUIView(context _: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        let indigatorView = UIActivityIndicatorView(style: style)
+        indigatorView.color = color
+        return indigatorView
     }
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
-        uiView.startAnimating()
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context _: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
