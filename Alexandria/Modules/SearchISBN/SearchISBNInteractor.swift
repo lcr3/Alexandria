@@ -44,8 +44,3 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
         return dependencies.storegeClient.libraryIds
     }
 }
-
-enum SearchISBNError: Error {
-    case noMatch
-    case error(String)
-}

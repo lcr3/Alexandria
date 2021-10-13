@@ -44,6 +44,7 @@
 		2949E0DC270C418F000BCB0F /* SearchBookResultViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D5270C418E000BCB0F /* SearchBookResultViewDependencies.swift */; };
 		2949E0DD270C418F000BCB0F /* SearchBookResultWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D6270C418E000BCB0F /* SearchBookResultWireFrame.swift */; };
 		295E5BD4271674550044D7AF /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E5BD3271674550044D7AF /* LazyView.swift */; };
+		295E5BD627169EAE0044D7AF /* SearchISBNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E5BD527169EAE0044D7AF /* SearchISBNError.swift */; };
 		29A9F276270C4C800041DC3B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A9F275270C4C7F0041DC3B /* Mock.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		2949E0D5270C418E000BCB0F /* SearchBookResultViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultViewDependencies.swift; sourceTree = "<group>"; };
 		2949E0D6270C418E000BCB0F /* SearchBookResultWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultWireFrame.swift; sourceTree = "<group>"; };
 		295E5BD3271674550044D7AF /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		295E5BD527169EAE0044D7AF /* SearchISBNError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNError.swift; sourceTree = "<group>"; };
 		29A9F275270C4C7F0041DC3B /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,6 +262,7 @@
 				2949E0C2270453F4000BCB0F /* SearchISBNView.swift */,
 				2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */,
 				2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */,
+				295E5BD527169EAE0044D7AF /* SearchISBNError.swift */,
 			);
 			path = SearchISBN;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */,
 				2949E0C9270453F4000BCB0F /* SearchISBNView.swift in Sources */,
 				295E5BD4271674550044D7AF /* LazyView.swift in Sources */,
+				295E5BD627169EAE0044D7AF /* SearchISBNError.swift in Sources */,
 				29A9F276270C4C800041DC3B /* Mock.swift in Sources */,
 				2949E0DD270C418F000BCB0F /* SearchBookResultWireFrame.swift in Sources */,
 				2949E0DA270C418F000BCB0F /* SearchBookResultInteractor.swift in Sources */,

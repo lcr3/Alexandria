@@ -66,17 +66,15 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                 }
             }
-            .alert("エラー", isPresented: $presenter.isShowError, presenting: presenter.error) { error in
-                switch error {
-                case .noMatch:
-                    Text("該当する書籍はありませんでした")
-                case .error(let message):
-                    Text(message)
-                }
-                Button("OK", role: .cancel) {
-                    presenter.errorAlertOkButtonTapped()
-                }
-            }
+            .alert(item: $presenter.error, content: { error in
+                Alert(
+                    title: Text(error.title),
+                    message: Text(error.description),
+                    dismissButton: .default(Text("OK"), action: {
+                        presenter.errorAlertOkButtonTapped()
+                    })
+                )
+            })
             .sheet(isPresented: $presenter.isShowModal) {
             } content: {
                 LazyView(
@@ -85,7 +83,6 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     )
                 )
             }
-
         }
     }
 
