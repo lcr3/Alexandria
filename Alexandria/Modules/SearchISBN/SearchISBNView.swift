@@ -45,21 +45,20 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                                             )
                                         )
                         ) {
-                            HStack {
-                                Text(book.title)
+                            HStack(spacing: 16) {
                                 if !book.imageUrl.isEmpty {
-                                    Spacer()
                                     AsyncImage(url: URL(string: book.imageUrl))
-                                        .frame(maxWidth: .infinity, maxHeight: 44)
+                                        .frame(maxWidth: 32, maxHeight: 32)
                                 }
-                            }
+                                Text(book.title)
+                            }.frame(height: 60)
                         }
                     }
                 }
                 .animation(.easeIn, value: 2)
                 .listStyle(InsetGroupedListStyle())
             }
-            .navigationTitle(Text("図書を検索"))
+            .navigationTitle(Text("書籍を検索"))
             .alert("位置情報が設定されていません", isPresented: $presenter.isCurrentLocationNotSet) {
                 VStack {
                     Button("設定する", role: .cancel) {
@@ -98,6 +97,9 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
 
 struct SearchISBNView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchISBNWireFrame.makeSearchISBNView(books: MockSearchISBN.books)
+        SearchISBNWireFrame.makeSearchISBNView(
+            isbnClient: MockISBNClient(),
+            storegeClient: MockStorageClient()
+        )
     }
 }

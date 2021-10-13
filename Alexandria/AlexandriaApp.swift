@@ -6,13 +6,18 @@
 //  
 //
 
+import ISBNClient
+import StorageClient
 import SwiftUI
 
 @main
 struct AlexandriaApp: App {
     var body: some Scene {
         WindowGroup {
-            SearchISBNWireFrame.makeSearchISBNView()
+            SearchISBNWireFrame.makeSearchISBNView(
+                isbnClient: ISBNClient(),
+                storegeClient: StorageClient()
+            )
         }
     }
 }

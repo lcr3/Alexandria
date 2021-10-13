@@ -2,15 +2,15 @@ import ISBNClient
 import StorageClient
 
 protocol SearchISBNInteractorDependenciesProtocol {
-    var isbnClient: ISBNClient { get }
+    var isbnClient: ISBNClientProtocol { get }
     var storegeClient: StorageClientProtocol { get }
 }
 
 struct SearchISBNInteractorDependencies: SearchISBNInteractorDependenciesProtocol {
-    let isbnClient: ISBNClient
+    let isbnClient: ISBNClientProtocol
     let storegeClient: StorageClientProtocol
 
-    init(isbnClient: ISBNClient = ISBNClient(), storegeClient: StorageClientProtocol = StorageClient()) {
+    init(isbnClient: ISBNClientProtocol = ISBNClient(), storegeClient: StorageClientProtocol = StorageClient()) {
         self.isbnClient = isbnClient
         self.storegeClient = storegeClient
     }
