@@ -40,17 +40,10 @@ struct MockISBNClient: ISBNClientProtocol {
 }
 
 struct MockStorageClient: StorageClientProtocol {
-    var location: Location
-
     var libraryIds: [String]
 
     init() {
-        self.location = Location(latitude: 12, longitude: 12)
         self.libraryIds = ["1234"]
-    }
-
-    func saveLocation(latitude: Double, longitude: Double) {
-
     }
 
     func saveLibraryIds(_ ids: [String]) {

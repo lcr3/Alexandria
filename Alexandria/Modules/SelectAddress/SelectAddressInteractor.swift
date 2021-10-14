@@ -14,7 +14,6 @@ protocol SelectAddressInteractorProtocol {
     var output: SelectAddressInteractorOutput? { get set }
     func requestLocation()
     func searchNearbyLibraries(latitude: Double, longitude: Double)
-    func saveLocation(latitude: Double, longitude: Double)
     func saveLibraryIds(_ ids: [String])
 }
 
@@ -42,10 +41,6 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
                 self.output?.failureGetLibraries(error)
             }
         }
-    }
-
-    func saveLocation(latitude: Double, longitude: Double) {
-        dependencies.storageClient.saveLocation(latitude: latitude, longitude: longitude)
     }
 
     func saveLibraryIds(_ ids: [String]) {

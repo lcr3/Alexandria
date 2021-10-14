@@ -12,3 +12,12 @@
 |Location|Top|List|
 |:---:|:---:|:---:|
 |<image src='./Resources/location.png' width= 200>|<image src='./Resources/top.png' width= 200>|<image src='./Resources/list.png' width= 200>|
+
+# Packages
+
+責務を分けてPakage化
+
+* [CalilClient](./CalilClient)
+* [ISBNClient](./ISBNClient)
+* [LocationClient](./LocationClient)
+* [StorageClient](./StorageClient)
