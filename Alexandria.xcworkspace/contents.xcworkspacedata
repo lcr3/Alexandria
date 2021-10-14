@@ -16,4 +16,7 @@
    <FileRef
       location = "group:StorageClient">
    </FileRef>
+   <FileRef
+      location = "group:Tools">
+   </FileRef>
 </Workspace>

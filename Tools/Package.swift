@@ -8,7 +8,6 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/mono0926/LicensePlist", from: "3.14.4"),
-//          .package(url: "https://github.com/apple/swift-format", from: "0.48.5")
     ],
     targets: [
     ]
