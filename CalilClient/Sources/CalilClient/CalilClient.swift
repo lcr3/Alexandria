@@ -68,7 +68,10 @@ extension CalilClient: CalilClientProtocol {
     }
 }
 
-// 図書検索で返ってくるデータに図書館の名前が紐付いていない
+/*
+ 図書検索で返ってくるデータに図書館の名前が紐付いていないため
+ 図書館検索時に取得した図書館名を保存しておく
+*/
 struct LibraryNameClient {
     private let userDafaults: UserDefaults
 
