@@ -19,6 +19,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                         TextField("書籍名", text: $presenter.searchISBNBookName)
                         Button("検索") {
                             presenter.searchButtonTapped()
+                            hideKeyboard()
                         }
                     }
                     .overlay(

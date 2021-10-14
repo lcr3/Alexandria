@@ -47,6 +47,7 @@
 		295E5BD627169EAE0044D7AF /* SearchISBNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E5BD527169EAE0044D7AF /* SearchISBNError.swift */; };
 		29A9F276270C4C800041DC3B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A9F275270C4C7F0041DC3B /* Mock.swift */; };
 		29BB98B32716DCF70069AE68 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 29BB98B22716DCF70069AE68 /* BetterSafariView */; };
+		29F92C1C2717EBC90065117C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F92C1B2717EBC90065117C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		295E5BD3271674550044D7AF /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		295E5BD527169EAE0044D7AF /* SearchISBNError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNError.swift; sourceTree = "<group>"; };
 		29A9F275270C4C7F0041DC3B /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		29F92C1B2717EBC90065117C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 				2949E0B42701D683000BCB0F /* Color.swift */,
 				2935B7D6270ECED600145B4F /* ActivityIndicator.swift */,
 				295E5BD3271674550044D7AF /* LazyView.swift */,
+				29F92C1B2717EBC90065117C /* Extensions.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				2949E0DD270C418F000BCB0F /* SearchBookResultWireFrame.swift in Sources */,
 				2949E0DA270C418F000BCB0F /* SearchBookResultInteractor.swift in Sources */,
 				2949E0CE270BDEA4000BCB0F /* SearchISBNPreview.swift in Sources */,
+				29F92C1C2717EBC90065117C /* Extensions.swift in Sources */,
 				2949E0A526FC78B0000BCB0F /* SelectAddressInteractorDependencies.swift in Sources */,
 				2949E0C8270453F4000BCB0F /* SearchISBNInteractor.swift in Sources */,
 				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,
