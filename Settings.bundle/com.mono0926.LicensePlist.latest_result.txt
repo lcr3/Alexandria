@@ -1,0 +1,9 @@
+name: APIKit, nameSpecified: APIKit, owner: ishkawa, version: 5.2.0
+
+name: BetterSafariView, nameSpecified: BetterSafariView, owner: stleamist, version: 2.4.0
+
+name: OHHTTPStubs, nameSpecified: OHHTTPStubs, owner: AliSoftware, version: 9.1.0
+
+add-version-numbers: false
+
+LicensePlist Version: 3.14.4

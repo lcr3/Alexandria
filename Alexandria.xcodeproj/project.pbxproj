@@ -48,6 +48,7 @@
 		29A9F276270C4C800041DC3B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A9F275270C4C7F0041DC3B /* Mock.swift */; };
 		29BB98B32716DCF70069AE68 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 29BB98B22716DCF70069AE68 /* BetterSafariView */; };
 		29F92C1C2717EBC90065117C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F92C1B2717EBC90065117C /* Extensions.swift */; };
+		29F92C1E2717F1C40065117C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29F92C1D2717F1C40065117C /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		295E5BD527169EAE0044D7AF /* SearchISBNError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNError.swift; sourceTree = "<group>"; };
 		29A9F275270C4C7F0041DC3B /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		29F92C1B2717EBC90065117C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		29F92C1D2717F1C40065117C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				2949E08726FC2342000BCB0F /* AlexandriaUITests */,
 				2949E06B26FC233E000BCB0F /* Products */,
 				2949E09826FC45B3000BCB0F /* Frameworks */,
+				29F92C1D2717F1C40065117C /* Settings.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -418,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F92C1E2717F1C40065117C /* Settings.bundle in Resources */,
 				2949E0AE26FC801C000BCB0F /* Resources.xcassets in Resources */,
 				2949E07526FC2342000BCB0F /* Preview Assets.xcassets in Resources */,
 				2949E07226FC2342000BCB0F /* Assets.xcassets in Resources */,
