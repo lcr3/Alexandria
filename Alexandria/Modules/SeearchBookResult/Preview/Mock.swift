@@ -31,4 +31,7 @@ extension MockLocationClient: LocationClientProtocol {
     public func requestLocation() {
         output?.onLocationUpdated(.init(latitude: 135, longitude: 35))
     }
+
+    public func stopUpdatingLocation() {
+    }
 }

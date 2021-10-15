@@ -60,10 +60,28 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                 .listStyle(InsetGroupedListStyle())
             }
             .navigationTitle(Text("書籍を検索"))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        presenter.locationDeleteButtonTapped()
+                    }) {
+                        Image(systemName: "location.slash")
+                    }.disabled(presenter.isCurrentLocationNotSet)
+                }
+            }
             .alert("位置情報が設定されていません", isPresented: $presenter.isCurrentLocationNotSet) {
                 VStack {
                     Button("設定する", role: .cancel) {
                         presenter.isCurrentLocationNotSetAlertOKButtonTapped()
+                    }
+                }
+            }
+            .alert("設定されている位置情報を削除しますか？", isPresented: $presenter.isShowDeleteLocationAlert) {
+                VStack {
+                    Button("キャンセル", role: .cancel) {
+                    }
+                    Button("削除する", role: .destructive) {
+                        presenter.locationDeleteAlertButtonTapped()
                     }
                 }
             }

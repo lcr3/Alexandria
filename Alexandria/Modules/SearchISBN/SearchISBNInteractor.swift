@@ -1,7 +1,6 @@
 import ISBNClient
 
 protocol SearchISBNInteractorOutput: AnyObject {
-    
     func successSearchBooks(_ books: [ISBNBook])
     func failureSearchBooks(_: SearchISBNError)
 }
@@ -9,6 +8,7 @@ protocol SearchISBNInteractorOutput: AnyObject {
 protocol SearchISBNInteractorProtocol {
     func libraryIds() -> [String]
     func searchBooks(name: String)
+    func deleteLocation()
     func isSavedNearLibraries() -> Bool
 }
 
@@ -34,6 +34,10 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
                 self.output?.failureSearchBooks(.error("取得に失敗しました。"))
             }
         }
+    }
+
+    func deleteLocation() {
+        dependencies.storegeClient.resetLibraryIds()
     }
 
     func isSavedNearLibraries() -> Bool {

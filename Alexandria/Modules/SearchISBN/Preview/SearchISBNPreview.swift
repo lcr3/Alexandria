@@ -50,6 +50,10 @@ struct MockStorageClient: StorageClientProtocol {
 
     }
 
+    func resetLibraryIds() {
+
+    }
+
     func reset() {
 
     }
