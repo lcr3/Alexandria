@@ -4,6 +4,7 @@ public protocol StorageClientProtocol {
     var libraryIds: [String] { get }
 
     func saveLibraryIds(_ ids: [String])
+    func resetLibraryIds()
     func reset()
 }
 
@@ -26,6 +27,10 @@ extension StorageClient: StorageClientProtocol {
 
     public func saveLibraryIds(_ ids: [String]) {
         userDafaults.set(ids, forKey: libraryIdsKey)
+    }
+
+    public func resetLibraryIds() {
+        userDafaults.removeObject(forKey: libraryIdsKey)
     }
 
     public func reset() {

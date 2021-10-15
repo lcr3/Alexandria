@@ -32,6 +32,21 @@ final class StorageClientTests: XCTestCase {
         XCTAssertEqual(client.libraryIds, expectLibraryIds)
     }
 
+    func testResetLibraryId() throws {
+        // Test init value
+        let expectLibraryIds = ["lib_1", "lib_2", "lib_3", "lib_4"]
+        client.saveLibraryIds(expectLibraryIds)
+
+        // Verify
+        XCTAssertEqual(client.libraryIds, expectLibraryIds)
+
+        // Execute
+        client.resetLibraryIds()
+
+        // Verify
+        XCTAssertEqual(client.libraryIds, [])
+    }
+
     func testReset() throws {
         // Test init value
         XCTAssertEqual(client.libraryIds, [])
