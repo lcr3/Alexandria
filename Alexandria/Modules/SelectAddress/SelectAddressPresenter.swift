@@ -41,6 +41,7 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
         if nearLibraries.isEmpty { return }
         let nearLibraryIds = nearLibraries.compactMap { $0.systemId }
         interactor.saveLibraryIds(nearLibraryIds)
+        interactor.stopUpdatingLocation()
         self.isPresented.wrappedValue = false
     }
 }
@@ -84,12 +85,6 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
     func failureGetLibraries(_: Error) {
 
     }
-
-//    func linkBuilder<Content: View>(@ViewBuilder content: () -> Content) -> some View {
-//        NavigationLink(destination: SearchISBNWireFrame.makeSearchISBNView()) {
-//            content()
-//        }
-//    }
 }
 
 private extension MKCoordinateRegion {

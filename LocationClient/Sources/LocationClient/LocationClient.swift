@@ -20,6 +20,10 @@ extension LocationClient: LocationClientProtocol {
     public func requestLocation() {
         locationManager?.startUpdatingLocation()
     }
+
+    public func stopUpdatingLocation() {
+        locationManager?.stopUpdatingLocation()
+    }
 }
 
 extension LocationClient: CLLocationManagerDelegate {

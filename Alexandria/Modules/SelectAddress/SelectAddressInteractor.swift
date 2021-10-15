@@ -13,6 +13,7 @@ protocol SelectAddressInteractorOutput: AnyObject {
 protocol SelectAddressInteractorProtocol {
     var output: SelectAddressInteractorOutput? { get set }
     func requestLocation()
+    func stopUpdatingLocation()
     func searchNearbyLibraries(latitude: Double, longitude: Double)
     func saveLibraryIds(_ ids: [String])
 }
@@ -30,6 +31,10 @@ final class SelectAddressInteractor {
 extension SelectAddressInteractor: SelectAddressInteractorProtocol {
     func requestLocation() {
         dependencies.locationClient.requestLocation()
+    }
+
+    func stopUpdatingLocation() {
+        dependencies.locationClient.stopUpdatingLocation()
     }
 
     func searchNearbyLibraries(latitude: Double, longitude: Double) {
