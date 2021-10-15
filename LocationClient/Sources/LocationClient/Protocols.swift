@@ -3,7 +3,7 @@ import CoreLocation
 public protocol LocationClientProtocol {
     var output: LocationClientOutput? { get set }
     func requestLocation()
-    public func stopUpdatingLocation()
+    func stopUpdatingLocation()
 }
 
 public protocol LocationClientOutput: AnyObject {
