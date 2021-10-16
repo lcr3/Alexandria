@@ -23,11 +23,9 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var isShowDeleteLocationAlert = false
     @Published var error: ErrorInfo?
 
-    private var dependencies: SearchISBNPresenterDependenciesProtocol
     private let interactor: SearchISBNInteractorProtocol
     
-    init(dependencies: SearchISBNPresenterDependenciesProtocol, interactor: SearchISBNInteractorProtocol) {
-        self.dependencies = dependencies
+    init(interactor: SearchISBNInteractorProtocol) {
         self.interactor = interactor
         self.isShowModal = !interactor.isSavedNearLibraries()
     }

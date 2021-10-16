@@ -18,11 +18,9 @@ final class SelectAddressPresenter: ObservableObject {
     @Published var userTrackingMode: MapUserTrackingMode
     @Published var libraryAnnotations: [AnnotationItem]
 
-    private var dependencies: SelectAddressPresenterDependenciesProtocol
     private let interactor: SelectAddressInteractorProtocol
     
-    init(dependencies: SelectAddressPresenterDependenciesProtocol, interactor: SelectAddressInteractorProtocol, isPresented: Binding<Bool>) {
-        self.dependencies = dependencies
+    init(interactor: SelectAddressInteractorProtocol, isPresented: Binding<Bool>) {
         self.interactor = interactor
         self.region = .defaultRegion
         self.nearLibraries = []

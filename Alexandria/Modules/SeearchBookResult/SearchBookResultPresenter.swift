@@ -17,11 +17,9 @@ final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, Observ
     @Published var isLoading: Bool
     @Published var selectedBook: LibraryBook?
     
-    private var dependencies: SearchBookResultPresenterDependenciesProtocol
     private let interactor: SearchBookResultInteractorProtocol
     
-    init(dependencies: SearchBookResultPresenterDependenciesProtocol, interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
-        self.dependencies = dependencies
+    init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
         self.interactor = interactor
         self.isbn = isbn
         self.libraryIds = libraryIds

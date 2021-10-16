@@ -17,9 +17,7 @@ struct SelectAddressWireFrame: SelectAddressWireFrameProtocol {
         )
         let interactor = SelectAddressInteractor(dependencies: interactorDependencies)
         
-        let presenterDependencies = SelectAddressPresenterDepenencies()
         let presenter = SelectAddressPresenter(
-            dependencies: presenterDependencies,
             interactor: interactor,
             isPresented: isPresented
         )

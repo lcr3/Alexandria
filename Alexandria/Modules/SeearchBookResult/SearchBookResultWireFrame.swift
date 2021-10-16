@@ -14,8 +14,7 @@ struct SearchBookResultWireFrame: SearchBookResultWireFrameProtocol {
         )
         let interactor = SearchBookResultInteractor(dependencies: interactorDependencies)
         
-        let presenterDependencies = SearchBookResultPresenterDepenencies()
-        let presenter = SearchBookResultPresenter(dependencies: presenterDependencies, interactor: interactor, title: title, isbn: isbn, libraryIds: libraryIds)
+        let presenter = SearchBookResultPresenter(interactor: interactor, title: title, isbn: isbn, libraryIds: libraryIds)
         interactor.output = presenter
 
         let viewDependencies = SearchBookResultViewDependencies()

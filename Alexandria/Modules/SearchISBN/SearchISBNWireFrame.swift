@@ -12,8 +12,7 @@ struct SearchISBNWireFrame: SearchISBNWireFrameProtocol {
         let interactorDependencies = SearchISBNInteractorDependencies(isbnClient: isbnClient, storegeClient: storegeClient)
         let interactor = SearchISBNInteractor(dependencies: interactorDependencies)
 
-        let presenterDependencies = SearchISBNPresenterDepenencies()
-        let presenter = SearchISBNPresenter(dependencies: presenterDependencies, interactor: interactor)
+        let presenter = SearchISBNPresenter(interactor: interactor)
         interactor.output = presenter
 
         let viewDependencies = SearchISBNViewDependencies()
