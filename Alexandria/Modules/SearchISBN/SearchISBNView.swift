@@ -101,6 +101,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                 )
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     init(presenter: SearchISBNPresenter,
