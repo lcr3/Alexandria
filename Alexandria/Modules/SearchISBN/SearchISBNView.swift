@@ -24,15 +24,15 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                     .overlay(
                         HStack {
-                        if presenter.isSearching {
-                            Spacer()
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.systemGray)
-                                .onTapGesture {
-                                    presenter.deleteButtonTapped()
-                                }
-                        }
-                    }.padding(.trailing, 44)
+                            if presenter.isSearching {
+                                Spacer()
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.systemGray)
+                                    .onTapGesture {
+                                        presenter.deleteButtonTapped()
+                                    }
+                            }
+                        }.padding(.trailing, 44)
                     )
                 }
                 Section {
@@ -114,8 +114,8 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
 struct SearchISBNView_Previews: PreviewProvider {
     static var previews: some View {
         SearchISBNWireFrame.makeSearchISBNView(
-            isbnClient: MockISBNClient(),
-            storegeClient: MockStorageClient()
+            isbnClient: PreviewISBNClient(),
+            storegeClient: PreviewStorageClient()
         )
     }
 }

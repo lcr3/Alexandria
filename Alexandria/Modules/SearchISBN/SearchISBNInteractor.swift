@@ -10,6 +10,8 @@ protocol SearchISBNInteractorProtocol {
     func searchBooks(name: String)
     func deleteLocation()
     func isSavedNearLibraries() -> Bool
+
+    var output: SearchISBNInteractorOutput? { get set }
 }
 
 final class SearchISBNInteractor: SearchISBNInteractorProtocol {
@@ -31,7 +33,7 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
                 self.output?.successSearchBooks(books)
             case .failure(let error):
                 print(error)
-                self.output?.failureSearchBooks(.error("取得に失敗しました。"))
+                self.output?.failureSearchBooks(.error(error.localizedDescription))
             }
         }
     }

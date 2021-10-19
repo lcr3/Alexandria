@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ErrorInfo: Identifiable {
+struct ErrorInfo: Identifiable, Equatable {
     var id = UUID()
     let title: String
     let description: String
@@ -21,7 +21,7 @@ struct ErrorInfo: Identifiable {
     }
 }
 
-enum SearchISBNError: Error {
+enum SearchISBNError: Error, Equatable {
     case noMatch
     case error(String)
 

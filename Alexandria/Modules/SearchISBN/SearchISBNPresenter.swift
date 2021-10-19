@@ -4,7 +4,13 @@ import SwiftUI
 
 protocol SearchISBNPresenterProtocol {
     var searchISBNBookName: String { get set }
-    var isCurrentLocationNotSet: Bool { get }
+    var books: [ISBNBook] { get set }
+    var isSearching: Bool { get set }
+    var isShowModal: Bool { get set }
+    var isCurrentLocationNotSet: Bool { get set }
+    var isShowDeleteLocationAlert: Bool { get set }
+    var error: ErrorInfo? { get set }
+
     func editSeachBookName(_ name: String)
     func searchButtonTapped()
     func deleteButtonTapped()

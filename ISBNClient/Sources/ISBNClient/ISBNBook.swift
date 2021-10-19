@@ -1,7 +1,7 @@
 import APIKit
 import Foundation
 
-public struct ISBNBook: Identifiable {
+public struct ISBNBook: Identifiable, Equatable {
     public var id = UUID()
     public var title: String
     public var author: String

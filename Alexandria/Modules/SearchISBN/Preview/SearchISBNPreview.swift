@@ -18,7 +18,7 @@ struct MockSearchISBN {
     }
 }
 
-struct MockISBNClient: ISBNClientProtocol {
+struct PreviewISBNClient: ISBNClientProtocol {
     func searchISBN(title: String, completion: @escaping (Result<[ISBNBook], Error>) -> Void) {
         completion(.success(
             [
@@ -39,7 +39,7 @@ struct MockISBNClient: ISBNClientProtocol {
     }
 }
 
-struct MockStorageClient: StorageClientProtocol {
+struct PreviewStorageClient: StorageClientProtocol {
     var libraryIds: [String]
 
     init() {
