@@ -6,8 +6,7 @@ protocol SearchISBNViewProtocol {
 
 struct SearchISBNView: View, SearchISBNViewProtocol {
     @ObservedObject private var presenter: SearchISBNPresenter
-    private let dependencies: SearchISBNViewDependenciesProtocol
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -104,10 +103,8 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
         .navigationViewStyle(StackNavigationViewStyle())
     }
 
-    init(presenter: SearchISBNPresenter,
-         dependencies: SearchISBNViewDependenciesProtocol) {
+    init(presenter: SearchISBNPresenter) {
         self.presenter = presenter
-        self.dependencies = dependencies
     }
 }
 

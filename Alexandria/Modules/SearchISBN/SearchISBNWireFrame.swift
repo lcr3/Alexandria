@@ -15,8 +15,7 @@ struct SearchISBNWireFrame: SearchISBNWireFrameProtocol {
         let presenter = SearchISBNPresenter(interactor: interactor)
         interactor.output = presenter
 
-        let viewDependencies = SearchISBNViewDependencies()
-        let view = SearchISBNView(presenter: presenter, dependencies: viewDependencies)
+        let view = SearchISBNView(presenter: presenter)
         
         return AnyView(view)
     }

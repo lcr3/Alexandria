@@ -31,7 +31,6 @@
 		2949E0C6270453F4000BCB0F /* SearchISBNPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0BF270453F4000BCB0F /* SearchISBNPresenter.swift */; };
 		2949E0C8270453F4000BCB0F /* SearchISBNInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C1270453F4000BCB0F /* SearchISBNInteractor.swift */; };
 		2949E0C9270453F4000BCB0F /* SearchISBNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C2270453F4000BCB0F /* SearchISBNView.swift */; };
-		2949E0CA270453F4000BCB0F /* SearchISBNViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */; };
 		2949E0CB270453F4000BCB0F /* SearchISBNWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */; };
 		2949E0CE270BDEA4000BCB0F /* SearchISBNPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */; };
 		2949E0D7270C418F000BCB0F /* SearchBookResultInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E0D0270C418E000BCB0F /* SearchBookResultInteractorDependencies.swift */; };
@@ -92,7 +91,6 @@
 		2949E0BF270453F4000BCB0F /* SearchISBNPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNPresenter.swift; sourceTree = "<group>"; };
 		2949E0C1270453F4000BCB0F /* SearchISBNInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNInteractor.swift; sourceTree = "<group>"; };
 		2949E0C2270453F4000BCB0F /* SearchISBNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNView.swift; sourceTree = "<group>"; };
-		2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNViewDependencies.swift; sourceTree = "<group>"; };
 		2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNWireFrame.swift; sourceTree = "<group>"; };
 		2949E0CD270BDEA4000BCB0F /* SearchISBNPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchISBNPreview.swift; sourceTree = "<group>"; };
 		2949E0D0270C418E000BCB0F /* SearchBookResultInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookResultInteractorDependencies.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 				2949E0BF270453F4000BCB0F /* SearchISBNPresenter.swift */,
 				2949E0C1270453F4000BCB0F /* SearchISBNInteractor.swift */,
 				2949E0C2270453F4000BCB0F /* SearchISBNView.swift */,
-				2949E0C3270453F4000BCB0F /* SearchISBNViewDependencies.swift */,
 				2949E0C4270453F4000BCB0F /* SearchISBNWireFrame.swift */,
 				295E5BD527169EAE0044D7AF /* SearchISBNError.swift */,
 			);
@@ -372,6 +369,8 @@
 				2949E07C26FC2342000BCB0F /* PBXTargetDependency */,
 			);
 			name = AlexandriaTests;
+			packageProductDependencies = (
+			);
 			productName = AlexandriaTests;
 			productReference = 2949E07A26FC2342000BCB0F /* AlexandriaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -495,7 +494,6 @@
 				2949E0C8270453F4000BCB0F /* SearchISBNInteractor.swift in Sources */,
 				2949E0A826FC78B0000BCB0F /* SelectAddressInteractor.swift in Sources */,
 				2949E0D8270C418F000BCB0F /* SearchBookResultPresenter.swift in Sources */,
-				2949E0CA270453F4000BCB0F /* SearchISBNViewDependencies.swift in Sources */,
 				2949E0AA26FC78B0000BCB0F /* SelectAddressViewDependencies.swift in Sources */,
 				2949E0D7270C418F000BCB0F /* SearchBookResultInteractorDependencies.swift in Sources */,
 				2949E0DB270C418F000BCB0F /* SearchBookResultView.swift in Sources */,
