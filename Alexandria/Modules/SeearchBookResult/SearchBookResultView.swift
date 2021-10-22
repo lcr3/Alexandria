@@ -82,7 +82,7 @@ struct AboutMeView_Previews: PreviewProvider {
             title: "サンプル",
             isbn: "test",
             libraryIds: [],
-            calilClient: MockCalilClient()
+            calilClient: PreviewCalilClient()
         )
     }
 }

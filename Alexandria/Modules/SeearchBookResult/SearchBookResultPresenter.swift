@@ -4,7 +4,10 @@ import Combine
 protocol SearchBookResultPresenterProtocol {
     var isbn: String { get }
     var libraryIds: [String] { get }
+    var title: String { get }
+
     var libraryBooks: [LibraryBook] { get set }
+    var isLoading: Bool { get set }
     var selectedBook: LibraryBook? { get }
 }
 

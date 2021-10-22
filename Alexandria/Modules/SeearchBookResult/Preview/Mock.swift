@@ -10,10 +10,10 @@ import CalilClient
 import CoreLocation
 import LocationClient
 
-public struct MockCalilClient {
+public struct PreviewCalilClient {
 }
 
-extension MockCalilClient: CalilClientProtocol {
+extension PreviewCalilClient: CalilClientProtocol {
     public func searchNearbyLibraries(latitude: Double, longitude: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
         completion(.success([Library(name: "図書館")]))
     }
