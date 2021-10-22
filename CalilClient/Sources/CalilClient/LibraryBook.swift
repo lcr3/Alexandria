@@ -26,6 +26,15 @@ public struct LibraryBook: Decodable, Identifiable {
         self.reserveUrl = reserveUrl
         self.libraryStates = libraryStates
     }
+
+    public init(id: UUID = UUID(), name: String = "", systemName: String = "", state: String = "", reserveUrl: String = "", libraryStates: [LibraryState] = []) {
+        self.id = id
+        self.name = name
+        self.systemName = systemName
+        self.state = state
+        self.reserveUrl = reserveUrl
+        self.libraryStates = libraryStates
+    }
 }
 
 public struct LibraryState: Decodable, Identifiable {
@@ -39,6 +48,12 @@ public struct LibraryState: Decodable, Identifiable {
                   throw ResponseError.unexpectedObject(object)
               }
         self.name = dictionary.0
+        self.state = state
+    }
+
+    public init(id: UUID = UUID(), name: String = "", state: BookState = .available) {
+        self.id = id
+        self.name = name
         self.state = state
     }
 }
