@@ -13,12 +13,14 @@ import CalilClient
 final class MockSearchBookResultInteractor {
     init() {}
     var output: SearchBookResultInteractorOutput?
+    var searchForBooksInTheLibrariesCallCount = 0
     var mockLibraryBooks: [LibraryBook] = []
     var mockError: Error?
 }
 
 extension MockSearchBookResultInteractor: SearchBookResultInteractorProtocol {
     func searchForBooksInTheLibraries(isbn: String, libraryIds: [String]) {
+        searchForBooksInTheLibrariesCallCount += 1
         if let error = mockError {
             self.output?.failureSearch(error)
         } else {
