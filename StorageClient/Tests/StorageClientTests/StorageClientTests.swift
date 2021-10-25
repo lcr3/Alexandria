@@ -79,6 +79,25 @@ final class StorageClientTests: XCTestCase {
         XCTAssertEqual(client.searchHistoryWords[4], expectSearchWord6)
     }
 
+    func testAlreadySearchWord() throws {
+        // Test init value
+        let expectSearchWord1 = "word1"
+        XCTAssertEqual(client.searchHistoryWords, [])
+
+        // Execute
+        client.saveSearchHistory(word: expectSearchWord1)
+
+        // Verify
+        XCTAssertEqual(client.searchHistoryWords.count, 1)
+        XCTAssertEqual(client.searchHistoryWords.first, expectSearchWord1)
+
+        client.saveSearchHistory(word: expectSearchWord1)
+
+        // Verify
+        XCTAssertEqual(client.searchHistoryWords.count, 1)
+        XCTAssertEqual(client.searchHistoryWords.first, expectSearchWord1)
+    }
+
     func testReset() throws {
         // Test init value
         XCTAssertEqual(client.libraryIds, [])

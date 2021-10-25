@@ -47,6 +47,9 @@ extension StorageClient: StorageClientProtocol {
 
     public func saveSearchHistory(word: String) {
         var searchWords = searchHistoryWords
+        if searchWords.contains(word) {
+            return
+        }
         if searchWords.count >= maxSerchHistoryCount {
             searchWords.remove(at: 0)
         }
