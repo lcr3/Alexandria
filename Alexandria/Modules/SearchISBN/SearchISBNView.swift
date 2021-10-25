@@ -34,42 +34,56 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                         }.padding(.trailing, 44)
                     )
                 }
-                if presenter.books.isEmpty {
-                    Section("最近の検索") {
-                        ForEach(presenter.searchHistoryWords, id: \.self) { word in
-                            HStack {
-                                Text(word)
-                                Spacer()
-                                Image(systemName: "arrow.up.right.square.fill")
-                            }.onTapGesture {
-                                presenter.searchHistoryCellTapped(word: word)
-                            }
-                        }
+                if presenter.isSearching {
+                    HStack {
+                        Spacer()
+                        ActivityIndicator(
+                            isAnimating: $presenter.isSearching,
+                            style: .large,
+                            color: UIColor.white
+                        )
+                        Spacer()
                     }
                 } else {
-                    Section {
-                        ForEach(presenter.books) { book in
-                            NavigationLink(destination:
-                                            LazyView(
-                                                SearchBookResultWireFrame.makeSearchBookResultView(
-                                                    title: book.title,
-                                                    isbn: book.isbn,
-                                                    libraryIds: presenter.libraryIds()
-                                                )
-                                            )
-                            ) {
-                                HStack(spacing: 16) {
-                                    if !book.imageUrl.isEmpty {
-                                        AsyncImage(url: URL(string: book.imageUrl))
-                                            .frame(maxWidth: 32, maxHeight: 32)
-                                    }
-                                    Text(book.title)
-                                }.frame(height: 60)
+                    if presenter.books.isEmpty {
+                        Section("最近の検索") {
+                            ForEach(presenter.searchHistoryWords, id: \.self) { word in
+                                HStack {
+                                    Text(word)
+                                    Spacer()
+                                    Image(systemName: "arrow.up.right.square.fill")
+                                }
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    presenter.searchHistoryCellTapped(word: word)
+                                }
                             }
                         }
+                    } else {
+                        Section {
+                            ForEach(presenter.books) { book in
+                                NavigationLink(destination:
+                                                LazyView(
+                                                    SearchBookResultWireFrame.makeSearchBookResultView(
+                                                        title: book.title,
+                                                        isbn: book.isbn,
+                                                        libraryIds: presenter.libraryIds()
+                                                    )
+                                                )
+                                ) {
+                                    HStack(spacing: 16) {
+                                        if !book.imageUrl.isEmpty {
+                                            AsyncImage(url: URL(string: book.imageUrl))
+                                                .frame(maxWidth: 32, maxHeight: 32)
+                                        }
+                                        Text(book.title)
+                                    }.frame(height: 60)
+                                }
+                            }
+                        }
+                        .animation(.easeIn, value: 2)
+                        .listStyle(InsetGroupedListStyle())
                     }
-                    .animation(.easeIn, value: 2)
-                    .listStyle(InsetGroupedListStyle())
                 }
             }
             .navigationTitle(Text("書籍を検索"))

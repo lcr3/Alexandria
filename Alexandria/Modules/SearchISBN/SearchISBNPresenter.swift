@@ -45,7 +45,6 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
 extension SearchISBNPresenter: SearchISBNViewProtocol {
     func editSeachBookName(_ name: String) {
         searchISBNBookName = name
-        isSearching = !searchISBNBookName.isEmpty
     }
 
     func searchButtonTapped() {
@@ -57,12 +56,12 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
         if searchISBNBookName.isEmpty {
             return
         }
+        isSearching = true
         interactor.searchBooks(name: searchISBNBookName)
     }
 
     func deleteButtonTapped() {
         searchISBNBookName = ""
-        isSearching = false
     }
 
     func searchHistoryCellTapped(word: String) {
@@ -92,10 +91,12 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
 
 extension SearchISBNPresenter: SearchISBNInteractorOutput {
     func successSearchBooks(_ books: [ISBNBook]) {
+        self.isSearching = false
         self.books = books
     }
 
     func failureSearchBooks(_ error: SearchISBNError) {
+        self.isSearching = false
         self.error = ErrorInfo(type: error)
     }
 }

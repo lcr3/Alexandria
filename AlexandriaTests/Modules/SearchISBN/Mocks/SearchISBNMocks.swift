@@ -18,12 +18,17 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
     var deleteLocationCalledCount = 0
     var isSavedNearLibrariesCalledCount = 0
     var mockLibraryIds: [String] = []
+    var mockSearchHistoryWords: [String] = []
     var mockIsSavedNearLibraries = false
     var output: SearchISBNInteractorOutput?
 
     func libraryIds() -> [String] {
         libraryIdsCalledCount += 1
         return mockLibraryIds
+    }
+
+    func searchHistoryWords() -> [String] {
+        return mockSearchHistoryWords
     }
 
     func searchBooks(name: String) {
@@ -56,10 +61,6 @@ extension MockSearchISBNPresenter: SearchISBNInteractorOutput {
     func failureSearchBooks(_ error: SearchISBNError) {
         self.error = ErrorInfo(type: error)
     }
-
-    func resultSearchHistoryWords(_ words: [String]) {
-        self.searchHistoryWords = words
-    }
 }
 
 final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
@@ -89,6 +90,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     var mockLibraryIds: [String]
     var searchButtonTappedCalledCount = 0
     var deleteButtonTappedCalledCount = 0
+    var searchHistoryCellTappedCalledCount = 0
     var locationDeleteButtonTappedCalledCount = 0
     var locationDeleteAlertButtonTappedCalledCount = 0
     var isCurrentLocationNotSetAlertOKButtonTappedCalledCount = 0
@@ -103,6 +105,10 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
 
     func deleteButtonTapped() {
         deleteButtonTappedCalledCount += 1
+    }
+
+    func searchHistoryCellTapped(word: String) {
+        searchHistoryCellTappedCalledCount += 1
     }
 
     func locationDeleteButtonTapped() {
