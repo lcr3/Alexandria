@@ -15,6 +15,7 @@ protocol SearchISBNPresenterProtocol {
     func editSeachBookName(_ name: String)
     func searchButtonTapped()
     func deleteButtonTapped()
+    func searchHistoryCellTapped(word: String)
     func locationDeleteButtonTapped()
     func locationDeleteAlertButtonTapped()
     func isCurrentLocationNotSetAlertOKButtonTapped()
@@ -62,6 +63,11 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     func deleteButtonTapped() {
         searchISBNBookName = ""
         isSearching = false
+    }
+
+    func searchHistoryCellTapped(word: String) {
+        searchISBNBookName = word
+        searchButtonTapped()
     }
 
     func isCurrentLocationNotSetAlertOKButtonTapped() {

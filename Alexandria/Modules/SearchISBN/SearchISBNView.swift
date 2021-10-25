@@ -41,6 +41,8 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                                 Text(word)
                                 Spacer()
                                 Image(systemName: "arrow.up.right.square.fill")
+                            }.onTapGesture {
+                                presenter.searchHistoryCellTapped(word: word)
                             }
                         }
                     }
