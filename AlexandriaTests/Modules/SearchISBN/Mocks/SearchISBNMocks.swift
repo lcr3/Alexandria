@@ -11,7 +11,6 @@ import StorageClient
 @testable import Alexandria
 
 final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
-
     init() {}
 
     var libraryIdsCalledCount = 0
@@ -39,6 +38,14 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
         isSavedNearLibrariesCalledCount += 1
         return mockIsSavedNearLibraries
     }
+
+    func saveSearch(word: String) {
+
+    }
+
+    func fetchSearchHistoryWords() {
+
+    }
 }
 
 extension MockSearchISBNPresenter: SearchISBNInteractorOutput {
@@ -49,6 +56,10 @@ extension MockSearchISBNPresenter: SearchISBNInteractorOutput {
     func failureSearchBooks(_ error: SearchISBNError) {
         self.error = ErrorInfo(type: error)
     }
+
+    func resultSearchHistoryWords(_ words: [String]) {
+        self.searchHistoryWords = words
+    }
 }
 
 final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
@@ -57,6 +68,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     init(interactor: SearchISBNInteractorProtocol) {
         self.interactor = interactor
         books = []
+        searchHistoryWords = []
         searchISBNBookName = ""
         isCurrentLocationNotSet = false
         mockLibraryIds = []
@@ -67,6 +79,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     }
 
     var books: [ISBNBook]
+    var searchHistoryWords: [String]
     var isSearching: Bool
     var isShowModal: Bool
     var isShowDeleteLocationAlert: Bool
@@ -107,21 +120,35 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     func libraryIds() -> [String] {
         return mockLibraryIds
     }
+
+    func fetchSearchHistoryWords() {
+
+    }
 }
 
 class MockStorageClient: StorageClientProtocol {
-    var mockLibraryIds: [String] = []
+    var mockLibraryIds: [String]
+    var mocksearchHistoryWords: [String]
 
     init() {
         mockLibraryIds = []
+        mocksearchHistoryWords = []
     }
 
     var libraryIds: [String] {
         return mockLibraryIds
     }
 
+    var searchHistoryWords: [String] {
+        return mocksearchHistoryWords
+    }
+
     func saveLibraryIds(_ ids: [String]) {
         self.mockLibraryIds = ids
+    }
+
+    func saveSearchHistory(word: String) {
+        mocksearchHistoryWords.append(word)
     }
 
     func resetLibraryIds() {

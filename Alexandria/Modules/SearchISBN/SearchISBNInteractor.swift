@@ -7,6 +7,7 @@ protocol SearchISBNInteractorOutput: AnyObject {
 
 protocol SearchISBNInteractorProtocol {
     func libraryIds() -> [String]
+    func searchHistoryWords() -> [String]
     func searchBooks(name: String)
     func deleteLocation()
     func isSavedNearLibraries() -> Bool
@@ -23,6 +24,7 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
     }
 
     func searchBooks(name: String) {
+        dependencies.storegeClient.saveSearchHistory(word: name)
         dependencies.isbnClient.searchISBN(title: name) { result in
             switch result {
             case .success(let books):
@@ -48,5 +50,9 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
 
     func libraryIds() -> [String] {
         return dependencies.storegeClient.libraryIds
+    }
+
+    func searchHistoryWords() -> [String] {
+        return dependencies.storegeClient.searchHistoryWords
     }
 }

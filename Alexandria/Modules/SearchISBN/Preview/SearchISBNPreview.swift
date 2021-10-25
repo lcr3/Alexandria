@@ -40,13 +40,19 @@ struct PreviewISBNClient: ISBNClientProtocol {
 }
 
 struct PreviewStorageClient: StorageClientProtocol {
+    var searchHistoryWords: [String]
     var libraryIds: [String]
 
     init() {
         self.libraryIds = ["1234"]
+        self.searchHistoryWords = ["履歴"]
     }
 
     func saveLibraryIds(_ ids: [String]) {
+
+    }
+
+    func saveSearchHistory(word: String) {
 
     }
 
