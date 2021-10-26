@@ -52,10 +52,8 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
             isCurrentLocationNotSet = true
             return
         }
-
-        if searchISBNBookName.isEmpty {
-            return
-        }
+        if isSearching { return }
+        if searchISBNBookName.isEmpty { return }
         isSearching = true
         interactor.searchBooks(name: searchISBNBookName)
     }
