@@ -2,7 +2,7 @@ import CalilClient
 
 protocol SearchBookResultInteractorOutput: AnyObject {
     func successSearch(_ libraryBooks: [LibraryBook])
-    func failureSearch(_: Error)
+    func failureSearch(_: SearchBookResultInteractorError)
 }
 
 protocol SearchBookResultInteractorProtocol {
@@ -28,8 +28,17 @@ extension SearchBookResultInteractor: SearchBookResultInteractorProtocol {
                 self.output?.successSearch(libraryBooks)
             case .failure(let error):
                 print(error)
-                self.output?.failureSearch(error)
+                self.output?.failureSearch(.network)
             }
         }
     }
+}
+
+enum SearchBookResultInteractorError: Error {
+    case unknow
+    case network
+}
+
+extension SearchBookResultInteractorError: Identifiable {
+    var id: Self { self }
 }

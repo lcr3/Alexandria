@@ -9,9 +9,12 @@ protocol SearchBookResultPresenterProtocol {
     var libraryBooks: [LibraryBook] { get set }
     var isLoading: Bool { get set }
     var selectedBook: LibraryBook? { get }
+    var error: SearchBookResultInteractorError? { get set }
+
+    func errorAlertOkButtonTapped()
 }
 
-final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, ObservableObject {
+final class SearchBookResultPresenter: ObservableObject {
     let isbn: String
     let libraryIds: [String]
     let title: String
@@ -19,7 +22,8 @@ final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, Observ
     @Published var libraryBooks: [LibraryBook]
     @Published var isLoading: Bool
     @Published var selectedBook: LibraryBook?
-    
+    @Published var error: SearchBookResultInteractorError?
+
     private let interactor: SearchBookResultInteractorProtocol
     
     init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
@@ -33,13 +37,20 @@ final class SearchBookResultPresenter: SearchBookResultPresenterProtocol, Observ
     }
 }
 
+extension SearchBookResultPresenter: SearchBookResultPresenterProtocol {
+    func errorAlertOkButtonTapped() {
+        self.error = nil
+    }
+}
+
 extension SearchBookResultPresenter: SearchBookResultInteractorOutput {
     func successSearch(_ libraryBooks: [LibraryBook]) {
         isLoading = false
         self.libraryBooks = libraryBooks
     }
 
-    func failureSearch(_: Error) {
+    func failureSearch(_: SearchBookResultInteractorError) {
         isLoading = false
+        self.error = error
     }
 }

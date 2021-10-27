@@ -56,6 +56,15 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                 }.edgesIgnoringSafeArea(.all)
             }
         }
+        .alert(item: $presenter.error, content: { error in
+            Alert(
+                title: Text("エラー"),
+                message: Text(error.localizedDescription),
+                dismissButton: .default(Text("OK"), action: {
+                    presenter.errorAlertOkButtonTapped()
+                })
+            )
+        })
         .safariView(item: $presenter.selectedBook) {
             // onDismiss
         } content: { book in
