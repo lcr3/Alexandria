@@ -15,7 +15,7 @@ final class MockSearchBookResultInteractor {
     var output: SearchBookResultInteractorOutput?
     var searchForBooksInTheLibrariesCallCount = 0
     var mockLibraryBooks: [LibraryBook] = []
-    var mockError: Error?
+    var mockError: SearchBookResultInteractorError?
 }
 
 extension MockSearchBookResultInteractor: SearchBookResultInteractorProtocol {
@@ -36,6 +36,7 @@ final class MockSearchBookResultPresenter: SearchBookResultPresenterProtocol {
     var libraryBooks: [LibraryBook]
     var isLoading: Bool
     var selectedBook: LibraryBook?
+    var error: SearchBookResultInteractorError?
     private let interactor: SearchBookResultInteractorProtocol
 
     init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
@@ -47,6 +48,9 @@ final class MockSearchBookResultPresenter: SearchBookResultPresenterProtocol {
         isLoading = true
         interactor.searchForBooksInTheLibraries(isbn: isbn, libraryIds: libraryIds)
     }
+
+    func errorAlertOkButtonTapped() {
+    }
 }
 
 extension MockSearchBookResultPresenter: SearchBookResultInteractorOutput {
@@ -55,7 +59,7 @@ extension MockSearchBookResultPresenter: SearchBookResultInteractorOutput {
         self.libraryBooks = libraryBooks
     }
 
-    func failureSearch(_: Error) {
+    func failureSearch(_: SearchBookResultInteractorError) {
         isLoading = false
         // TODO: error
     }

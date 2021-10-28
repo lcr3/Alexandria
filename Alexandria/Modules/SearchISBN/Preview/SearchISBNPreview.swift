@@ -60,6 +60,10 @@ struct PreviewStorageClient: StorageClientProtocol {
 
     }
 
+    func resetSearchHistory() {
+
+    }
+
     func reset() {
 
     }

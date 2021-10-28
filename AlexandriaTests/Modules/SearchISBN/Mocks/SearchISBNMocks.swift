@@ -51,6 +51,14 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
     func fetchSearchHistoryWords() {
 
     }
+
+    func featchSearchHistoryWords() {
+
+    }
+
+    func deleteHistory() {
+
+    }
 }
 
 extension MockSearchISBNPresenter: SearchISBNInteractorOutput {
@@ -60,6 +68,10 @@ extension MockSearchISBNPresenter: SearchISBNInteractorOutput {
 
     func failureSearchBooks(_ error: SearchISBNError) {
         self.error = ErrorInfo(type: error)
+    }
+
+    func featchSearchHistory(words: [String]) {
+        self.searchHistoryWords = words
     }
 }
 
@@ -94,6 +106,9 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     var locationDeleteButtonTappedCalledCount = 0
     var locationDeleteAlertButtonTappedCalledCount = 0
     var isCurrentLocationNotSetAlertOKButtonTappedCalledCount = 0
+    var fetchSearchHistoryWordsCalledCount = 0
+    var historyDeleteButtonTappedCalledCount = 0
+
 
     func editSeachBookName(_ name: String) {
         searchISBNBookName = name
@@ -128,8 +143,13 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     }
 
     func fetchSearchHistoryWords() {
-
+        fetchSearchHistoryWordsCalledCount += 1
     }
+
+    func historyDeleteButtonTapped() {
+        historyDeleteButtonTappedCalledCount += 1
+    }
+
 }
 
 class MockStorageClient: StorageClientProtocol {
@@ -163,6 +183,10 @@ class MockStorageClient: StorageClientProtocol {
 
     func reset() {
         mockLibraryIds = []
+    }
+
+    func resetSearchHistory() {
+
     }
 }
 
