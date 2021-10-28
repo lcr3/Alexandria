@@ -6,6 +6,7 @@ public protocol StorageClientProtocol {
 
     func saveLibraryIds(_ ids: [String])
     func resetLibraryIds()
+    func resetSearchHistory()
     func saveSearchHistory(word: String)
     func reset()
 }
@@ -55,6 +56,10 @@ extension StorageClient: StorageClientProtocol {
         }
         searchWords.append(word)
         userDafaults.set(searchWords, forKey: searchHistoryWordsKey)
+    }
+
+    public func resetSearchHistory() {
+        userDafaults.set([], forKey: searchHistoryWordsKey)
     }
 
     public func reset() {
