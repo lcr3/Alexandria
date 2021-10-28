@@ -100,6 +100,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     var searchISBNBookName: String
     var isCurrentLocationNotSet: Bool
     var mockLibraryIds: [String]
+    var onAppearCalledCount = 0
     var searchButtonTappedCalledCount = 0
     var deleteButtonTappedCalledCount = 0
     var searchHistoryCellTappedCalledCount = 0
@@ -109,6 +110,9 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     var fetchSearchHistoryWordsCalledCount = 0
     var historyDeleteButtonTappedCalledCount = 0
 
+    func onAppear() {
+        onAppearCalledCount += 1
+    }
 
     func editSeachBookName(_ name: String) {
         searchISBNBookName = name
