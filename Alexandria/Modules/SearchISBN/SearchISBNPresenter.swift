@@ -12,10 +12,12 @@ protocol SearchISBNPresenterProtocol {
     var isShowDeleteLocationAlert: Bool { get set }
     var error: ErrorInfo? { get set }
 
+    func onAppear()
     func editSeachBookName(_ name: String)
     func searchButtonTapped()
     func deleteButtonTapped()
     func searchHistoryCellTapped(word: String)
+    func historyDeleteButtonTapped()
     func locationDeleteButtonTapped()
     func locationDeleteAlertButtonTapped()
     func isCurrentLocationNotSetAlertOKButtonTapped()
@@ -30,9 +32,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var isCurrentLocationNotSet = false
     @Published var isShowDeleteLocationAlert = false
     @Published var error: ErrorInfo?
-    var searchHistoryWords: [String] {
-        interactor.searchHistoryWords()
-    }
+    @Published var searchHistoryWords: [String] = []
 
     private let interactor: SearchISBNInteractorProtocol
     
@@ -43,6 +43,10 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
 }
 
 extension SearchISBNPresenter: SearchISBNViewProtocol {
+    func onAppear() {
+        interactor.featchSearchHistoryWords()
+    }
+
     func editSeachBookName(_ name: String) {
         searchISBNBookName = name
     }
@@ -65,6 +69,11 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     func searchHistoryCellTapped(word: String) {
         searchISBNBookName = word
         searchButtonTapped()
+    }
+
+    func historyDeleteButtonTapped() {
+        interactor.deleteHistory()
+        interactor.featchSearchHistoryWords()
     }
 
     func isCurrentLocationNotSetAlertOKButtonTapped() {
@@ -96,5 +105,9 @@ extension SearchISBNPresenter: SearchISBNInteractorOutput {
     func failureSearchBooks(_ error: SearchISBNError) {
         self.isSearching = false
         self.error = ErrorInfo(type: error)
+    }
+
+    func featchSearchHistory(words: [String]) {
+        self.searchHistoryWords = words
     }
 }

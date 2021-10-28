@@ -46,7 +46,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                 } else {
                     if presenter.books.isEmpty {
-                        Section("最近の検索") {
+                        Section {
                             ForEach(presenter.searchHistoryWords, id: \.self) { word in
                                 HStack {
                                     Text(word)
@@ -56,6 +56,16 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                                 .contentShape(Rectangle())
                                 .onTapGesture {
                                     presenter.searchHistoryCellTapped(word: word)
+                                }
+                            }
+                        } header: {
+                            HStack {
+                                Text("最近の検索")
+                                Spacer()
+                                Button {
+                                    presenter.historyDeleteButtonTapped()
+                                } label: {
+                                    Image(systemName: "xmark.circle")
                                 }
                             }
                         }
@@ -85,6 +95,9 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                         .listStyle(InsetGroupedListStyle())
                     }
                 }
+            }
+            .onAppear {
+                presenter.onAppear()
             }
             .navigationTitle(Text("書籍を検索"))
             .toolbar {

@@ -3,14 +3,16 @@ import ISBNClient
 protocol SearchISBNInteractorOutput: AnyObject {
     func successSearchBooks(_ books: [ISBNBook])
     func failureSearchBooks(_: SearchISBNError)
+    func featchSearchHistory(words: [String])
 }
 
 protocol SearchISBNInteractorProtocol {
     func libraryIds() -> [String]
-    func searchHistoryWords() -> [String]
+    func featchSearchHistoryWords()
     func searchBooks(name: String)
     func deleteLocation()
     func isSavedNearLibraries() -> Bool
+    func deleteHistory()
 
     var output: SearchISBNInteractorOutput? { get set }
 }
@@ -52,7 +54,11 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
         return dependencies.storegeClient.libraryIds
     }
 
-    func searchHistoryWords() -> [String] {
-        return dependencies.storegeClient.searchHistoryWords
+    func featchSearchHistoryWords() {
+        self.output?.featchSearchHistory(words: dependencies.storegeClient.searchHistoryWords)
+    }
+
+    func deleteHistory() {
+        dependencies.storegeClient.resetSearchHistory()
     }
 }
