@@ -2,7 +2,21 @@ name: APIKit, nameSpecified: APIKit, owner: ishkawa, version: 5.2.0
 
 name: BetterSafariView, nameSpecified: BetterSafariView, owner: stleamist, version: 2.4.0
 
+name: HeliumLogger, nameSpecified: HeliumLogger, owner: Kitura, version: 1.9.200
+
+name: LicensePlist, nameSpecified: LicensePlist, owner: mono0926, version: 3.14.4
+
+name: LoggerAPI, nameSpecified: LoggerAPI, owner: Kitura, version: 1.9.200
+
 name: OHHTTPStubs, nameSpecified: OHHTTPStubs, owner: AliSoftware, version: 9.1.0
+
+name: swift-argument-parser, nameSpecified: swift-argument-parser, owner: apple, version: 1.0.1
+
+name: swift-html-entities, nameSpecified: HTMLEntities, owner: Kitura, version: 3.0.200
+
+name: swift-log, nameSpecified: swift-log, owner: apple, version: 1.4.2
+
+name: YamlSwift, nameSpecified: Yaml, owner: behrang, version: 3.4.4
 
 add-version-numbers: false
 
