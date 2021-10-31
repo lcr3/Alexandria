@@ -51,7 +51,7 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
                 location.coordinate.latitude,
                 location.coordinate.longitude
             ),
-            span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         )
 
         interactor.searchNearbyLibraries(
