@@ -157,12 +157,14 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
 }
 
 class MockStorageClient: StorageClientProtocol {
+    var isHaveStarted: Bool
     var mockLibraryIds: [String]
     var mocksearchHistoryWords: [String]
 
     init() {
         mockLibraryIds = []
         mocksearchHistoryWords = []
+        isHaveStarted = true
     }
 
     var libraryIds: [String] {
@@ -179,6 +181,10 @@ class MockStorageClient: StorageClientProtocol {
 
     func saveSearchHistory(word: String) {
         mocksearchHistoryWords.append(word)
+    }
+
+    func saveIsHaveStarted() {
+        isHaveStarted = true
     }
 
     func resetLibraryIds() {

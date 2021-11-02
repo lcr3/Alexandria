@@ -8,6 +8,7 @@ protocol SelectAddressPresenterProtocol {
     var region: MKCoordinateRegion { get set }
     var nearLibraries: [Library] { get set }
     func locationButtonTapped()
+    func firstAlertOkButtonTapped()
     func okButtonTapped()
 }
 
@@ -17,6 +18,7 @@ final class SelectAddressPresenter: ObservableObject {
     @Published var isPresented: Binding<Bool>
     @Published var userTrackingMode: MapUserTrackingMode
     @Published var libraryAnnotations: [AnnotationItem]
+    @Published var isHaveStarted: Bool
 
     private let interactor: SelectAddressInteractorProtocol
     
@@ -27,10 +29,15 @@ final class SelectAddressPresenter: ObservableObject {
         self.isPresented = isPresented
         self.userTrackingMode = .follow
         self.libraryAnnotations = []
+        self.isHaveStarted = false
     }
 }
 
 extension SelectAddressPresenter: SelectAddressPresenterProtocol {
+    func checkHaveStarted() {
+        isHaveStarted = interactor.isHaveStarted()
+    }
+
     func locationButtonTapped() {
         interactor.requestLocation()
     }
@@ -41,6 +48,10 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
         interactor.saveLibraryIds(nearLibraryIds)
         interactor.stopUpdatingLocation()
         self.isPresented.wrappedValue = false
+    }
+
+    func firstAlertOkButtonTapped() {
+        interactor.saveIsHaveStarted()
     }
 }
 

@@ -29,17 +29,15 @@ class SearchISBNPresenterTests: XCTestCase {
         // setup
         let editName = "abcdefg"
         XCTAssertEqual(presenter.isSearching, false)
-
+        
         // execute
         presenter.editSeachBookName(editName)
 
         // verify
         XCTAssertEqual(presenter.searchISBNBookName, editName)
-        XCTAssertEqual(presenter.isSearching, true)
 
         presenter.editSeachBookName("")
         XCTAssertEqual(presenter.searchISBNBookName, "")
-        XCTAssertEqual(presenter.isSearching, false)
     }
 
     func testWhenLocationNotSetSearchButtonTapped() throws {
@@ -78,7 +76,6 @@ class SearchISBNPresenterTests: XCTestCase {
         // setup
         presenter.editSeachBookName("abcdefg")
         XCTAssertEqual(presenter.searchISBNBookName, "abcdefg")
-        XCTAssertEqual(presenter.isSearching, true)
 
         // execute
         presenter.deleteButtonTapped()

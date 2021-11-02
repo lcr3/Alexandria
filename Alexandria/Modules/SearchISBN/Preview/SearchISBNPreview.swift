@@ -42,10 +42,12 @@ struct PreviewISBNClient: ISBNClientProtocol {
 struct PreviewStorageClient: StorageClientProtocol {
     var searchHistoryWords: [String]
     var libraryIds: [String]
+    var isHaveStarted: Bool
 
     init() {
         self.libraryIds = ["1234"]
         self.searchHistoryWords = ["履歴"]
+        self.isHaveStarted = true
     }
 
     func saveLibraryIds(_ ids: [String]) {
@@ -53,6 +55,10 @@ struct PreviewStorageClient: StorageClientProtocol {
     }
 
     func saveSearchHistory(word: String) {
+
+    }
+
+    func saveIsHaveStarted() {
 
     }
 
