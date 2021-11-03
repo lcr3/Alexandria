@@ -7,7 +7,6 @@ protocol SelectAddressViewProtocol {
 
 struct SelectAddressView: View, SelectAddressViewProtocol {
     @ObservedObject private var presenter: SelectAddressPresenter
-    private let dependencies: SelectAddressViewDependenciesProtocol
 
     var body: some View {
         VStack {
@@ -71,10 +70,8 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
             presenter.checkHaveStarted()
         }
     }
-    init(presenter: SelectAddressPresenter,
-         dependencies: SelectAddressViewDependenciesProtocol) {
+    init(presenter: SelectAddressPresenter) {
         self.presenter = presenter
-        self.dependencies = dependencies
     }
 }
 

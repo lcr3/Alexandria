@@ -7,8 +7,7 @@ protocol SearchBookResultViewProtocol {
 
 struct SearchBookResultView: View, SearchBookResultViewProtocol {
     @ObservedObject private var presenter: SearchBookResultPresenter
-    private let dependencies: SearchBookResultViewDependenciesProtocol
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -78,10 +77,8 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
         }
     }
 
-    init(presenter: SearchBookResultPresenter,
-         dependencies: SearchBookResultViewDependenciesProtocol) {
+    init(presenter: SearchBookResultPresenter) {
         self.presenter = presenter
-        self.dependencies = dependencies
     }
 }
 

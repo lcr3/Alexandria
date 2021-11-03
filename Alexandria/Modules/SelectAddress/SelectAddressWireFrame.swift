@@ -22,9 +22,7 @@ struct SelectAddressWireFrame: SelectAddressWireFrameProtocol {
             isPresented: isPresented
         )
         interactor.output = presenter
-
-        let viewDependencies = SelectAddressViewDependencies()
-        let view = SelectAddressView(presenter: presenter, dependencies: viewDependencies)
+        let view = SelectAddressView(presenter: presenter)
         
         return AnyView(view)
     }
