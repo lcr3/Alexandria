@@ -118,18 +118,18 @@ final class StorageClientTests: XCTestCase {
 
     func testIsHaveStarted() throws {
         // Test init value
-        XCTAssertEqual(client.isHaveStarted, false)
+        XCTAssertEqual(client.isHaveStarted, true)
 
         // Execute
         client.saveIsHaveStarted()
 
         // Verify
-        XCTAssertEqual(client.isHaveStarted, true)
+        XCTAssertEqual(client.isHaveStarted, false)
 
         client.reset()
 
         // Verify
-        XCTAssertEqual(client.isHaveStarted, false)
+        XCTAssertEqual(client.isHaveStarted, true)
     }
     
     func testReset() throws {
