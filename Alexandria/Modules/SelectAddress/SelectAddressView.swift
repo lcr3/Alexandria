@@ -59,6 +59,16 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
             }.padding(.bottom, 16)
         }
         .background(Color.listBackground)
+        .onAppear {
+            presenter.checkHaveStarted()
+        }
+        .alert(item: $presenter.error, content: { error in
+            Alert(
+                title: Text("エラー"),
+                message: Text(error.description),
+                dismissButton: .default(Text("OK"))
+            )
+        })
         .alert("", isPresented: $presenter.isHaveStarted, actions: {
             Button("OK") {
                 presenter.firstAlertOkButtonTapped()
@@ -66,9 +76,6 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
         }, message: {
             Text("位置情報をオンにして現在地から近い図書館を検索します。")
         })
-        .onAppear {
-            presenter.checkHaveStarted()
-        }
     }
     init(presenter: SelectAddressPresenter) {
         self.presenter = presenter

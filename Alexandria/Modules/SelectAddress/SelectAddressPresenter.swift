@@ -7,6 +7,7 @@ import SwiftUI
 protocol SelectAddressPresenterProtocol {
     var region: MKCoordinateRegion { get set }
     var nearLibraries: [Library] { get set }
+    var error: SelectAddressError? { get set }
     func locationButtonTapped()
     func firstAlertOkButtonTapped()
     func okButtonTapped()
@@ -19,6 +20,7 @@ final class SelectAddressPresenter: ObservableObject {
     @Published var userTrackingMode: MapUserTrackingMode
     @Published var libraryAnnotations: [AnnotationItem]
     @Published var isHaveStarted: Bool
+    @Published var error: SelectAddressError?
 
     private let interactor: SelectAddressInteractorProtocol
     
@@ -91,8 +93,8 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
         self.libraryAnnotations = annotations
     }
 
-    func failureGetLibraries(_: Error) {
-
+    func failureGetLibraries(_: SelectAddressError) {
+        self.error = error
     }
 }
 

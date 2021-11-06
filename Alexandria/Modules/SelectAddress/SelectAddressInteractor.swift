@@ -7,7 +7,23 @@ protocol SelectAddressInteractorOutput: AnyObject {
     func onError(_: Error)
 
     func successGet(libraries: [Library])
-    func failureGetLibraries(_: Error)
+    func failureGetLibraries(_: SelectAddressError)
+}
+
+struct SelectAddressError: Error, Identifiable {
+    var id = UUID()
+    let title = "エラー"
+    let description: String
+
+    init(description: String) {
+        self.description = description
+    }
+    static func emptyNearbyLibraries() -> Self {
+        SelectAddressError(description: "近くに図書館が見つかりませんでした。")
+    }
+    static func error(_ description: String) -> Self {
+        SelectAddressError(description: description)
+    }
 }
 
 protocol SelectAddressInteractorProtocol {
@@ -43,9 +59,13 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
         dependencies.calilClient.searchNearbyLibraries(latitude: latitude, longitude: longitude) { result in
             switch result {
             case .success(let libraries):
-                self.output?.successGet(libraries: libraries)
+                if libraries.isEmpty {
+                    self.output?.failureGetLibraries(.emptyNearbyLibraries())
+                } else {
+                    self.output?.successGet(libraries: libraries)
+                }
             case .failure(let error):
-                self.output?.failureGetLibraries(error)
+                self.output?.failureGetLibraries(.error(error.localizedDescription))
             }
         }
     }
