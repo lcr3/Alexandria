@@ -357,6 +357,7 @@
 				2949E06626FC233E000BCB0F /* Sources */,
 				2949E06726FC233E000BCB0F /* Frameworks */,
 				2949E06826FC233E000BCB0F /* Resources */,
+				0FFB28CF2738BFBE00EFE04D /* Run Swiftformat */,
 				0FFB28CE2738AFD300EFE04D /* Run Swiftlint */,
 			);
 			buildRules = (
@@ -505,6 +506,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "sh Tools/lint.sh\n";
+		};
+		0FFB28CF2738BFBE00EFE04D /* Run Swiftformat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftformat";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh Tools/format.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
