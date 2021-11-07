@@ -48,6 +48,46 @@
                ReferencedContainer = "container:Alexandria.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CalilClientTests"
+               BuildableName = "CalilClientTests"
+               BlueprintName = "CalilClientTests"
+               ReferencedContainer = "container:CalilClient">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ISBNClientTests"
+               BuildableName = "ISBNClientTests"
+               BlueprintName = "ISBNClientTests"
+               ReferencedContainer = "container:ISBNClient">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "LocationClientTests"
+               BuildableName = "LocationClientTests"
+               BlueprintName = "LocationClientTests"
+               ReferencedContainer = "container:LocationClient">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "StorageClientTests"
+               BuildableName = "StorageClientTests"
+               BlueprintName = "StorageClientTests"
+               ReferencedContainer = "container:StorageClient">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
