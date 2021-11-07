@@ -1,4 +1,4 @@
-struct MockJsonResponse {
+enum MockJsonResponse {
     static var success: [String: Any] {
         [
             "Items": [
@@ -19,8 +19,8 @@ struct MockJsonResponse {
                     "author": "若林正恭",
                     "isbn": "4163908870",
                     "smallImageUrl": "",
-                ]
-            ]
+                ],
+            ],
         ]
     }
 }

@@ -23,15 +23,15 @@ final class SelectAddressPresenter: ObservableObject {
     @Published var error: SelectAddressError?
 
     private let interactor: SelectAddressInteractorProtocol
-    
+
     init(interactor: SelectAddressInteractorProtocol, isPresented: Binding<Bool>) {
         self.interactor = interactor
-        self.region = .defaultRegion
-        self.nearLibraries = []
+        region = .defaultRegion
+        nearLibraries = []
         self.isPresented = isPresented
-        self.userTrackingMode = .follow
-        self.libraryAnnotations = []
-        self.isHaveStarted = false
+        userTrackingMode = .follow
+        libraryAnnotations = []
+        isHaveStarted = false
     }
 }
 
@@ -49,7 +49,7 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
         let nearLibraryIds = nearLibraries.compactMap { $0.systemId }
         interactor.saveLibraryIds(nearLibraryIds)
         interactor.stopUpdatingLocation()
-        self.isPresented.wrappedValue = false
+        isPresented.wrappedValue = false
     }
 
     func firstAlertOkButtonTapped() {
@@ -78,7 +78,7 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
     }
 
     func successGet(libraries: [Library]) {
-        self.nearLibraries = libraries
+        nearLibraries = libraries
         var annotations: [AnnotationItem] = []
         libraries.forEach { library in
             annotations.append(
@@ -90,11 +90,11 @@ extension SelectAddressPresenter: SelectAddressInteractorOutput {
                 )
             )
         }
-        self.libraryAnnotations = annotations
+        libraryAnnotations = annotations
     }
 
     func failureGetLibraries(_: SelectAddressError) {
-        self.error = error
+        error = error
     }
 }
 
@@ -108,7 +108,6 @@ private extension MKCoordinateRegion {
         span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
     )
 }
-
 
 struct AnnotationItem: Identifiable {
     var coordinate: CLLocationCoordinate2D

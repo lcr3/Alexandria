@@ -9,16 +9,19 @@ let package = Package(
     products: [
         .library(
             name: "LocationClient",
-            targets: ["LocationClient"]),
+            targets: ["LocationClient"]
+        ),
     ],
     dependencies: [
     ],
     targets: [
         .target(
             name: "LocationClient",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "LocationClientTests",
-            dependencies: ["LocationClient"]),
+            dependencies: ["LocationClient"]
+        ),
     ]
 )

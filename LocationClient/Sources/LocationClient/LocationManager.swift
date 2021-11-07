@@ -1,7 +1,5 @@
 import CoreLocation
 
-public class LocationManager: CLLocationManager {
-}
+public class LocationManager: CLLocationManager {}
 
-extension LocationManager: LocationManagerProtocol {
-}
+extension LocationManager: LocationManagerProtocol {}

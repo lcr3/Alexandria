@@ -13,9 +13,10 @@ public struct ISBNBook: Identifiable, Equatable {
               let title = dictionary["title"] as? String,
               let author = dictionary["author"] as? String,
               let isbn = dictionary["isbn"] as? String,
-              let imageUrl = dictionary["smallImageUrl"] as? String else {
-                  throw ResponseError.unexpectedObject(object)
-              }
+              let imageUrl = dictionary["smallImageUrl"] as? String
+        else {
+            throw ResponseError.unexpectedObject(object)
+        }
         self.title = title
         self.author = author
         self.isbn = isbn

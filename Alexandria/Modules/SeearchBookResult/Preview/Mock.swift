@@ -3,22 +3,21 @@
 //  Alexandria
 //
 //  Created by lcr on 2021/10/05.
-//  
+//
 //
 
 import CalilClient
 import CoreLocation
 import LocationClient
 
-public struct PreviewCalilClient {
-}
+public struct PreviewCalilClient {}
 
 extension PreviewCalilClient: CalilClientProtocol {
-    public func searchNearbyLibraries(latitude: Double, longitude: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
+    public func searchNearbyLibraries(latitude _: Double, longitude _: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
         completion(.success([Library(name: "図書館")]))
     }
 
-    public func searchForBooksInTheLibraries(isbn: String, libraryIds: [String], completion: @escaping (Result<[LibraryBook], Error>) -> Void) {
+    public func searchForBooksInTheLibraries(isbn _: String, libraryIds _: [String], completion: @escaping (Result<[LibraryBook], Error>) -> Void) {
         completion(.success([]))
     }
 }
@@ -32,6 +31,5 @@ extension MockLocationClient: LocationClientProtocol {
         output?.onLocationUpdated(.init(latitude: 135, longitude: 35))
     }
 
-    public func stopUpdatingLocation() {
-    }
+    public func stopUpdatingLocation() {}
 }

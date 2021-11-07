@@ -1,8 +1,6 @@
 import SwiftUI
 
-protocol SearchISBNViewProtocol {
-    
-}
+protocol SearchISBNViewProtocol {}
 
 struct SearchISBNView: View, SearchISBNViewProtocol {
     @ObservedObject private var presenter: SearchISBNPresenter
@@ -73,13 +71,13 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                         Section {
                             ForEach(presenter.books) { book in
                                 NavigationLink(destination:
-                                                LazyView(
-                                                    SearchBookResultWireFrame.makeSearchBookResultView(
-                                                        title: book.title,
-                                                        isbn: book.isbn,
-                                                        libraryIds: presenter.libraryIds()
-                                                    )
-                                                )
+                                    LazyView(
+                                        SearchBookResultWireFrame.makeSearchBookResultView(
+                                            title: book.title,
+                                            isbn: book.isbn,
+                                            libraryIds: presenter.libraryIds()
+                                        )
+                                    )
                                 ) {
                                     HStack(spacing: 16) {
                                         if !book.imageUrl.isEmpty {
@@ -118,8 +116,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
             }
             .alert("設定されている位置情報を削除しますか？", isPresented: $presenter.isShowDeleteLocationAlert) {
                 VStack {
-                    Button("キャンセル", role: .cancel) {
-                    }
+                    Button("キャンセル", role: .cancel) {}
                     Button("削除する", role: .destructive) {
                         presenter.locationDeleteAlertButtonTapped()
                     }
@@ -132,8 +129,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     dismissButton: .default(Text("OK"))
                 )
             })
-            .sheet(isPresented: $presenter.isShowModal) {
-            } content: {
+            .sheet(isPresented: $presenter.isShowModal) {} content: {
                 LazyView(
                     SelectAddressWireFrame.makeSelectAddressView(
                         isPresented: $presenter.isShowModal

@@ -1,5 +1,5 @@
-import XCTest
 @testable import StorageClient
+import XCTest
 
 final class StorageClientTests: XCTestCase {
     var client: StorageClient!
@@ -131,7 +131,7 @@ final class StorageClientTests: XCTestCase {
         // Verify
         XCTAssertEqual(client.isHaveStarted, true)
     }
-    
+
     func testReset() throws {
         // Test init value
         XCTAssertEqual(client.libraryIds, [])

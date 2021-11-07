@@ -10,7 +10,7 @@ let package = Package(
         .library(
             name: "CalilClient",
             targets: [
-                "CalilClient"
+                "CalilClient",
             ]
         ),
     ],
@@ -22,7 +22,7 @@ let package = Package(
         .target(
             name: "CalilClient",
             dependencies: [
-                .product(name: "APIKit", package: "APIKit")
+                .product(name: "APIKit", package: "APIKit"),
             ]
         ),
         .testTarget(

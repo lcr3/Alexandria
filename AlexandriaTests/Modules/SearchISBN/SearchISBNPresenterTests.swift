@@ -3,14 +3,13 @@
 //  AlexandriaTests
 //
 //  Created by lcr on 2021/10/17.
-//  
+//
 //
 
-import XCTest
 @testable import Alexandria
+import XCTest
 
 class SearchISBNPresenterTests: XCTestCase {
-
     var presenter: SearchISBNPresenter!
     var interactor: MockSearchISBNInteractor!
 
@@ -29,7 +28,7 @@ class SearchISBNPresenterTests: XCTestCase {
         // setup
         let editName = "abcdefg"
         XCTAssertEqual(presenter.isSearching, false)
-        
+
         // execute
         presenter.editSeachBookName(editName)
 

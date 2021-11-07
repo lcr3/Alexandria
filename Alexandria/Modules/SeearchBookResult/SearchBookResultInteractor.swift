@@ -23,10 +23,10 @@ extension SearchBookResultInteractor: SearchBookResultInteractorProtocol {
     func searchForBooksInTheLibraries(isbn: String, libraryIds: [String]) {
         dependencies.calilClient.searchForBooksInTheLibraries(isbn: isbn, libraryIds: libraryIds) { result in
             switch result {
-            case .success(let libraryBooks):
+            case let .success(libraryBooks):
                 print(libraryBooks)
                 self.output?.successSearch(libraryBooks)
-            case .failure(let error):
+            case let .failure(error):
                 print(error)
                 self.output?.failureSearch(.network)
             }

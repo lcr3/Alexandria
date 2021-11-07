@@ -10,7 +10,7 @@ let package = Package(
         .library(
             name: "ISBNClient",
             targets: [
-                "ISBNClient"
+                "ISBNClient",
             ]
         ),
     ],
@@ -22,7 +22,7 @@ let package = Package(
         .target(
             name: "ISBNClient",
             dependencies: [
-                .product(name: "APIKit", package: "APIKit")
+                .product(name: "APIKit", package: "APIKit"),
             ]
         ),
         .testTarget(

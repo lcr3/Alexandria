@@ -2,8 +2,7 @@ import CoreLocationUI
 import MapKit
 import SwiftUI
 
-protocol SelectAddressViewProtocol {
-}
+protocol SelectAddressViewProtocol {}
 
 struct SelectAddressView: View, SelectAddressViewProtocol {
     @ObservedObject private var presenter: SelectAddressPresenter
@@ -17,12 +16,15 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                             coordinateRegion: $presenter.region,
                             showsUserLocation: true,
                             userTrackingMode: $presenter.userTrackingMode,
-                            annotationItems: presenter.libraryAnnotations) { item in
+                            annotationItems: presenter.libraryAnnotations
+                        ) { item in
                             MapMarker(coordinate: item.coordinate, tint: .red)
-                        }.frame(height: 300)
+                        }
+                        .frame(height: 300)
+                        .onTapGesture {}
                     }
-                        Section(header: Text("近隣の図書館検索結果")) {
-                            ForEach(presenter.nearLibraries) { library in
+                    Section(header: Text("近隣の図書館検索結果")) {
+                        ForEach(presenter.nearLibraries) { library in
                             HStack {
                                 Image(systemName: "mappin.circle.fill")
                                     .foregroundColor(.red)
@@ -41,7 +43,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                     .frame(minWidth: 0.0, maxWidth: .infinity)
                     .frame(height: 44)
                     .foregroundColor(.white)
-                    .background(presenter.nearLibraries.isEmpty ? .gray: .blue)
+                    .background(presenter.nearLibraries.isEmpty ? .gray : .blue)
                     .cornerRadius(14)
                     .disabled(presenter.nearLibraries.isEmpty)
 
@@ -77,6 +79,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
             Text("位置情報をオンにして現在地から近い図書館を検索します。")
         })
     }
+
     init(presenter: SelectAddressPresenter) {
         self.presenter = presenter
     }
@@ -85,7 +88,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
 struct SelectAdressView_Previews: PreviewProvider {
     static var previews: some View {
         SelectAddressWireFrame.makeSelectAddressView(isPresented: .constant(false),
-        calilClient: PreviewCalilClient(),
-        locationClient: MockLocationClient())
+                                                     calilClient: PreviewCalilClient(),
+                                                     locationClient: MockLocationClient())
     }
 }

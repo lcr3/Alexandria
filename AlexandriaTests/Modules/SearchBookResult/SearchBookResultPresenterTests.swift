@@ -3,7 +3,7 @@
 //  AlexandriaTests
 //
 //  Created by lcr on 2021/10/24.
-//  
+//
 //
 
 import CalilClient
@@ -12,7 +12,6 @@ import XCTest
 @testable import Alexandria
 
 class SearchBookResultPresenterTests: XCTestCase {
-
     var interactor: MockSearchBookResultInteractor!
     var presenter: SearchBookResultPresenter!
 
@@ -34,7 +33,7 @@ class SearchBookResultPresenterTests: XCTestCase {
             libraryStates: [
                 LibraryState(name: "千代田", state: .loan),
                 LibraryState(name: "四番町", state: .available),
-                LibraryState(name: "日比谷", state: .availableInTheLibrary)
+                LibraryState(name: "日比谷", state: .availableInTheLibrary),
             ]
         )
         interactor.mockLibraryBooks = [libraryBook]
@@ -45,7 +44,6 @@ class SearchBookResultPresenterTests: XCTestCase {
             libraryIds: ["1", "2", "3"]
         )
         interactor.output = presenter
-
 
         XCTAssertEqual(interactor.searchForBooksInTheLibrariesCallCount, 1)
     }

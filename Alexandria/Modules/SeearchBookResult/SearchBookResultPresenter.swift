@@ -25,7 +25,7 @@ final class SearchBookResultPresenter: ObservableObject {
     @Published var error: SearchBookResultInteractorError?
 
     private let interactor: SearchBookResultInteractorProtocol
-    
+
     init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
         self.interactor = interactor
         self.isbn = isbn
@@ -39,7 +39,7 @@ final class SearchBookResultPresenter: ObservableObject {
 
 extension SearchBookResultPresenter: SearchBookResultPresenterProtocol {
     func errorAlertOkButtonTapped() {
-        self.error = nil
+        error = nil
     }
 }
 
@@ -51,6 +51,6 @@ extension SearchBookResultPresenter: SearchBookResultInteractorOutput {
 
     func failureSearch(_: SearchBookResultInteractorError) {
         isLoading = false
-        self.error = error
+        error = error
     }
 }

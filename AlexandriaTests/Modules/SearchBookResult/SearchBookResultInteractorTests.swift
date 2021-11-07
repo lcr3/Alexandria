@@ -3,15 +3,14 @@
 //  AlexandriaTests
 //
 //  Created by lcr on 2021/10/22.
-//  
+//
 //
 
+@testable import Alexandria
 import CalilClient
 import XCTest
-@testable import Alexandria
 
 class SearchBookResultInteractorTests: XCTestCase {
-
     var interactor: SearchBookResultInteractorProtocol!
     var presenter: MockSearchBookResultPresenter!
     var calilClient: MockCalilClient!
@@ -50,7 +49,7 @@ class SearchBookResultInteractorTests: XCTestCase {
             libraryStates: [
                 LibraryState(name: "千代田", state: .loan),
                 LibraryState(name: "四番町", state: .available),
-                LibraryState(name: "日比谷", state: .availableInTheLibrary)
+                LibraryState(name: "日比谷", state: .availableInTheLibrary),
             ]
         )
         calilClient.searchLibraryBooks = [libraryBook1]

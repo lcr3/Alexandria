@@ -1,10 +1,10 @@
-struct MockJsonResponse {
+enum MockJsonResponse {
     static var success: [[String: Any]] {
         [
             [
                 "city": "千代田区",
                 "short": "神田まちかど図書館",
-                "post": 101-0048,
+                "post": 101 - 0048,
                 "address": "東京都千代田区神田司町2-16 神田さくら館内",
                 "primary": 0,
                 "formal": "千代田区立神田まちかど図書館",
@@ -140,10 +140,9 @@ struct MockJsonResponse {
                         "libkey": [:],
                         "reserveurl": "",
                         "status": "Cache",
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ]
     }
 }
-

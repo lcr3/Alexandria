@@ -5,15 +5,13 @@ public class LocationClient: NSObject {
     public weak var output: LocationClientOutput?
     private var locationManager: LocationManagerProtocol?
 
-    private override init() {
-    }
+    override private init() {}
 
     public convenience init(locationManager: LocationManagerProtocol = LocationManager()) {
         self.init()
         self.locationManager = locationManager
         self.locationManager?.delegate = self
     }
-
 }
 
 extension LocationClient: LocationClientProtocol {
@@ -27,7 +25,7 @@ extension LocationClient: LocationClientProtocol {
 }
 
 extension LocationClient: CLLocationManagerDelegate {
-    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("[LocationClient] Delegate event didUpdateLocations: \(locations)")
         guard let location = locations.first else {
             output?.onError(LocationClientError.placemarkIsEmpty)
@@ -37,7 +35,7 @@ extension LocationClient: CLLocationManagerDelegate {
         output?.onLocationUpdated(location)
     }
 
-    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    public func locationManager(_: CLLocationManager, didFailWithError error: Error) {
         print("[LocationClient] Delegate event didFailWithError: \(error)")
         locationManager?.stopUpdatingLocation()
         output?.onError(error)

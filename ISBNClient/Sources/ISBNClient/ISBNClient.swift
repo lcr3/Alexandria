@@ -14,10 +14,10 @@ extension ISBNClient: ISBNClientProtocol {
         let request = ISBNRequest(title: title)
         Session.send(request) { result in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 print(response.count)
                 completion(.success(response))
-            case .failure(let error):
+            case let .failure(error):
                 print(error)
                 completion(.failure(error))
             }

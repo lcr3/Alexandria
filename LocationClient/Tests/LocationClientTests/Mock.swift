@@ -22,6 +22,7 @@ class TestMockLocationManager: LocationManagerProtocol {
     public func requestWhenInUseAuthorization() {
         callCountRequestWhenInUseAuthorization += 1
     }
+
     public func startUpdatingLocation() {
         guard let location = location else {
             delegate?.locationManager?(
@@ -52,6 +53,7 @@ class TestMockLocationClientOutput: LocationClientOutput {
         callCountOnLocationUpdated += 1
         self.location = location
     }
+
     public func onError(_ error: Error) {
         callCountOnError += 1
         self.error = error

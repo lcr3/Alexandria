@@ -4,7 +4,7 @@ public protocol StorageClientProtocol {
     var libraryIds: [String] { get }
     var searchHistoryWords: [String] { get }
     var isHaveStarted: Bool { get }
-    
+
     func saveLibraryIds(_ ids: [String])
     func resetLibraryIds()
     func resetSearchHistory()
@@ -21,7 +21,7 @@ public struct StorageClient {
     private let maxSerchHistoryCount = 5
 
     public init() {
-        self.userDafaults = UserDefaults.standard
+        userDafaults = UserDefaults.standard
     }
 }
 
@@ -71,7 +71,7 @@ extension StorageClient: StorageClientProtocol {
     public func saveIsHaveStarted() {
         userDafaults.set(true, forKey: isHaveStartedKey)
     }
-    
+
     public func reset() {
         guard let appDomain = Bundle.main.bundleIdentifier else {
             fatalError("domain is nil.")

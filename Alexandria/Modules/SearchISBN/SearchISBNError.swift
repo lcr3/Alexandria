@@ -3,7 +3,7 @@
 //  Alexandria
 //
 //  Created by lcr on 2021/10/13.
-//  
+//
 //
 
 import Foundation
@@ -33,7 +33,7 @@ enum SearchISBNError: Error, Equatable {
         switch self {
         case .noMatch:
             return "該当の図書は見つかりませんでした"
-        case .error(let message):
+        case let .error(message):
             return message
         }
     }

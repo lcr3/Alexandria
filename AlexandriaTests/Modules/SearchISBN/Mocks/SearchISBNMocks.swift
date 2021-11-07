@@ -3,12 +3,12 @@
 //  AlexandriaTests
 //
 //  Created by lcr on 2021/10/18.
-//  
+//
 //
 
+@testable import Alexandria
 import ISBNClient
 import StorageClient
-@testable import Alexandria
 
 final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
     init() {}
@@ -31,7 +31,7 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
         return mockSearchHistoryWords
     }
 
-    func searchBooks(name: String) {
+    func searchBooks(name _: String) {
         searchBooksCalledCount += 1
     }
 
@@ -44,21 +44,13 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
         return mockIsSavedNearLibraries
     }
 
-    func saveSearch(word: String) {
+    func saveSearch(word _: String) {}
 
-    }
+    func fetchSearchHistoryWords() {}
 
-    func fetchSearchHistoryWords() {
+    func featchSearchHistoryWords() {}
 
-    }
-
-    func featchSearchHistoryWords() {
-
-    }
-
-    func deleteHistory() {
-
-    }
+    func deleteHistory() {}
 }
 
 extension MockSearchISBNPresenter: SearchISBNInteractorOutput {
@@ -71,7 +63,7 @@ extension MockSearchISBNPresenter: SearchISBNInteractorOutput {
     }
 
     func featchSearchHistory(words: [String]) {
-        self.searchHistoryWords = words
+        searchHistoryWords = words
     }
 }
 
@@ -126,7 +118,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
         deleteButtonTappedCalledCount += 1
     }
 
-    func searchHistoryCellTapped(word: String) {
+    func searchHistoryCellTapped(word _: String) {
         searchHistoryCellTappedCalledCount += 1
     }
 
@@ -153,7 +145,6 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     func historyDeleteButtonTapped() {
         historyDeleteButtonTappedCalledCount += 1
     }
-
 }
 
 class MockStorageClient: StorageClientProtocol {
@@ -176,7 +167,7 @@ class MockStorageClient: StorageClientProtocol {
     }
 
     func saveLibraryIds(_ ids: [String]) {
-        self.mockLibraryIds = ids
+        mockLibraryIds = ids
     }
 
     func saveSearchHistory(word: String) {
@@ -195,9 +186,7 @@ class MockStorageClient: StorageClientProtocol {
         mockLibraryIds = []
     }
 
-    func resetSearchHistory() {
-
-    }
+    func resetSearchHistory() {}
 }
 
 class MockISBNClient: ISBNClientProtocol {
@@ -205,10 +194,10 @@ class MockISBNClient: ISBNClientProtocol {
     var error: Error?
 
     init() {
-        self.isbnBooks = []
+        isbnBooks = []
     }
 
-    func searchISBN(title: String, completion: @escaping (Result<[ISBNBook], Error>) -> Void) {
+    func searchISBN(title _: String, completion: @escaping (Result<[ISBNBook], Error>) -> Void) {
         if let error = error {
             completion(.failure(error))
         } else {

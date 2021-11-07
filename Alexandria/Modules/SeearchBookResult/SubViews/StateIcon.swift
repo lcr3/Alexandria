@@ -3,7 +3,7 @@
 //  Alexandria
 //
 //  Created by lcr on 2021/10/12.
-//  
+//
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct StateIcon: View {
 
     var body: some View {
         Circle()
-            .fill(isAvailable ? .green: .red)
+            .fill(isAvailable ? .green : .red)
             .frame(width: 5, height: 5)
     }
 }
@@ -23,4 +23,3 @@ struct StateIcon_Previews: PreviewProvider {
         StateIcon(isAvailable: true)
     }
 }
-

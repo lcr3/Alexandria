@@ -1,7 +1,7 @@
-import XCTest
+@testable import ISBNClient
 import OHHTTPStubs
 import OHHTTPStubsSwift
-@testable import ISBNClient
+import XCTest
 
 final class ISBNClientTests: XCTestCase {
     var client: ISBNClient!
@@ -20,7 +20,7 @@ final class ISBNClientTests: XCTestCase {
         // setup
         let testExpectation = expectation(description: "testSuccessResponse")
         stub(condition: pathEndsWith("/20170404")) { _ in
-            return HTTPStubsResponse(
+            HTTPStubsResponse(
                 jsonObject: MockJsonResponse.success,
                 statusCode: 200,
                 headers: nil
@@ -30,13 +30,13 @@ final class ISBNClientTests: XCTestCase {
         // execute
         client.searchISBN(title: "Mock word") { result in
             switch result {
-            case .success(let books):
+            case let .success(books):
                 // verify
                 XCTAssertEqual(books.count, 3)
                 XCTAssertEqual(books.first?.title, "社会人大学人見知り学部 卒業見込み")
                 XCTAssertEqual(books.first?.author, "若林正恭")
                 XCTAssertEqual(books.first?.isbn, "4041026148")
-            case .failure(_):
+            case .failure:
                 XCTFail("Unexpected error")
             }
             testExpectation.fulfill()

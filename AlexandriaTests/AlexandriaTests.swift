@@ -3,11 +3,11 @@
 //  AlexandriaTests
 //
 //  Created by lcr on 2021/09/23.
-//  
+//
 //
 
-import XCTest
 @testable import Alexandria
+import XCTest
 
 class AlexandriaTests: XCTestCase {
     override func setUpWithError() throws {
@@ -18,6 +18,5 @@ class AlexandriaTests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() throws {
-    }
+    func testExample() throws {}
 }

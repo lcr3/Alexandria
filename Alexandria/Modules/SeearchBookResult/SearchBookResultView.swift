@@ -2,8 +2,7 @@ import BetterSafariView
 import CalilClient
 import SwiftUI
 
-protocol SearchBookResultViewProtocol {
-}
+protocol SearchBookResultViewProtocol {}
 
 struct SearchBookResultView: View, SearchBookResultViewProtocol {
     @ObservedObject private var presenter: SearchBookResultPresenter

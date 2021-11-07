@@ -11,22 +11,21 @@ public struct CalilClient {
     private let libraryNameClient: LibraryNameClient
 
     public init() {
-        self.libraryNameClient = LibraryNameClient()
+        libraryNameClient = LibraryNameClient()
     }
 }
 
 extension CalilClient: CalilClientProtocol {
-
     public func searchNearbyLibraries(latitude: Double, longitude: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
         let request = SearchNearbyLibrariesRequest(latitude: latitude, longitude: longitude)
         Session.send(request) { result in
             switch result {
-            case .success(let libraries):
+            case let .success(libraries):
                 libraries.forEach { library in
                     libraryNameClient.set(name: library.name, key: library.systemId)
                 }
                 completion(.success(libraries))
-            case .failure(let error):
+            case let .failure(error):
                 completion(.failure(error))
             }
         }
@@ -40,10 +39,10 @@ extension CalilClient: CalilClientProtocol {
             libraryIds: libraryIds
         )
 
-        func poll(session: String = "") {
+        func poll(session _: String = "") {
             Session.send(request) { result in
                 switch result {
-                case .success(let response):
+                case let .success(response):
                     if response.isFinish {
                         print("検索終了")
                         var fixLibraryBooks: [LibraryBook] = []
@@ -59,7 +58,7 @@ extension CalilClient: CalilClientProtocol {
                             poll(session: response.session)
                         }
                     }
-                case .failure(let error):
+                case let .failure(error):
                     completion(.failure(error))
                 }
             }
@@ -71,12 +70,12 @@ extension CalilClient: CalilClientProtocol {
 /*
  図書検索で返ってくるデータに図書館の名前が紐付いていないため
  図書館検索時に取得した図書館名を保存しておく
-*/
+ */
 struct LibraryNameClient {
     private let userDafaults: UserDefaults
 
     public init() {
-        self.userDafaults = UserDefaults.standard
+        userDafaults = UserDefaults.standard
     }
 
     public func get(key: String) -> String {

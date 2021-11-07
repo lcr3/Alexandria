@@ -13,7 +13,7 @@ struct SearchBookResultWireFrame: SearchBookResultWireFrameProtocol {
             storageClient: storageClient
         )
         let interactor = SearchBookResultInteractor(dependencies: interactorDependencies)
-        
+
         let presenter = SearchBookResultPresenter(interactor: interactor, title: title, isbn: isbn, libraryIds: libraryIds)
         interactor.output = presenter
 

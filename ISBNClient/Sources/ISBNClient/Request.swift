@@ -27,10 +27,11 @@ struct ISBNRequest: Request {
         ]
     }
 
-    func response(from object: Any, urlResponse: HTTPURLResponse) throws -> [ISBNBook] {
+    func response(from object: Any, urlResponse _: HTTPURLResponse) throws -> [ISBNBook] {
         print(object)
         guard let dictionary = object as? [String: Any],
-              let results = dictionary["Items"] as? [[String: Any]] else {
+              let results = dictionary["Items"] as? [[String: Any]]
+        else {
             throw ResponseError.unexpectedObject(object)
         }
         var books: [ISBNBook] = []

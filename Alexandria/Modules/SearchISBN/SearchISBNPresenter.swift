@@ -35,10 +35,10 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var searchHistoryWords: [String] = []
 
     private let interactor: SearchISBNInteractorProtocol
-    
+
     init(interactor: SearchISBNInteractorProtocol) {
         self.interactor = interactor
-        self.isShowModal = !interactor.isSavedNearLibraries()
+        isShowModal = !interactor.isSavedNearLibraries()
     }
 }
 
@@ -98,16 +98,16 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
 
 extension SearchISBNPresenter: SearchISBNInteractorOutput {
     func successSearchBooks(_ books: [ISBNBook]) {
-        self.isSearching = false
+        isSearching = false
         self.books = books
     }
 
     func failureSearchBooks(_ error: SearchISBNError) {
-        self.isSearching = false
+        isSearching = false
         self.error = ErrorInfo(type: error)
     }
 
     func featchSearchHistory(words: [String]) {
-        self.searchHistoryWords = words
+        searchHistoryWords = words
     }
 }

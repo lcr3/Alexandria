@@ -1,7 +1,7 @@
-import XCTest
+@testable import CalilClient
 import OHHTTPStubs
 import OHHTTPStubsSwift
-@testable import CalilClient
+import XCTest
 
 final class CalilClientTests: XCTestCase {
     var client: CalilClient!
@@ -22,7 +22,7 @@ final class CalilClientTests: XCTestCase {
         // setup
         let testExpectation = expectation(description: "testSuccessResponse")
         stub(condition: pathEndsWith("/library")) { _ in
-            return HTTPStubsResponse(
+            HTTPStubsResponse(
                 jsonObject: MockJsonResponse.success,
                 statusCode: 200,
                 headers: nil
@@ -32,7 +32,7 @@ final class CalilClientTests: XCTestCase {
         // execute
         client.searchNearbyLibraries(latitude: 35.6895014, longitude: 139.6917337) { result in
             switch result {
-            case .success(let libraries):
+            case let .success(libraries):
                 // verify
                 let library = libraries.first
                 XCTAssertEqual(libraries.count, 5)
@@ -49,7 +49,7 @@ final class CalilClientTests: XCTestCase {
                 XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Nihon_Rik"), "日本大学理工学部駿河台図書館")
                 XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Nihon_Den"), "日本大学図書館歯学部分館")
                 XCTAssertEqual(UserDefaults.standard.string(forKey: "Univ_Tmd"), "東京医科歯科大学図書館")
-            case .failure(_):
+            case .failure:
                 XCTFail("Unexpected error")
             }
             testExpectation.fulfill()
@@ -61,7 +61,7 @@ final class CalilClientTests: XCTestCase {
         // setup
         let testExpectation = expectation(description: "testSuccessResponse")
         stub(condition: pathEndsWith("/library")) { _ in
-            return HTTPStubsResponse(
+            HTTPStubsResponse(
                 error: NSError(
                     domain: NSURLErrorDomain,
                     code: URLError.notConnectedToInternet.rawValue
@@ -72,9 +72,9 @@ final class CalilClientTests: XCTestCase {
         // execute
         client.searchNearbyLibraries(latitude: 35.6895014, longitude: 139.6917337) { result in
             switch result {
-            case .success(_):
+            case .success:
                 XCTFail("Unexpected error")
-            case .failure(_):
+            case .failure:
                 // verify
                 XCTAssertEqual(UserDefaults.standard.string(forKey: "Tokyo_Chiyoda"), nil)
                 XCTAssertEqual(UserDefaults.standard.string(forKey: "Special_Sonposoken"), nil)
@@ -91,7 +91,7 @@ final class CalilClientTests: XCTestCase {
         // setup
         let testExpectation = expectation(description: "testSuccessResponse")
         stub(condition: pathEndsWith("/check")) { _ in
-            return HTTPStubsResponse(
+            HTTPStubsResponse(
                 jsonObject: MockJsonResponse.finishSuccess,
                 statusCode: 200,
                 headers: nil
@@ -100,9 +100,9 @@ final class CalilClientTests: XCTestCase {
 
         client.searchForBooksInTheLibraries(isbn: "4334926940", libraryIds: []) { result in
             switch result {
-            case .success(let libraryBooks):
+            case let .success(libraryBooks):
                 XCTAssertEqual(libraryBooks.count, 5)
-            case .failure(_):
+            case .failure:
                 XCTFail("Unexpected error")
             }
             testExpectation.fulfill()

@@ -5,6 +5,7 @@ public struct Library: Decodable, Identifiable {
     public var id: String {
         return systemId
     }
+
     public let name: String
     public let address: String
     public let pref: String
@@ -26,9 +27,10 @@ public struct Library: Decodable, Identifiable {
               let systemId = dictionary["systemid"] as? String,
               let systemName = dictionary["systemname"] as? String,
               let category = dictionary["category"] as? String,
-              let geocode = dictionary["geocode"] as? String else {
-                  throw ResponseError.unexpectedObject(object)
-              }
+              let geocode = dictionary["geocode"] as? String
+        else {
+            throw ResponseError.unexpectedObject(object)
+        }
         self.name = name
         self.address = address
         self.pref = pref
@@ -39,7 +41,8 @@ public struct Library: Decodable, Identifiable {
         self.category = category
         let location = geocode.components(separatedBy: ",")
         guard let longitude = Double(location[0]),
-        let latitude = Double(location[1]) else {
+              let latitude = Double(location[1])
+        else {
             throw ResponseError.unexpectedObject(object)
         }
         self.latitude = latitude
@@ -55,7 +58,8 @@ public struct Library: Decodable, Identifiable {
                 systemName: String = "",
                 category: String = "",
                 latitude: Double = 0,
-                longitude: Double = 0) {
+                longitude: Double = 0)
+    {
         self.name = name
         self.address = address
         self.pref = pref

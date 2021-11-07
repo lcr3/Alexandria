@@ -1,6 +1,6 @@
 import CoreLocation
-import XCTest
 @testable import LocationClient
+import XCTest
 
 final class LocationClientTests: XCTestCase {
     var mockManager: TestMockLocationManager!
@@ -55,4 +55,3 @@ final class LocationClientTests: XCTestCase {
         XCTAssertEqual(mockOutput.callCountOnError, 1)
     }
 }
-

@@ -3,7 +3,7 @@
 //  AlexandriaTests
 //
 //  Created by lcr on 2021/10/22.
-//  
+//
 //
 
 import CalilClient
@@ -19,12 +19,12 @@ final class MockSearchBookResultInteractor {
 }
 
 extension MockSearchBookResultInteractor: SearchBookResultInteractorProtocol {
-    func searchForBooksInTheLibraries(isbn: String, libraryIds: [String]) {
+    func searchForBooksInTheLibraries(isbn _: String, libraryIds _: [String]) {
         searchForBooksInTheLibrariesCallCount += 1
         if let error = mockError {
-            self.output?.failureSearch(error)
+            output?.failureSearch(error)
         } else {
-            self.output?.successSearch(mockLibraryBooks)
+            output?.successSearch(mockLibraryBooks)
         }
     }
 }
@@ -49,8 +49,7 @@ final class MockSearchBookResultPresenter: SearchBookResultPresenterProtocol {
         interactor.searchForBooksInTheLibraries(isbn: isbn, libraryIds: libraryIds)
     }
 
-    func errorAlertOkButtonTapped() {
-    }
+    func errorAlertOkButtonTapped() {}
 }
 
 extension MockSearchBookResultPresenter: SearchBookResultInteractorOutput {
@@ -72,7 +71,7 @@ class MockCalilClient: CalilClientProtocol {
     var searchLibraryBooks: [LibraryBook] = []
     var searchLibraryBooksError: Error?
 
-    func searchNearbyLibraries(latitude: Double, longitude: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
+    func searchNearbyLibraries(latitude _: Double, longitude _: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
         if let error = searchNearbyLibrariesError {
             completion(.failure(error))
         } else {
@@ -80,7 +79,7 @@ class MockCalilClient: CalilClientProtocol {
         }
     }
 
-    func searchForBooksInTheLibraries(isbn: String, libraryIds: [String], completion: @escaping (Result<[LibraryBook], Error>) -> Void) {
+    func searchForBooksInTheLibraries(isbn _: String, libraryIds _: [String], completion: @escaping (Result<[LibraryBook], Error>) -> Void) {
         if let error = searchLibraryBooksError {
             completion(.failure(error))
         } else {

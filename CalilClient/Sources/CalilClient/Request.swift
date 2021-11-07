@@ -22,11 +22,10 @@ struct SearchNearbyLibrariesRequest: Request {
         parameters = ["appkey": "ee9d6e54dd4601e91d0d962975ff704d",
                       "geocode": "\(longitude),\(latitude)",
                       "format": "json",
-                      "callback": "",
-        ]
+                      "callback": ""]
     }
 
-    func response(from object: Any, urlResponse: HTTPURLResponse) throws -> [Library] {
+    func response(from object: Any, urlResponse _: HTTPURLResponse) throws -> [Library] {
         guard let dictionary = object as? [[String: Any]] else {
             throw ResponseError.unexpectedObject(object)
         }
@@ -38,7 +37,6 @@ struct SearchNearbyLibrariesRequest: Request {
         return books
     }
 }
-
 
 struct SearchForBooksInTheLibrariesRequest: Request {
     typealias Response = LibrarayResponse
@@ -62,11 +60,10 @@ struct SearchForBooksInTheLibrariesRequest: Request {
                       "isbn": isbn,
                       "systemid": libraryIds.joined(separator: ","),
                       "format": "json",
-                      "callback": "no"
-        ]
+                      "callback": "no"]
     }
 
-    func response(from object: Any, urlResponse: HTTPURLResponse) throws -> LibrarayResponse {
+    func response(from object: Any, urlResponse _: HTTPURLResponse) throws -> LibrarayResponse {
         let response = try LibrarayResponse(object: object)
         return response
     }

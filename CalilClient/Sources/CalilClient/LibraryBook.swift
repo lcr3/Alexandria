@@ -2,7 +2,7 @@ import APIKit
 import Foundation
 
 public struct LibraryBook: Decodable, Identifiable {
-    public var id: UUID = UUID()
+    public var id = UUID()
     public var name: String
     public let systemName: String
     public let state: String
@@ -13,16 +13,17 @@ public struct LibraryBook: Decodable, Identifiable {
         guard let dictionary = object as? (String, [String: Any]),
               let status = dictionary.1["status"] as? String,
               let libKeys = dictionary.1["libkey"] as? [String: Any],
-              let reserveUrl = dictionary.1["reserveurl"] as? String else {
-                  throw ResponseError.unexpectedObject(object)
-              }
+              let reserveUrl = dictionary.1["reserveurl"] as? String
+        else {
+            throw ResponseError.unexpectedObject(object)
+        }
         var libraryStates: [LibraryState] = []
         try libKeys.forEach { libraryState in
             libraryStates.append(try LibraryState(object: libraryState))
         }
-        self.name = ""
-        self.systemName = dictionary.0
-        self.state = status
+        name = ""
+        systemName = dictionary.0
+        state = status
         self.reserveUrl = reserveUrl
         self.libraryStates = libraryStates
     }
@@ -44,10 +45,11 @@ public struct LibraryState: Decodable, Identifiable {
 
     public init(object: Any) throws {
         guard let dictionary = object as? (String, String),
-              let state = BookState(rawValue: dictionary.1) else {
-                  throw ResponseError.unexpectedObject(object)
-              }
-        self.name = dictionary.0
+              let state = BookState(rawValue: dictionary.1)
+        else {
+            throw ResponseError.unexpectedObject(object)
+        }
+        name = dictionary.0
         self.state = state
     }
 

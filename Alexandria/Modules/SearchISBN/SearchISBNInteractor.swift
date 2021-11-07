@@ -29,13 +29,13 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
         dependencies.storegeClient.saveSearchHistory(word: name)
         dependencies.isbnClient.searchISBN(title: name) { result in
             switch result {
-            case .success(let books):
+            case let .success(books):
                 if books.isEmpty {
                     self.output?.failureSearchBooks(.noMatch)
                     return
                 }
                 self.output?.successSearchBooks(books)
-            case .failure(let error):
+            case let .failure(error):
                 print(error)
                 self.output?.failureSearchBooks(.error(error.localizedDescription))
             }
@@ -55,7 +55,7 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
     }
 
     func featchSearchHistoryWords() {
-        self.output?.featchSearchHistory(words: dependencies.storegeClient.searchHistoryWords)
+        output?.featchSearchHistory(words: dependencies.storegeClient.searchHistoryWords)
     }
 
     func deleteHistory() {

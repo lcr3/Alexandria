@@ -3,7 +3,7 @@
 //  Alexandria
 //
 //  Created by lcr on 2021/10/05.
-//  
+//
 //
 
 import ISBNClient
@@ -13,13 +13,13 @@ struct MockSearchISBN {
     static var books: [ISBNBook] {
         [
             ISBNBook(title: "君主論"),
-            ISBNBook(title: "ガリア戦記")
+            ISBNBook(title: "ガリア戦記"),
         ]
     }
 }
 
 struct PreviewISBNClient: ISBNClientProtocol {
-    func searchISBN(title: String, completion: @escaping (Result<[ISBNBook], Error>) -> Void) {
+    func searchISBN(title _: String, completion: @escaping (Result<[ISBNBook], Error>) -> Void) {
         completion(.success(
             [
                 ISBNBook(
@@ -33,7 +33,7 @@ struct PreviewISBNClient: ISBNClientProtocol {
                     author: "村田沙耶香",
                     isbn: "9784022647849",
                     imageUrl: "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/7849/9784022647849.jpg?_ex=64x64"
-                )
+                ),
             ]
         ))
     }
@@ -45,32 +45,20 @@ struct PreviewStorageClient: StorageClientProtocol {
     var isHaveStarted: Bool
 
     init() {
-        self.libraryIds = ["1234"]
-        self.searchHistoryWords = ["履歴"]
-        self.isHaveStarted = true
+        libraryIds = ["1234"]
+        searchHistoryWords = ["履歴"]
+        isHaveStarted = true
     }
 
-    func saveLibraryIds(_ ids: [String]) {
+    func saveLibraryIds(_: [String]) {}
 
-    }
+    func saveSearchHistory(word _: String) {}
 
-    func saveSearchHistory(word: String) {
+    func saveIsHaveStarted() {}
 
-    }
+    func resetLibraryIds() {}
 
-    func saveIsHaveStarted() {
+    func resetSearchHistory() {}
 
-    }
-
-    func resetLibraryIds() {
-
-    }
-
-    func resetSearchHistory() {
-
-    }
-
-    func reset() {
-
-    }
+    func reset() {}
 }

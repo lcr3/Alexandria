@@ -11,15 +11,15 @@ struct LibrarayResponse: Decodable {
         print(object)
 
         guard let dictionary = object as? [String: Any],
-        let session = dictionary["session"] as? String,
-        let continueValue = dictionary["continue"] as? Int ,
-        let books = dictionary["books"] as? [String: [String: [String: Any]]] else {
+              let session = dictionary["session"] as? String,
+              let continueValue = dictionary["continue"] as? Int,
+              let books = dictionary["books"] as? [String: [String: [String: Any]]]
+        else {
             throw ResponseError.unexpectedObject(object)
         }
 
-
         self.session = session
-        self.isFinish = continueValue == 0
+        isFinish = continueValue == 0
         if isFinish {
             guard let info = books.first?.value else {
                 throw ResponseError.unexpectedObject(object)
@@ -29,9 +29,9 @@ struct LibrarayResponse: Decodable {
                 books.append(try LibraryBook(object: result))
             }
 
-            self.libraryBooks = books
+            libraryBooks = books
         } else {
-            self.libraryBooks = []
+            libraryBooks = []
         }
     }
 }

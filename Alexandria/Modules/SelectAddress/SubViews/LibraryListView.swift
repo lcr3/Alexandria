@@ -3,7 +3,7 @@
 //  Alexandria
 //
 //  Created by lcr on 2021/09/24.
-//  
+//
 //
 
 import CalilClient
@@ -55,7 +55,7 @@ struct LibraryListView_Previews: PreviewProvider {
             systemId: "Univ_Nihon_Den",
             systemName: "損保総研図書館",
             category: "UNIV"
-        )
+        ),
     ]
 
     static var previews: some View {

@@ -1,6 +1,6 @@
+import CalilClient
 import CoreLocation
 import LocationClient
-import CalilClient
 
 protocol SelectAddressInteractorOutput: AnyObject {
     func onUpdate(location: CLLocation)
@@ -18,9 +18,11 @@ struct SelectAddressError: Error, Identifiable {
     init(description: String) {
         self.description = description
     }
+
     static func emptyNearbyLibraries() -> Self {
         SelectAddressError(description: "近くに図書館が見つかりませんでした。")
     }
+
     static func error(_ description: String) -> Self {
         SelectAddressError(description: description)
     }
@@ -58,13 +60,13 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
     func searchNearbyLibraries(latitude: Double, longitude: Double) {
         dependencies.calilClient.searchNearbyLibraries(latitude: latitude, longitude: longitude) { result in
             switch result {
-            case .success(let libraries):
+            case let .success(libraries):
                 if libraries.isEmpty {
                     self.output?.failureGetLibraries(.emptyNearbyLibraries())
                 } else {
                     self.output?.successGet(libraries: libraries)
                 }
-            case .failure(let error):
+            case let .failure(error):
                 self.output?.failureGetLibraries(.error(error.localizedDescription))
             }
         }
@@ -74,7 +76,7 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
         dependencies.storageClient.saveLibraryIds(ids)
     }
 
-    func isHaveStarted() -> Bool{
+    func isHaveStarted() -> Bool {
         return dependencies.storageClient.isHaveStarted
     }
 
@@ -92,4 +94,3 @@ extension SelectAddressInteractor: LocationClientOutput {
         output?.onError(error)
     }
 }
-

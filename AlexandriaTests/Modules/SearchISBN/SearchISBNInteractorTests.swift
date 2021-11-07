@@ -3,19 +3,18 @@
 //  AlexandriaTests
 //
 //  Created by lcr on 2021/10/18.
-//  
+//
 //
 
+@testable import Alexandria
 import ISBNClient
 import XCTest
-@testable import Alexandria
 
 class SearchISBNInteractorTests: XCTestCase {
     var interctor: SearchISBNInteractor!
     var isbnClient: MockISBNClient!
     var presenter: MockSearchISBNPresenter!
     var storageClient: MockStorageClient!
-
 
     override func setUpWithError() throws {
         super.setUp()
@@ -101,4 +100,3 @@ class SearchISBNInteractorTests: XCTestCase {
         XCTAssertEqual(interctor.isSavedNearLibraries(), true)
     }
 }
-

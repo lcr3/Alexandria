@@ -9,16 +9,19 @@ let package = Package(
     products: [
         .library(
             name: "StorageClient",
-            targets: ["StorageClient"]),
+            targets: ["StorageClient"]
+        ),
     ],
     dependencies: [
     ],
     targets: [
         .target(
             name: "StorageClient",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "StorageClientTests",
-            dependencies: ["StorageClient"]),
+            dependencies: ["StorageClient"]
+        ),
     ]
 )
