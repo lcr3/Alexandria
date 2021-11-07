@@ -33,10 +33,10 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                                     }
                                     .contentShape(Rectangle())
                                     .onTapGesture {
-                                        if libraryBook.reserveUrl.isEmpty {
+                                        guard let url = URL(string: libraryBook.reserveUrl) else {
                                             return
                                         }
-                                        presenter.selectedBook = libraryBook
+                                        presenter.selectedBookUrl = url
                                     }
                                 }
                             }
@@ -54,20 +54,20 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                 }.edgesIgnoringSafeArea(.all)
             }
         }
-        .alert(item: $presenter.error, content: { error in
+        .alert(item: $presenter.error) { error in
             Alert(
                 title: Text("エラー"),
                 message: Text(error.localizedDescription),
-                dismissButton: .default(Text("OK"), action: {
+                dismissButton: .default(Text("OK")) {
                     presenter.errorAlertOkButtonTapped()
-                })
+                }
             )
-        })
-        .safariView(item: $presenter.selectedBook) {
+        }
+        .safariView(item: $presenter.selectedBookUrl) {
             // onDismiss
-        } content: { book in
+        } content: { url in
             SafariView(
-                url: URL(string: book.reserveUrl)!,
+                url: url,
                 configuration: SafariView.Configuration(
                     entersReaderIfAvailable: false,
                     barCollapsingEnabled: true

@@ -28,7 +28,7 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
     }
 
     func searchHistoryWords() -> [String] {
-        return mockSearchHistoryWords
+        mockSearchHistoryWords
     }
 
     func searchBooks(name _: String) {
@@ -135,7 +135,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     }
 
     func libraryIds() -> [String] {
-        return mockLibraryIds
+        mockLibraryIds
     }
 
     func fetchSearchHistoryWords() {
@@ -159,11 +159,11 @@ class MockStorageClient: StorageClientProtocol {
     }
 
     var libraryIds: [String] {
-        return mockLibraryIds
+        mockLibraryIds
     }
 
     var searchHistoryWords: [String] {
-        return mocksearchHistoryWords
+        mocksearchHistoryWords
     }
 
     func saveLibraryIds(_ ids: [String]) {

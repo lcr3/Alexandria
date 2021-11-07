@@ -100,9 +100,9 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
             .navigationTitle(Text("書籍を検索"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
+                    Button {
                         presenter.locationDeleteButtonTapped()
-                    }) {
+                    } label: {
                         Image(systemName: "location.slash")
                     }.disabled(presenter.isCurrentLocationNotSet)
                 }
@@ -122,14 +122,14 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                 }
             }
-            .alert(item: $presenter.error, content: { error in
+            .alert(item: $presenter.error) {
                 Alert(
-                    title: Text(error.title),
-                    message: Text(error.description),
+                    title: Text($0.title),
+                    message: Text($0.description),
                     dismissButton: .default(Text("OK"))
                 )
-            })
-            .sheet(isPresented: $presenter.isShowModal) {} content: {
+            }
+            .sheet(isPresented: $presenter.isShowModal) {
                 LazyView(
                     SelectAddressWireFrame.makeSelectAddressView(
                         isPresented: $presenter.isShowModal

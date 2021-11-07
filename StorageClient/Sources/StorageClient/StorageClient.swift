@@ -41,7 +41,7 @@ extension StorageClient: StorageClientProtocol {
     }
 
     public var isHaveStarted: Bool {
-        return !userDafaults.bool(forKey: isHaveStartedKey)
+        !userDafaults.bool(forKey: isHaveStartedKey)
     }
 
     public func saveLibraryIds(_ ids: [String]) {

@@ -1,5 +1,6 @@
 import CalilClient
 import Combine
+import Foundation
 
 protocol SearchBookResultPresenterProtocol {
     var isbn: String { get }
@@ -8,7 +9,7 @@ protocol SearchBookResultPresenterProtocol {
 
     var libraryBooks: [LibraryBook] { get set }
     var isLoading: Bool { get set }
-    var selectedBook: LibraryBook? { get }
+    var selectedBookUrl: URL? { get }
     var error: SearchBookResultInteractorError? { get set }
 
     func errorAlertOkButtonTapped()
@@ -21,7 +22,7 @@ final class SearchBookResultPresenter: ObservableObject {
 
     @Published var libraryBooks: [LibraryBook]
     @Published var isLoading: Bool
-    @Published var selectedBook: LibraryBook?
+    @Published var selectedBookUrl: URL?
     @Published var error: SearchBookResultInteractorError?
 
     private let interactor: SearchBookResultInteractorProtocol

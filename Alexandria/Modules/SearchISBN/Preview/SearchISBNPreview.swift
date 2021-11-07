@@ -1,4 +1,4 @@
-//
+//  swiftlint:disable:this file_name
 //  SearchISBNPreview.swift
 //  Alexandria
 //
@@ -10,7 +10,7 @@ import ISBNClient
 import StorageClient
 
 struct MockSearchISBN {
-    static var books: [ISBNBook] {
+    var books: [ISBNBook] {
         [
             ISBNBook(title: "君主論"),
             ISBNBook(title: "ガリア戦記"),

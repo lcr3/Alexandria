@@ -5,15 +5,15 @@ struct ISBNRequest: Request {
     typealias Response = [ISBNBook]
 
     var baseURL: URL {
-        return URL(string: "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404/")!
+        URL(string: "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404/")!
     }
 
     var method: HTTPMethod {
-        return .get
+        .get
     }
 
     var path: String {
-        return ""
+        ""
     }
 
     var parameters: Any?

@@ -26,7 +26,7 @@ enum SearchISBNError: Error, Equatable {
     case error(String)
 
     var title: String {
-        return "エラー"
+        "エラー"
     }
 
     var description: String {

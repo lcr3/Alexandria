@@ -77,7 +77,7 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
     }
 
     func isHaveStarted() -> Bool {
-        return dependencies.storageClient.isHaveStarted
+        dependencies.storageClient.isHaveStarted
     }
 
     func saveIsHaveStarted() {

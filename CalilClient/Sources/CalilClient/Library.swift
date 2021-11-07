@@ -3,7 +3,7 @@ import SwiftUI
 
 public struct Library: Decodable, Identifiable {
     public var id: String {
-        return systemId
+        systemId
     }
 
     public let name: String

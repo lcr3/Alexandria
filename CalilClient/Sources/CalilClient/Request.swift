@@ -5,15 +5,15 @@ struct SearchNearbyLibrariesRequest: Request {
     typealias Response = [Library]
 
     var baseURL: URL {
-        return URL(string: "https://api.calil.jp")!
+        URL(string: "https://api.calil.jp")!
     }
 
     var method: HTTPMethod {
-        return .get
+        .get
     }
 
     var path: String {
-        return "/library"
+        "/library"
     }
 
     var parameters: Any?
@@ -42,15 +42,15 @@ struct SearchForBooksInTheLibrariesRequest: Request {
     typealias Response = LibrarayResponse
 
     var baseURL: URL {
-        return URL(string: "https://api.calil.jp")!
+        URL(string: "https://api.calil.jp")!
     }
 
     var method: HTTPMethod {
-        return .get
+        .get
     }
 
     var path: String {
-        return "/check"
+        "/check"
     }
 
     var parameters: Any?

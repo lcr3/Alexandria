@@ -47,11 +47,11 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
     }
 
     func isSavedNearLibraries() -> Bool {
-        return !dependencies.storegeClient.libraryIds.isEmpty
+        !dependencies.storegeClient.libraryIds.isEmpty
     }
 
     func libraryIds() -> [String] {
-        return dependencies.storegeClient.libraryIds
+        dependencies.storegeClient.libraryIds
     }
 
     func featchSearchHistoryWords() {
