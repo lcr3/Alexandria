@@ -104,7 +104,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                         presenter.locationDeleteButtonTapped()
                     } label: {
                         Image(systemName: "location.slash")
-                    }.disabled(presenter.isCurrentLocationNotSet)
+                    }
                 }
             }
             .alert("位置情報が設定されていません", isPresented: $presenter.isCurrentLocationNotSet) {

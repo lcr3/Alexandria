@@ -22,6 +22,7 @@ struct ErrorInfo: Identifiable, Equatable {
 }
 
 enum SearchISBNError: Error, Equatable {
+    case titleNotEntered
     case noMatch
     case error(String)
 
@@ -31,6 +32,8 @@ enum SearchISBNError: Error, Equatable {
 
     var description: String {
         switch self {
+        case .titleNotEntered:
+            return "書籍名が入力されていません"
         case .noMatch:
             return "該当の図書は見つかりませんでした"
         case let .error(message):
