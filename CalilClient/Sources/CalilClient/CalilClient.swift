@@ -17,7 +17,11 @@ public struct CalilClient {
 
 extension CalilClient: CalilClientProtocol {
     public func searchNearbyLibraries(latitude: Double, longitude: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
-        let request = SearchNearbyLibrariesRequest(latitude: latitude, longitude: longitude)
+        let request = SearchNearbyLibrariesRequest(
+            apiKey: "ee9d6e54dd4601e91d0d962975ff704d",
+            latitude: latitude,
+            longitude: longitude
+        )
         Session.send(request) { result in
             switch result {
             case let .success(libraries):
@@ -35,6 +39,7 @@ extension CalilClient: CalilClientProtocol {
         print("isbn: \(isbn)| ids: \(libraryIds)")
         // polling処理をcompletionで解決したいのでrequestメソッド内にpollメソッドを書いている
         let request = SearchForBooksInTheLibrariesRequest(
+            apiKey: "ee9d6e54dd4601e91d0d962975ff704d",
             isbn: isbn,
             libraryIds: libraryIds
         )

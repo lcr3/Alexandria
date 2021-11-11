@@ -3,6 +3,7 @@ import Foundation
 
 struct SearchNearbyLibrariesRequest: Request {
     typealias Response = [Library]
+    var apiKey: String
 
     var baseURL: URL {
         URL(string: "https://api.calil.jp")!
@@ -18,8 +19,9 @@ struct SearchNearbyLibrariesRequest: Request {
 
     var parameters: Any?
 
-    public init(latitude: Double, longitude: Double) {
-        parameters = ["appkey": "ee9d6e54dd4601e91d0d962975ff704d",
+    public init(apiKey: String, latitude: Double, longitude: Double) {
+        self.apiKey = apiKey
+        parameters = ["appkey": apiKey,
                       "geocode": "\(longitude),\(latitude)",
                       "format": "json",
                       "callback": ""]
@@ -40,7 +42,7 @@ struct SearchNearbyLibrariesRequest: Request {
 
 struct SearchForBooksInTheLibrariesRequest: Request {
     typealias Response = LibrarayResponse
-
+    var apiKey: String
     var baseURL: URL {
         URL(string: "https://api.calil.jp")!
     }
@@ -55,8 +57,9 @@ struct SearchForBooksInTheLibrariesRequest: Request {
 
     var parameters: Any?
 
-    public init(isbn: String, libraryIds: [String]) {
-        parameters = ["appkey": "ee9d6e54dd4601e91d0d962975ff704d",
+    public init(apiKey: String, isbn: String, libraryIds: [String]) {
+        self.apiKey = apiKey
+        parameters = ["appkey": apiKey,
                       "isbn": isbn,
                       "systemid": libraryIds.joined(separator: ","),
                       "format": "json",
