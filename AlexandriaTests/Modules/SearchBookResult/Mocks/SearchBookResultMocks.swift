@@ -7,6 +7,7 @@
 //
 
 import CalilClient
+import Foundation
 
 @testable import Alexandria
 
@@ -37,6 +38,7 @@ final class MockSearchBookResultPresenter: SearchBookResultPresenterProtocol {
     var isLoading: Bool
     var selectedBook: LibraryBook?
     var error: SearchBookResultInteractorError?
+    var selectedBookUrl: URL?
     private let interactor: SearchBookResultInteractorProtocol
 
     init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
