@@ -15,7 +15,7 @@ struct AlexandriaApp: App {
     var body: some Scene {
         WindowGroup {
             SearchISBNWireFrame.makeSearchISBNView(
-                isbnClient: ISBNClient(),
+                isbnClient: ISBNClient(apiKey: "1032630259901986279"),
                 storegeClient: StorageClient()
             )
         }

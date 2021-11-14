@@ -8,7 +8,7 @@ final class ISBNClientTests: XCTestCase {
 
     override func setUpWithError() throws {
         super.setUp()
-        client = ISBNClient()
+        client = ISBNClient(apiKey: "")
     }
 
     override func tearDownWithError() throws {

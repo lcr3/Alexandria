@@ -10,7 +10,7 @@ struct SearchISBNInteractorDependencies: SearchISBNInteractorDependenciesProtoco
     let isbnClient: ISBNClientProtocol
     let storegeClient: StorageClientProtocol
 
-    init(isbnClient: ISBNClientProtocol = ISBNClient(), storegeClient: StorageClientProtocol = StorageClient()) {
+    init(isbnClient: ISBNClientProtocol, storegeClient: StorageClientProtocol = StorageClient()) {
         self.isbnClient = isbnClient
         self.storegeClient = storegeClient
     }

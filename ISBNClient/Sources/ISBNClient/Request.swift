@@ -18,9 +18,9 @@ struct ISBNRequest: Request {
 
     var parameters: Any?
 
-    public init(title: String) {
+    public init(apiKey: String, title: String) {
         parameters = [
-            "applicationId": "1032630259901986279",
+            "applicationId": apiKey,
             "title": title,
             "format": "json",
             "formatVersion": 2,
