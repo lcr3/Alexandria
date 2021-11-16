@@ -9,8 +9,9 @@ public protocol CalilClientProtocol {
 public struct CalilClient {
     private let requestInterval = 2.5
     private let libraryNameClient: LibraryNameClient
-
-    public init() {
+    private let apiKey: String
+    public init(apiKey: String) {
+        self.apiKey = apiKey
         libraryNameClient = LibraryNameClient()
     }
 }
@@ -18,7 +19,7 @@ public struct CalilClient {
 extension CalilClient: CalilClientProtocol {
     public func searchNearbyLibraries(latitude: Double, longitude: Double, completion: @escaping (Result<[Library], Error>) -> Void) {
         let request = SearchNearbyLibrariesRequest(
-            apiKey: "ee9d6e54dd4601e91d0d962975ff704d",
+            apiKey: apiKey,
             latitude: latitude,
             longitude: longitude
         )
@@ -39,7 +40,7 @@ extension CalilClient: CalilClientProtocol {
         print("isbn: \(isbn)| ids: \(libraryIds)")
         // polling処理をcompletionで解決したいのでrequestメソッド内にpollメソッドを書いている
         let request = SearchForBooksInTheLibrariesRequest(
-            apiKey: "ee9d6e54dd4601e91d0d962975ff704d",
+            apiKey: apiKey,
             isbn: isbn,
             libraryIds: libraryIds
         )

@@ -7,7 +7,7 @@ protocol SearchBookResultWireFrameProtocol {
 }
 
 struct SearchBookResultWireFrame: SearchBookResultWireFrameProtocol {
-    static func makeSearchBookResultView(title: String, isbn: String, libraryIds: [String], calilClient: CalilClientProtocol = CalilClient(), storageClient: StorageClientProtocol = StorageClient()) -> AnyView {
+    static func makeSearchBookResultView(title: String, isbn: String, libraryIds: [String], calilClient: CalilClientProtocol, storageClient: StorageClientProtocol = StorageClient()) -> AnyView {
         let interactorDependencies = SearchBookResultInteractorDependencies(
             calilClient: calilClient,
             storageClient: storageClient

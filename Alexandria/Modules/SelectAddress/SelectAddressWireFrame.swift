@@ -8,7 +8,7 @@ protocol SelectAddressWireFrameProtocol {
 }
 
 struct SelectAddressWireFrame: SelectAddressWireFrameProtocol {
-    static func makeSelectAddressView(isPresented: Binding<Bool>, calilClient: CalilClientProtocol = CalilClient(), locationClient: LocationClientProtocol = LocationClient()) -> AnyView {
+    static func makeSelectAddressView(isPresented: Binding<Bool>, calilClient: CalilClientProtocol, locationClient: LocationClientProtocol = LocationClient()) -> AnyView {
         let interactorDependencies = SelectAddressInteractorDependencies(
             calilClient: calilClient,
             locationClient: locationClient,

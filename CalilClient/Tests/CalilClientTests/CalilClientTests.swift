@@ -8,7 +8,7 @@ final class CalilClientTests: XCTestCase {
 
     override func setUpWithError() throws {
         super.setUp()
-        client = CalilClient()
+        client = CalilClient(apiKey: "")
     }
 
     override func tearDownWithError() throws {
