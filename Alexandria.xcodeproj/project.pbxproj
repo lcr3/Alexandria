@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F545BE327452BC700685B39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F545BE527452BC700685B39 /* Localizable.strings */; };
+		0F545BE92745D27300685B39 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F545BE82745D27300685B39 /* Strings+Generated.swift */; };
 		2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935B7D6270ECED600145B4F /* ActivityIndicator.swift */; };
 		29493301271569C800B4724E /* StateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29493300271569C800B4724E /* StateIcon.swift */; };
 		2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */; };
@@ -69,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F545BE627452C0B00685B39 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0F545BE82745D27300685B39 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		2935B7D6270ECED600145B4F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		29493300271569C800B4724E /* StateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateIcon.swift; sourceTree = "<group>"; };
 		2949E06A26FC233E000BCB0F /* Alexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F545BE02745292E00685B39 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F545BE82745D27300685B39 /* Strings+Generated.swift */,
+				2949E07126FC2342000BCB0F /* Assets.xcassets */,
+				2949E0AD26FC801C000BCB0F /* Resources.xcassets */,
+				0F545BE527452BC700685B39 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		294932FF271569B900B4724E /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,12 +189,11 @@
 		2949E06C26FC233E000BCB0F /* Alexandria */ = {
 			isa = PBXGroup;
 			children = (
+				0F545BE02745292E00685B39 /* Resources */,
 				2949E0B32701D679000BCB0F /* Component */,
 				2949E09D26FC7875000BCB0F /* Modules */,
 				2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */,
-				2949E07126FC2342000BCB0F /* Assets.xcassets */,
 				2949E07326FC2342000BCB0F /* Preview Content */,
-				2949E0AD26FC801C000BCB0F /* Resources.xcassets */,
 			);
 			path = Alexandria;
 			sourceTree = "<group>";
@@ -439,10 +453,10 @@
 			};
 			buildConfigurationList = 2949E06526FC233E000BCB0F /* Build configuration list for PBXProject "Alexandria" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ja,
 				Base,
 			);
 			mainGroup = 2949E06126FC233E000BCB0F;
@@ -465,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F545BE327452BC700685B39 /* Localizable.strings in Resources */,
 				29F92C1E2717F1C40065117C /* Settings.bundle in Resources */,
 				2949E0AE26FC801C000BCB0F /* Resources.xcassets in Resources */,
 				2949E07526FC2342000BCB0F /* Preview Assets.xcassets in Resources */,
@@ -542,6 +557,7 @@
 				2949E0C6270453F4000BCB0F /* SearchISBNPresenter.swift in Sources */,
 				2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */,
 				2949E0C9270453F4000BCB0F /* SearchISBNView.swift in Sources */,
+				0F545BE92745D27300685B39 /* Strings+Generated.swift in Sources */,
 				295E5BD4271674550044D7AF /* LazyView.swift in Sources */,
 				295E5BD627169EAE0044D7AF /* SearchISBNError.swift in Sources */,
 				29A9F276270C4C800041DC3B /* Mock.swift in Sources */,
@@ -597,11 +613,23 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		0F545BE527452BC700685B39 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F545BE627452C0B00685B39 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		2949E08A26FC2342000BCB0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -663,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
