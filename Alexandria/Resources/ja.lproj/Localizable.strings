@@ -6,4 +6,13 @@
   
 */
 
+"seatchBookTitle" = "書籍を検索";
+"searchBookName" = "書籍名";
 "searchButtonText" = "検索";
+"recentSearchText" = "最近の検索";
+"locationNotSelectAlertTitle" = "位置情報が設定されていません";
+"SetButtonTitle" = "設定する";
+"locationDeleteAlertTitle" = "設定されている位置情報を削除しますか？";
+"cancelButtonTitle" = "キャンセル";
+"deleteButtonTitle" = "削除する";
+"oKButtonTitle" = "OK";

@@ -13,8 +13,11 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.systemGray)
                             .padding(.leading, -12)
-                        TextField("書籍名", text: $presenter.searchISBNBookName)
-                        Button("検索") {
+                        TextField(
+                            L10n.searchBookName,
+                            text: $presenter.searchISBNBookName
+                        )
+                        Button(L10n.searchButtonText) {
                             presenter.searchButtonTapped()
                             hideKeyboard()
                         }
@@ -58,7 +61,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                             }
                         } header: {
                             HStack {
-                                Text("最近の検索")
+                                Text(L10n.recentSearchText)
                                 Spacer()
                                 Button {
                                     presenter.historyDeleteButtonTapped()
@@ -98,7 +101,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
             .onAppear {
                 presenter.onAppear()
             }
-            .navigationTitle(Text("書籍を検索"))
+            .navigationTitle(Text(L10n.seatchBookTitle))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -108,17 +111,32 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                 }
             }
-            .alert("位置情報が設定されていません", isPresented: $presenter.isCurrentLocationNotSet) {
+            .alert(
+                L10n.locationNotSelectAlertTitle,
+                isPresented: $presenter.isCurrentLocationNotSet
+            ) {
                 VStack {
-                    Button("設定する", role: .cancel) {
+                    Button(
+                        L10n.setButtonTitle,
+                        role: .cancel
+                    ) {
                         presenter.isCurrentLocationNotSetAlertOKButtonTapped()
                     }
                 }
             }
-            .alert("設定されている位置情報を削除しますか？", isPresented: $presenter.isShowDeleteLocationAlert) {
+            .alert(
+                L10n.locationDeleteAlertTitle,
+                isPresented: $presenter.isShowDeleteLocationAlert
+            ) {
                 VStack {
-                    Button("キャンセル", role: .cancel) {}
-                    Button("削除する", role: .destructive) {
+                    Button(
+                        L10n.cancelButtonTitle,
+                        role: .cancel
+                    ) {}
+                    Button(
+                        L10n.deleteButtonTitle,
+                        role: .destructive
+                    ) {
                         presenter.locationDeleteAlertButtonTapped()
                     }
                 }
@@ -127,7 +145,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                 Alert(
                     title: Text($0.title),
                     message: Text($0.description),
-                    dismissButton: .default(Text("OK"))
+                    dismissButton: .default(Text(L10n.okButtonTitle))
                 )
             }
             .sheet(isPresented: $presenter.isShowModal) {
