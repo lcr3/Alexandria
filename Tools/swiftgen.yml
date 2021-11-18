@@ -1,20 +1,13 @@
 strings:
   inputs:
      - ../Alexandria/Resources/ja.lproj
-#    - Odysseia/Resources/ja.lproj
   outputs:
     - templateName: structured-swift5
-#    - templatePath: Tools/.build/checkouts/SwiftGen/Sources/SwiftGenCLI/templates/strings/structured-swift5.stencil
       output: ../Alexandria/Resources/Strings+Generated.swift
-#xcassets:
-#  inputs: Odysseia/Resources/Resources.xcassets
-#  outputs:
-#    - templateName: swift5
-#      params:
-#        forceProvidesNamespaces: true
-#      output: Odysseia/Resources/XCAssets+Generated.swift
-#coredata:
-#  inputs: Odysseia/Goal.xcdatamodeld
-#  outputs:
-#    templateName: swift5
-#    output: Odysseia/Resources/XCCoreDataX+Generated.swift
+xcassets:
+  inputs: ../Alexandria/Resources/Resources.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: ../Alexandria/Resources/XCAssets+Generated.swift

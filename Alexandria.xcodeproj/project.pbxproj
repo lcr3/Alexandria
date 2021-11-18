@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F545BE327452BC700685B39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F545BE527452BC700685B39 /* Localizable.strings */; };
 		0F545BE92745D27300685B39 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F545BE82745D27300685B39 /* Strings+Generated.swift */; };
+		0F545BEB2745D8C000685B39 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F545BEA2745D8C000685B39 /* XCAssets+Generated.swift */; };
 		2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935B7D6270ECED600145B4F /* ActivityIndicator.swift */; };
 		29493301271569C800B4724E /* StateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29493300271569C800B4724E /* StateIcon.swift */; };
 		2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		0F545BE627452C0B00685B39 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0F545BE82745D27300685B39 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		0F545BEA2745D8C000685B39 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		2935B7D6270ECED600145B4F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		29493300271569C800B4724E /* StateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateIcon.swift; sourceTree = "<group>"; };
 		2949E06A26FC233E000BCB0F /* Alexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 		0F545BE02745292E00685B39 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0F545BEA2745D8C000685B39 /* XCAssets+Generated.swift */,
 				0F545BE82745D27300685B39 /* Strings+Generated.swift */,
 				2949E07126FC2342000BCB0F /* Assets.xcassets */,
 				2949E0AD26FC801C000BCB0F /* Resources.xcassets */,
@@ -547,6 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F545BEB2745D8C000685B39 /* XCAssets+Generated.swift in Sources */,
 				2949E0CB270453F4000BCB0F /* SearchISBNWireFrame.swift in Sources */,
 				2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */,
 				2949E0C5270453F4000BCB0F /* SearchISBNInteractorDependencies.swift in Sources */,
