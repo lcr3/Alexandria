@@ -10,10 +10,16 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+    /// 位置情報をオンにして現在地から近い図書館を検索します。
+    internal static let adderessAlertMessage = L10n.tr("Localizable", "adderessAlertMessage")
+    /// 対象図書館を確定する
+    internal static let adderssConfirmButtonTitle = L10n.tr("Localizable", "adderssConfirmButtonTitle")
     /// キャンセル
     internal static let cancelButtonTitle = L10n.tr("Localizable", "cancelButtonTitle")
     /// 削除する
     internal static let deleteButtonTitle = L10n.tr("Localizable", "deleteButtonTitle")
+    /// エラー
+    internal static let errorAlertTitle = L10n.tr("Localizable", "errorAlertTitle")
     /// 設定されている位置情報を削除しますか？
     internal static let locationDeleteAlertTitle = L10n.tr("Localizable", "locationDeleteAlertTitle")
     /// 位置情報が設定されていません
@@ -28,6 +34,8 @@ internal enum L10n {
     internal static let searchButtonText = L10n.tr("Localizable", "searchButtonText")
     /// 書籍を検索
     internal static let seatchBookTitle = L10n.tr("Localizable", "seatchBookTitle")
+    /// 近隣の図書館検索結果
+    internal static let selectAddressSectionTitle = L10n.tr("Localizable", "selectAddressSectionTitle")
     /// 設定する
     internal static let setButtonTitle = L10n.tr("Localizable", "SetButtonTitle")
 }

@@ -23,7 +23,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                         .frame(height: 300)
                         .onTapGesture {}
                     }
-                    Section(header: Text("近隣の図書館検索結果")) {
+                    Section(header: Text(L10n.selectAddressSectionTitle)) {
                         ForEach(presenter.nearLibraries) { library in
                             HStack {
                                 Image(systemName: "mappin.circle.fill")
@@ -37,7 +37,7 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
                     }
                 }
                 HStack {
-                    Button("対象図書館を確定する") {
+                    Button(L10n.adderssConfirmButtonTitle) {
                         presenter.okButtonTapped()
                     }
                     .frame(minWidth: 0.0, maxWidth: .infinity)
@@ -68,16 +68,16 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
         }
         .alert(item: $presenter.error) {
             Alert(
-                title: Text("エラー"),
+                title: Text(L10n.errorAlertTitle),
                 message: Text($0.description),
-                dismissButton: .default(Text("OK"))
+                dismissButton: .default(Text(L10n.okButtonTitle))
             )
         }
         .alert(isPresented: $presenter.isHaveStarted) {
             Alert(
-                title: Text("エラー"),
-                message: Text("位置情報をオンにして現在地から近い図書館を検索します。"),
-                dismissButton: .default(Text("OK")) {
+                title: Text(L10n.errorAlertTitle),
+                message: Text(L10n.adderessAlertMessage),
+                dismissButton: .default(Text(L10n.okButtonTitle)) {
                     presenter.firstAlertOkButtonTapped()
                 }
             )

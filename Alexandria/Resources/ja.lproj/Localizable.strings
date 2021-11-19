@@ -16,3 +16,7 @@
 "cancelButtonTitle" = "キャンセル";
 "deleteButtonTitle" = "削除する";
 "oKButtonTitle" = "OK";
+"errorAlertTitle" = "エラー";
+"selectAddressSectionTitle" = "近隣の図書館検索結果";
+"adderssConfirmButtonTitle" = "対象図書館を確定する";
+"adderessAlertMessage" = "位置情報をオンにして現在地から近い図書館を検索します。";
