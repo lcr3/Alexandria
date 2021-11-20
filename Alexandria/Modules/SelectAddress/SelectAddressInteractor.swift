@@ -12,7 +12,7 @@ protocol SelectAddressInteractorOutput: AnyObject {
 
 struct SelectAddressError: Error, Identifiable {
     var id = UUID()
-    let title = "エラー"
+    let title = L10n.selectAddressErrorTitle
     let description: String
 
     init(description: String) {
@@ -20,7 +20,7 @@ struct SelectAddressError: Error, Identifiable {
     }
 
     static func emptyNearbyLibraries() -> Self {
-        SelectAddressError(description: "近くに図書館が見つかりませんでした。")
+        SelectAddressError(description: L10n.selectAddressErrorEmptyNearbyLibraries)
     }
 
     static func error(_ description: String) -> Self {

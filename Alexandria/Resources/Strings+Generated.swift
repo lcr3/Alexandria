@@ -34,6 +34,10 @@ internal enum L10n {
     internal static let searchButtonText = L10n.tr("Localizable", "searchButtonText")
     /// 書籍を検索
     internal static let seatchBookTitle = L10n.tr("Localizable", "seatchBookTitle")
+    /// 近くに図書館が見つかりませんでした。
+    internal static let selectAddressErrorEmptyNearbyLibraries = L10n.tr("Localizable", "selectAddressErrorEmptyNearbyLibraries")
+    /// エラー
+    internal static let selectAddressErrorTitle = L10n.tr("Localizable", "selectAddressErrorTitle")
     /// 近隣の図書館検索結果
     internal static let selectAddressSectionTitle = L10n.tr("Localizable", "selectAddressSectionTitle")
     /// 設定する
