@@ -22,3 +22,4 @@
 "adderessAlertMessage" = "位置情報をオンにして現在地から近い図書館を検索します。";
 "selectAddressErrorTitle" = "エラー";
 "selectAddressErrorEmptyNearbyLibraries" = "近くに図書館が見つかりませんでした。";
+"searchBookSectionNotFoundTitle" = "該当なし";

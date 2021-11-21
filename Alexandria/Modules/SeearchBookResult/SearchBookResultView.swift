@@ -16,7 +16,7 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
                             Section(libraryBook.name) {
                                 HStack {
                                     StateIcon(isAvailable: false)
-                                    Text("蔵書なし")
+                                    Text(L10n.searchBookSectionNotFoundTitle)
                                 }
                             }
                         } else {
@@ -56,9 +56,9 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
         }
         .alert(item: $presenter.error) { error in
             Alert(
-                title: Text("エラー"),
+                title: Text(L10n.errorAlertTitle),
                 message: Text(error.localizedDescription),
-                dismissButton: .default(Text("OK")) {
+                dismissButton: .default(Text(L10n.okButtonTitle)) {
                     presenter.errorAlertOkButtonTapped()
                 }
             )
