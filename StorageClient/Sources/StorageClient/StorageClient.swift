@@ -7,6 +7,7 @@ public protocol StorageClientProtocol {
 
     func saveLibraryIds(_ ids: [String])
     func resetLibraryIds()
+    func deleteSearchHistory(index: Int)
     func resetSearchHistory()
     func saveSearchHistory(word: String)
     func saveIsHaveStarted()
@@ -66,6 +67,12 @@ extension StorageClient: StorageClientProtocol {
 
     public func resetSearchHistory() {
         userDafaults.set([], forKey: searchHistoryWordsKey)
+    }
+
+    public func deleteSearchHistory(index: Int) {
+        var historyWords = searchHistoryWords
+        historyWords.remove(at: index)
+        userDafaults.set(historyWords, forKey: searchHistoryWordsKey)
     }
 
     public func saveIsHaveStarted() {
