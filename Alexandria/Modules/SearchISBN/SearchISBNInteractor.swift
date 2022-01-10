@@ -12,7 +12,8 @@ protocol SearchISBNInteractorProtocol {
     func searchBooks(name: String)
     func deleteLocation()
     func isSavedNearLibraries() -> Bool
-    func deleteHistory()
+    func deleteHistory(index: Int)
+    func resetHistory()
 
     var output: SearchISBNInteractorOutput? { get set }
 }
@@ -58,7 +59,11 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
         output?.featchSearchHistory(words: dependencies.storegeClient.searchHistoryWords)
     }
 
-    func deleteHistory() {
+    func deleteHistory(index: Int) {
+        dependencies.storegeClient.deleteSearchHistory(index: index)
+    }
+
+    func resetHistory() {
         dependencies.storegeClient.resetSearchHistory()
     }
 }

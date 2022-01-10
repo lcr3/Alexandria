@@ -58,13 +58,16 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                                 .onTapGesture {
                                     presenter.searchHistoryCellTapped(word: word)
                                 }
+                            }.onDelete { index in
+                                guard let index = index.first else { return }
+                                presenter.deleteHistory(index: index)
                             }
                         } header: {
                             HStack {
                                 Text(L10n.recentSearchText)
                                 Spacer()
                                 Button {
-                                    presenter.historyDeleteButtonTapped()
+                                    presenter.resetHistoryButtonTapped()
                                 } label: {
                                     Image(systemName: "xmark.circle")
                                 }

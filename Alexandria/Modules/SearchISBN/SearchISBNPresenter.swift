@@ -17,7 +17,8 @@ protocol SearchISBNPresenterProtocol {
     func searchButtonTapped()
     func deleteButtonTapped()
     func searchHistoryCellTapped(word: String)
-    func historyDeleteButtonTapped()
+    func deleteHistory(index: Int)
+    func resetHistoryButtonTapped()
     func locationDeleteButtonTapped()
     func locationDeleteAlertButtonTapped()
     func isCurrentLocationNotSetAlertOKButtonTapped()
@@ -74,8 +75,13 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
         searchButtonTapped()
     }
 
-    func historyDeleteButtonTapped() {
-        interactor.deleteHistory()
+    func deleteHistory(index: Int) {
+        interactor.deleteHistory(index: index)
+        interactor.featchSearchHistoryWords()
+    }
+
+    func resetHistoryButtonTapped() {
+        interactor.resetHistory()
         interactor.featchSearchHistoryWords()
     }
 
