@@ -14,6 +14,24 @@ final class StorageClientTests: XCTestCase {
         super.tearDown()
     }
 
+    func testGetLibraries() throws {
+        // Test init value
+        XCTAssertEqual(client.libraries, [])
+
+        // Execute
+        var expectLibraries = [Data(), Data(), Data()]
+        client.saveLibraries(expectLibraries)
+
+        // Verify
+        XCTAssertEqual(client.libraries, expectLibraries)
+
+        expectLibraries = [Data(), Data()]
+        client.saveLibraries(expectLibraries)
+
+        // Verify
+        XCTAssertEqual(client.libraries, expectLibraries)
+    }
+
     func testSetGetLibraryIds() throws {
         // Test init value
         XCTAssertEqual(client.libraryIds, [])
@@ -162,16 +180,20 @@ final class StorageClientTests: XCTestCase {
         // Test init value
         XCTAssertEqual(client.libraryIds, [])
 
+        let expectLibraries = [Data(), Data(), Data()]
         let expectLibraryIds = ["lib_1", "lib_2", "lib_3", "lib_4"]
         let expectSearchWord = "word"
+        client.saveLibraries(expectLibraries)
         client.saveLibraryIds(expectLibraryIds)
         client.saveSearchHistory(word: expectSearchWord)
 
+        XCTAssertEqual(client.libraries, expectLibraries)
         XCTAssertEqual(client.libraryIds, expectLibraryIds)
         XCTAssertEqual(client.searchHistoryWords, [expectSearchWord])
 
         client.reset()
 
+        XCTAssertEqual(client.libraries, [])
         XCTAssertEqual(client.libraryIds, [])
         XCTAssertEqual(client.searchHistoryWords, [])
     }

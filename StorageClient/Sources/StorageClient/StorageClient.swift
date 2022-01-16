@@ -2,9 +2,11 @@ import Foundation
 
 public protocol StorageClientProtocol {
     var libraryIds: [String] { get }
+    var libraries: [Data] { get }
     var searchHistoryWords: [String] { get }
     var isHaveStarted: Bool { get }
 
+    func saveLibraries(_ datas: [Data])
     func saveLibraryIds(_ ids: [String])
     func resetLibraryIds()
     func deleteSearchHistory(index: Int)
@@ -16,6 +18,7 @@ public protocol StorageClientProtocol {
 
 public struct StorageClient {
     private let userDafaults: UserDefaults
+    private let librariesKey = "libraries_key"
     private let libraryIdsKey = "library_ids_key"
     private let searchHistoryWordsKey = "serch_history_words_key"
     private let isHaveStartedKey = "is_have_start_key"
@@ -34,6 +37,13 @@ extension StorageClient: StorageClientProtocol {
         return ids
     }
 
+    public var libraries: [Data] {
+        guard let livs = userDafaults.array(forKey: librariesKey) as? [Data] else {
+            return []
+        }
+        return livs
+    }
+
     public var searchHistoryWords: [String] {
         guard let histories = userDafaults.array(forKey: searchHistoryWordsKey) as? [String] else {
             return []
@@ -43,6 +53,10 @@ extension StorageClient: StorageClientProtocol {
 
     public var isHaveStarted: Bool {
         !userDafaults.bool(forKey: isHaveStartedKey)
+    }
+
+    public func saveLibraries(_ datas: [Data]) {
+        userDafaults.set(datas, forKey: librariesKey)
     }
 
     public func saveLibraryIds(_ ids: [String]) {
