@@ -6,6 +6,7 @@
 //
 //
 
+import Foundation
 import ISBNClient
 import StorageClient
 
@@ -40,16 +41,19 @@ struct PreviewISBNClient: ISBNClientProtocol {
 }
 
 struct PreviewStorageClient: StorageClientProtocol {
+    var libraries: [Data]
     var searchHistoryWords: [String]
     var libraryIds: [String]
     var isHaveStarted: Bool
 
     init() {
         libraryIds = ["1234"]
+        libraries = []
         searchHistoryWords = ["履歴"]
         isHaveStarted = true
     }
 
+    func saveLibraries(_: [Data]) {}
     func saveLibraryIds(_: [String]) {}
 
     func saveSearchHistory(word _: String) {}

@@ -7,6 +7,7 @@
 //
 
 @testable import Alexandria
+import Foundation
 import ISBNClient
 import StorageClient
 
@@ -165,6 +166,10 @@ class MockStorageClient: StorageClientProtocol {
         isHaveStarted = true
     }
 
+    var libraries: [Data] {
+        []
+    }
+
     var libraryIds: [String] {
         mockLibraryIds
     }
@@ -172,6 +177,8 @@ class MockStorageClient: StorageClientProtocol {
     var searchHistoryWords: [String] {
         mocksearchHistoryWords
     }
+
+    func saveLibraries(_: [Data]) {}
 
     func saveLibraryIds(_ ids: [String]) {
         mockLibraryIds = ids
