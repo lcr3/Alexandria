@@ -13,6 +13,8 @@
 		0F8BEF1C2795A1580087F141 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF1B2795A1580087F141 /* SettingView.swift */; };
 		0F8BEF1E2795A1A10087F141 /* SettingInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF1D2795A1A10087F141 /* SettingInteractorDependencies.swift */; };
 		0F8BEF202795A1FB0087F141 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF1F2795A1FB0087F141 /* SettingInteractor.swift */; };
+		0F8BEF222795A7190087F141 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF212795A7190087F141 /* SettingPresenter.swift */; };
+		0F8BEF242795AAD00087F141 /* SettingWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF232795AAD00087F141 /* SettingWireFrame.swift */; };
 		2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935B7D6270ECED600145B4F /* ActivityIndicator.swift */; };
 		29493301271569C800B4724E /* StateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29493300271569C800B4724E /* StateIcon.swift */; };
 		2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */; };
@@ -81,6 +83,8 @@
 		0F8BEF1B2795A1580087F141 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		0F8BEF1D2795A1A10087F141 /* SettingInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInteractorDependencies.swift; sourceTree = "<group>"; };
 		0F8BEF1F2795A1FB0087F141 /* SettingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInteractor.swift; sourceTree = "<group>"; };
+		0F8BEF212795A7190087F141 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
+		0F8BEF232795AAD00087F141 /* SettingWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWireFrame.swift; sourceTree = "<group>"; };
 		2935B7D6270ECED600145B4F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		29493300271569C800B4724E /* StateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateIcon.swift; sourceTree = "<group>"; };
 		2949E06A26FC233E000BCB0F /* Alexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +175,8 @@
 				0F8BEF1B2795A1580087F141 /* SettingView.swift */,
 				0F8BEF1D2795A1A10087F141 /* SettingInteractorDependencies.swift */,
 				0F8BEF1F2795A1FB0087F141 /* SettingInteractor.swift */,
+				0F8BEF212795A7190087F141 /* SettingPresenter.swift */,
+				0F8BEF232795AAD00087F141 /* SettingWireFrame.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 				2949E0B52701D683000BCB0F /* Color.swift in Sources */,
 				29493301271569C800B4724E /* StateIcon.swift in Sources */,
 				2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */,
+				0F8BEF222795A7190087F141 /* SettingPresenter.swift in Sources */,
 				2949E0C6270453F4000BCB0F /* SearchISBNPresenter.swift in Sources */,
 				2949E0B827031B8B000BCB0F /* LibraryListView.swift in Sources */,
 				2949E0C9270453F4000BCB0F /* SearchISBNView.swift in Sources */,
@@ -583,6 +590,7 @@
 				295E5BD4271674550044D7AF /* LazyView.swift in Sources */,
 				295E5BD627169EAE0044D7AF /* SearchISBNError.swift in Sources */,
 				29A9F276270C4C800041DC3B /* Mock.swift in Sources */,
+				0F8BEF242795AAD00087F141 /* SettingWireFrame.swift in Sources */,
 				2949E0DD270C418F000BCB0F /* SearchBookResultWireFrame.swift in Sources */,
 				2949E0DA270C418F000BCB0F /* SearchBookResultInteractor.swift in Sources */,
 				0F8BEF1C2795A1580087F141 /* SettingView.swift in Sources */,

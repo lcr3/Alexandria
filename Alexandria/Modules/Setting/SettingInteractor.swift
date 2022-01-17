@@ -33,6 +33,7 @@ extension SettingInteractor: SettingInteractorProtocol {
             do {
                 let library = try JSONDecoder().decode(Library.self, from: data)
                 libraries.append(library)
+                output?.successGet(libraries: libraries)
             } catch {
                 output?.failureGet(SettingError())
                 break
