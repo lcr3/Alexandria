@@ -46,10 +46,7 @@ extension SelectAddressPresenter: SelectAddressPresenterProtocol {
 
     func okButtonTapped() {
         if nearLibraries.isEmpty { return }
-        let nearLibraryIds = nearLibraries.compactMap { library in
-            library.systemId
-        }
-        interactor.saveLibraryIds(nearLibraryIds)
+        interactor.saveLibraries(nearLibraries)
         interactor.stopUpdatingLocation()
         isPresented.wrappedValue = false
     }

@@ -33,6 +33,7 @@ protocol SelectAddressInteractorProtocol {
     func requestLocation()
     func stopUpdatingLocation()
     func searchNearbyLibraries(latitude: Double, longitude: Double)
+    func saveLibraries(_ libraries: [Library])
     func saveLibraryIds(_ ids: [String])
     func isHaveStarted() -> Bool
     func saveIsHaveStarted()
@@ -70,6 +71,17 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
                 self.output?.failureGetLibraries(.error(error.localizedDescription))
             }
         }
+    }
+
+    func saveLibraries(_ libraries: [Library]) {
+        var datas: [Data] = []
+        libraries.forEach { library in
+            do {
+                let data = try JSONEncoder().encode(library)
+                datas.append(data)
+            } catch {}
+        }
+        dependencies.storageClient.saveLibraries(datas)
     }
 
     func saveLibraryIds(_ ids: [String]) {
