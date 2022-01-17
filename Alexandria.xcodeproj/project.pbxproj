@@ -238,7 +238,7 @@
 			children = (
 				2949E0BD270453D8000BCB0F /* SearchISBN */,
 				2949E0AC26FC78BD000BCB0F /* SelectAddress */,
-				2949E0CF270C4145000BCB0F /* SeearchBookResult */,
+				2949E0CF270C4145000BCB0F /* SearchBookResult */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
-		2949E0CF270C4145000BCB0F /* SeearchBookResult */ = {
+		2949E0CF270C4145000BCB0F /* SearchBookResult */ = {
 			isa = PBXGroup;
 			children = (
 				294932FF271569B900B4724E /* SubViews */,
@@ -308,7 +308,7 @@
 				2949E0D4270C418E000BCB0F /* SearchBookResultView.swift */,
 				2949E0D6270C418E000BCB0F /* SearchBookResultWireFrame.swift */,
 			);
-			path = SeearchBookResult;
+			path = SearchBookResult;
 			sourceTree = "<group>";
 		};
 		2952A1772722A0C900A67F57 /* SearchBookResult */ = {
