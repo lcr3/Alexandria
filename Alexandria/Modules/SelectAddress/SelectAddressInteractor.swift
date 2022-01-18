@@ -79,7 +79,9 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
             do {
                 let data = try JSONEncoder().encode(library)
                 datas.append(data)
-            } catch {}
+            } catch {
+                fatalError()
+            }
         }
         dependencies.storageClient.saveLibraries(datas)
     }

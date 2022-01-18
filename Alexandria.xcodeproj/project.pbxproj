@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2FBB822796501C00CE4D10 /* SettingPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2FBB812796501C00CE4D10 /* SettingPreview.swift */; };
 		0F545BE327452BC700685B39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F545BE527452BC700685B39 /* Localizable.strings */; };
 		0F545BE92745D27300685B39 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F545BE82745D27300685B39 /* Strings+Generated.swift */; };
 		0F545BEB2745D8C000685B39 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F545BEA2745D8C000685B39 /* XCAssets+Generated.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F2FBB812796501C00CE4D10 /* SettingPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPreview.swift; sourceTree = "<group>"; };
 		0F545BE627452C0B00685B39 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0F545BE82745D27300685B39 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		0F545BEA2745D8C000685B39 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F2FBB802796500B00CE4D10 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				0F2FBB812796501C00CE4D10 /* SettingPreview.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
 		0F545BE02745292E00685B39 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +182,7 @@
 		0F8BEF1A2795A1490087F141 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				0F2FBB802796500B00CE4D10 /* Preview */,
 				0F8BEF1B2795A1580087F141 /* SettingView.swift */,
 				0F8BEF1D2795A1A10087F141 /* SettingInteractorDependencies.swift */,
 				0F8BEF1F2795A1FB0087F141 /* SettingInteractor.swift */,
@@ -532,7 +543,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0FFB28CE2738AFD300EFE04D /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -544,13 +555,13 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "sh Tools/lint.sh\n";
 		};
 		0FFB28CF2738BFBE00EFE04D /* Run Swiftformat */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -562,7 +573,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "sh Tools/format.sh\n";
 		};
@@ -573,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F2FBB822796501C00CE4D10 /* SettingPreview.swift in Sources */,
 				0F545BEB2745D8C000685B39 /* XCAssets+Generated.swift in Sources */,
 				2949E0CB270453F4000BCB0F /* SearchISBNWireFrame.swift in Sources */,
 				2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */,

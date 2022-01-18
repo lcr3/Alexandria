@@ -15,16 +15,14 @@ protocol SettingInteractorProtocol {
     func getSaveLibraries()
 }
 
-final class SettingInteractor {
+final class SettingInteractor: SettingInteractorProtocol {
     private var dependencies: SettingInteractorDependenciesProtocol
     weak var output: SettingInteractorOutput?
 
     init(dependencies: SettingInteractorDependenciesProtocol) {
         self.dependencies = dependencies
     }
-}
 
-extension SettingInteractor: SettingInteractorProtocol {
     func getSaveLibraries() {
         let datas = dependencies.storegeClient.libraries
         var libraries: [Library] = []
@@ -33,11 +31,14 @@ extension SettingInteractor: SettingInteractorProtocol {
             do {
                 let library = try JSONDecoder().decode(Library.self, from: data)
                 libraries.append(library)
-                output?.successGet(libraries: libraries)
             } catch {
-                output?.failureGet(SettingError())
+                self.output?.failureGet(SettingError())
                 break
             }
         }
+        self.output?.successGet(libraries: libraries)
     }
 }
+
+//extension SettingInteractor: SettingInteractorProtocol {
+//}

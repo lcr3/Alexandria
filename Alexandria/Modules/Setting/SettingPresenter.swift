@@ -4,9 +4,11 @@ import SwiftUI
 protocol SettingPresenterProtocol {
     var savedLibraries: [Library] { get set }
     var error: SettingError? { get set }
+
+    func getSaveLibraries()
 }
 
-final class SettingPresenter: ObservableObject {
+final class SettingPresenter: SettingPresenterProtocol, ObservableObject {
     @Published var savedLibraries: [Library]
     @Published var error: SettingError?
 
@@ -15,15 +17,16 @@ final class SettingPresenter: ObservableObject {
     init(interactor: SettingInteractorProtocol) {
         self.interactor = interactor
         savedLibraries = []
+    }
+
+    func getSaveLibraries() {
         interactor.getSaveLibraries()
     }
 }
 
-extension SettingPresenter: SettingPresenterProtocol {}
-
 extension SettingPresenter: SettingInteractorOutput {
     func successGet(libraries: [Library]) {
-        savedLibraries = libraries
+        self.savedLibraries = libraries
     }
 
     func failureGet(_ error: SettingError) {

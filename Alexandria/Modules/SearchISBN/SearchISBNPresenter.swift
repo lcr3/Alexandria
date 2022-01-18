@@ -8,6 +8,7 @@ protocol SearchISBNPresenterProtocol {
     var searchHistoryWords: [String] { get }
     var isSearching: Bool { get set }
     var isShowModal: Bool { get set }
+    var isShowSetting: Bool { get set }
     var isCurrentLocationNotSet: Bool { get set }
     var isShowDeleteLocationAlert: Bool { get set }
     var error: ErrorInfo? { get set }
@@ -30,6 +31,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var books: [ISBNBook] = []
     @Published var isSearching = false
     @Published var isShowModal = false
+    @Published var isShowSetting = false
     @Published var isCurrentLocationNotSet = false
     @Published var isShowDeleteLocationAlert = false
     @Published var error: ErrorInfo?
@@ -91,7 +93,7 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     }
 
     func locationDeleteButtonTapped() {
-        isShowDeleteLocationAlert = true
+        isShowSetting = true
     }
 
     func locationDeleteAlertButtonTapped() {

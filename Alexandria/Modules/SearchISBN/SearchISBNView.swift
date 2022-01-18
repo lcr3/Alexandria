@@ -1,5 +1,7 @@
 import CalilClient
+import StorageClient
 import SwiftUI
+
 protocol SearchISBNViewProtocol {}
 
 struct SearchISBNView: View, SearchISBNViewProtocol {
@@ -156,6 +158,13 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     SelectAddressWireFrame.makeSelectAddressView(
                         isPresented: $presenter.isShowModal,
                         calilClient: CalilClient(apiKey: "ee9d6e54dd4601e91d0d962975ff704d")
+                    )
+                )
+            }
+            .sheet(isPresented: $presenter.isShowSetting) {
+                LazyView(
+                    SettingWireFrame.makeSettingView(
+                        storegeClient: StorageClient()
                     )
                 )
             }
