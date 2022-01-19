@@ -34,7 +34,6 @@ protocol SelectAddressInteractorProtocol {
     func stopUpdatingLocation()
     func searchNearbyLibraries(latitude: Double, longitude: Double)
     func saveLibraries(_ libraries: [Library])
-    func saveLibraryIds(_ ids: [String])
     func isHaveStarted() -> Bool
     func saveIsHaveStarted()
 }
@@ -84,10 +83,6 @@ extension SelectAddressInteractor: SelectAddressInteractorProtocol {
             }
         }
         dependencies.storageClient.saveLibraries(datas)
-    }
-
-    func saveLibraryIds(_ ids: [String]) {
-        dependencies.storageClient.saveLibraryIds(ids)
     }
 
     func isHaveStarted() -> Bool {

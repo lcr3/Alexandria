@@ -23,7 +23,6 @@ protocol SearchISBNPresenterProtocol {
     func locationDeleteButtonTapped()
     func locationDeleteAlertButtonTapped()
     func isCurrentLocationNotSetAlertOKButtonTapped()
-    func libraryIds() -> [String]
 }
 
 final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
@@ -41,7 +40,7 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
 
     init(interactor: SearchISBNInteractorProtocol) {
         self.interactor = interactor
-        isShowModal = !interactor.isSavedNearLibraries()
+        isShowModal = !interactor.isSavedLibraries()
     }
 }
 
@@ -55,7 +54,7 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     }
 
     func searchButtonTapped() {
-        if !interactor.isSavedNearLibraries() {
+        if !interactor.isSavedLibraries() {
             isCurrentLocationNotSet = true
             return
         }
@@ -97,13 +96,8 @@ extension SearchISBNPresenter: SearchISBNViewProtocol {
     }
 
     func locationDeleteAlertButtonTapped() {
-        interactor.deleteLocation()
         isCurrentLocationNotSet = false
         isShowModal = true
-    }
-
-    func libraryIds() -> [String] {
-        interactor.libraryIds()
     }
 }
 

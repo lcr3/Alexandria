@@ -86,7 +86,6 @@ struct AboutMeView_Previews: PreviewProvider {
         SearchBookResultWireFrame.makeSearchBookResultView(
             title: "サンプル",
             isbn: "test",
-            libraryIds: [],
             calilClient: PreviewCalilClient()
         )
     }

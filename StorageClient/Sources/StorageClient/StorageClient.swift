@@ -1,14 +1,12 @@
 import Foundation
 
 public protocol StorageClientProtocol {
-    var libraryIds: [String] { get }
     var libraries: [Data] { get }
     var searchHistoryWords: [String] { get }
     var isHaveStarted: Bool { get }
 
     func saveLibraries(_ datas: [Data])
-    func saveLibraryIds(_ ids: [String])
-    func resetLibraryIds()
+    func resetLibraries()
     func deleteSearchHistory(index: Int)
     func resetSearchHistory()
     func saveSearchHistory(word: String)
@@ -19,7 +17,6 @@ public protocol StorageClientProtocol {
 public struct StorageClient {
     private let userDafaults: UserDefaults
     private let librariesKey = "libraries_key"
-    private let libraryIdsKey = "library_ids_key"
     private let searchHistoryWordsKey = "serch_history_words_key"
     private let isHaveStartedKey = "is_have_start_key"
     private let maxSerchHistoryCount = 5
@@ -30,13 +27,6 @@ public struct StorageClient {
 }
 
 extension StorageClient: StorageClientProtocol {
-    public var libraryIds: [String] {
-        guard let ids = userDafaults.array(forKey: libraryIdsKey) as? [String] else {
-            return []
-        }
-        return ids
-    }
-
     public var libraries: [Data] {
         guard let livs = userDafaults.array(forKey: librariesKey) as? [Data] else {
             return []
@@ -59,12 +49,8 @@ extension StorageClient: StorageClientProtocol {
         userDafaults.set(datas, forKey: librariesKey)
     }
 
-    public func saveLibraryIds(_ ids: [String]) {
-        userDafaults.set(ids, forKey: libraryIdsKey)
-    }
-
-    public func resetLibraryIds() {
-        userDafaults.removeObject(forKey: libraryIdsKey)
+    public func resetLibraries() {
+        userDafaults.removeObject(forKey: librariesKey)
     }
 
     public func saveSearchHistory(word: String) {

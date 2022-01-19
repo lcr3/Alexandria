@@ -19,6 +19,13 @@ let package = Package(
             name: "StorageClient",
             dependencies: []
         ),
+    ]
+)
+
+// MARK: - Test Targets
+
+package.targets.append(
+    contentsOf: [
         .testTarget(
             name: "StorageClientTests",
             dependencies: ["StorageClient"]

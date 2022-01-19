@@ -8,6 +8,7 @@
 
 @testable import Alexandria
 import Foundation
+import CalilClient
 import ISBNClient
 import StorageClient
 
@@ -17,15 +18,12 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
     var libraryIdsCalledCount = 0
     var searchBooksCalledCount = 0
     var deleteLocationCalledCount = 0
-    var isSavedNearLibrariesCalledCount = 0
-    var mockLibraryIds: [String] = []
+    var isSavedLibrariesCalledCount = 0
     var mockSearchHistoryWords: [String] = []
-    var mockIsSavedNearLibraries = false
+    var mockIsSavedLibraries = false
     var output: SearchISBNInteractorOutput?
-
-    func libraryIds() -> [String] {
-        libraryIdsCalledCount += 1
-        return mockLibraryIds
+    func libraries() -> [Library] {
+        []
     }
 
     func searchHistoryWords() -> [String] {
@@ -40,9 +38,9 @@ final class MockSearchISBNInteractor: SearchISBNInteractorProtocol {
         deleteLocationCalledCount += 1
     }
 
-    func isSavedNearLibraries() -> Bool {
-        isSavedNearLibrariesCalledCount += 1
-        return mockIsSavedNearLibraries
+    func isSavedLibraries() -> Bool {
+        isSavedLibrariesCalledCount += 1
+        return mockIsSavedLibraries
     }
 
     func saveSearch(word _: String) {}
@@ -79,9 +77,9 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
         searchHistoryWords = []
         searchISBNBookName = ""
         isCurrentLocationNotSet = false
-        mockLibraryIds = []
         isSearching = false
         isShowModal = false
+        isShowSetting = false
         isShowDeleteLocationAlert = false
         error = nil
     }
@@ -89,12 +87,12 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     var books: [ISBNBook]
     var searchHistoryWords: [String]
     var isSearching: Bool
+    var isShowSetting: Bool
     var isShowModal: Bool
     var isShowDeleteLocationAlert: Bool
     var error: ErrorInfo?
     var searchISBNBookName: String
     var isCurrentLocationNotSet: Bool
-    var mockLibraryIds: [String]
     var onAppearCalledCount = 0
     var searchButtonTappedCalledCount = 0
     var deleteButtonTappedCalledCount = 0
@@ -138,10 +136,6 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
         isCurrentLocationNotSetAlertOKButtonTappedCalledCount += 1
     }
 
-    func libraryIds() -> [String] {
-        mockLibraryIds
-    }
-
     func fetchSearchHistoryWords() {
         fetchSearchHistoryWordsCalledCount += 1
     }
@@ -157,11 +151,11 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
 
 class MockStorageClient: StorageClientProtocol {
     var isHaveStarted: Bool
-    var mockLibraryIds: [String]
+    var mockLibraries: [Data]
     var mocksearchHistoryWords: [String]
 
     init() {
-        mockLibraryIds = []
+        mockLibraries = []
         mocksearchHistoryWords = []
         isHaveStarted = true
     }
@@ -170,19 +164,11 @@ class MockStorageClient: StorageClientProtocol {
         []
     }
 
-    var libraryIds: [String] {
-        mockLibraryIds
-    }
-
     var searchHistoryWords: [String] {
         mocksearchHistoryWords
     }
 
     func saveLibraries(_: [Data]) {}
-
-    func saveLibraryIds(_ ids: [String]) {
-        mockLibraryIds = ids
-    }
 
     func saveSearchHistory(word: String) {
         mocksearchHistoryWords.append(word)
@@ -192,12 +178,12 @@ class MockStorageClient: StorageClientProtocol {
         isHaveStarted = true
     }
 
-    func resetLibraryIds() {
-        mockLibraryIds = []
+    func resetLibraries() {
+        mockLibraries = []
     }
 
     func reset() {
-        mockLibraryIds = []
+        mockLibraries = []
     }
 
     func resetSearchHistory() {}

@@ -32,37 +32,19 @@ final class StorageClientTests: XCTestCase {
         XCTAssertEqual(client.libraries, expectLibraries)
     }
 
-    func testSetGetLibraryIds() throws {
+    func testResetLibraries() throws {
         // Test init value
-        XCTAssertEqual(client.libraryIds, [])
+        let expectLibraries = [Data(), Data(), Data()]
+        client.saveLibraries(expectLibraries)
+
+        // Verify
+        XCTAssertEqual(client.libraries, expectLibraries)
 
         // Execute
-        var expectLibraryIds = ["lib_1", "lib_2", "lib_3", "lib_4"]
-        client.saveLibraryIds(expectLibraryIds)
+        client.resetLibraries()
 
         // Verify
-        XCTAssertEqual(client.libraryIds, expectLibraryIds)
-
-        expectLibraryIds = ["lib_10", "lib_20", "lib_30"]
-        client.saveLibraryIds(expectLibraryIds)
-
-        // Verify
-        XCTAssertEqual(client.libraryIds, expectLibraryIds)
-    }
-
-    func testResetLibraryId() throws {
-        // Test init value
-        let expectLibraryIds = ["lib_1", "lib_2", "lib_3", "lib_4"]
-        client.saveLibraryIds(expectLibraryIds)
-
-        // Verify
-        XCTAssertEqual(client.libraryIds, expectLibraryIds)
-
-        // Execute
-        client.resetLibraryIds()
-
-        // Verify
-        XCTAssertEqual(client.libraryIds, [])
+        XCTAssertEqual(client.libraries, [])
     }
 
     func testSearchHistory() throws {
@@ -178,23 +160,19 @@ final class StorageClientTests: XCTestCase {
 
     func testReset() throws {
         // Test init value
-        XCTAssertEqual(client.libraryIds, [])
+        XCTAssertEqual(client.libraries, [])
 
         let expectLibraries = [Data(), Data(), Data()]
-        let expectLibraryIds = ["lib_1", "lib_2", "lib_3", "lib_4"]
         let expectSearchWord = "word"
         client.saveLibraries(expectLibraries)
-        client.saveLibraryIds(expectLibraryIds)
         client.saveSearchHistory(word: expectSearchWord)
 
         XCTAssertEqual(client.libraries, expectLibraries)
-        XCTAssertEqual(client.libraryIds, expectLibraryIds)
         XCTAssertEqual(client.searchHistoryWords, [expectSearchWord])
 
         client.reset()
 
         XCTAssertEqual(client.libraries, [])
-        XCTAssertEqual(client.libraryIds, [])
         XCTAssertEqual(client.searchHistoryWords, [])
     }
 }

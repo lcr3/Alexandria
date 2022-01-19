@@ -1,7 +1,7 @@
 import APIKit
 import SwiftUI
 
-public struct Library: Decodable, Identifiable, Encodable {
+public struct Library: Decodable, Identifiable, Encodable, Equatable {
     public var id: String {
         systemId
     }

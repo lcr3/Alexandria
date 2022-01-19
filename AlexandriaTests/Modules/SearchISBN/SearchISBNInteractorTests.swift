@@ -7,6 +7,7 @@
 //
 
 @testable import Alexandria
+import CalilClient
 import ISBNClient
 import XCTest
 
@@ -35,16 +36,26 @@ class SearchISBNInteractorTests: XCTestCase {
         super.tearDown()
     }
 
-    func testLibraryIds() throws {
+    func testLibraries() throws {
         // setup
-        let libraryIds = ["1", "2"]
-        XCTAssertEqual(interctor.libraryIds(), [])
+        let libraries = [Library(name: "1"), Library(name: "2")]
+        XCTAssertEqual(interctor.libraries(), [])
+        var datas: [Data] = []
+        libraries.forEach { library in
+            do {
+                let data = try JSONEncoder().encode(library)
+                datas.append(data)
+            } catch {
+                fatalError()
+            }
+        }
+
 
         // execute
-        storageClient.mockLibraryIds = libraryIds
+        storageClient.mockLibraries = datas
 
         // verify
-        XCTAssertEqual(interctor.libraryIds(), libraryIds)
+        XCTAssertEqual(interctor.libraries(), libraries)
     }
 
     func testSuccessSearchBooks() {

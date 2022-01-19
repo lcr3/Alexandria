@@ -1,3 +1,5 @@
+import CalilClient
+import Foundation
 import ISBNClient
 
 protocol SearchISBNInteractorOutput: AnyObject {
@@ -7,11 +9,10 @@ protocol SearchISBNInteractorOutput: AnyObject {
 }
 
 protocol SearchISBNInteractorProtocol {
-    func libraryIds() -> [String]
+    func libraries() -> [Library]
     func featchSearchHistoryWords()
     func searchBooks(name: String)
-    func deleteLocation()
-    func isSavedNearLibraries() -> Bool
+    func isSavedLibraries() -> Bool
     func deleteHistory(index: Int)
     func resetHistory()
 
@@ -43,16 +44,26 @@ final class SearchISBNInteractor: SearchISBNInteractorProtocol {
         }
     }
 
-    func deleteLocation() {
-        dependencies.storegeClient.resetLibraryIds()
+//    func deleteLocation() {
+//        dependencies.storegeClient.resetLibraryIds()
+//    }
+
+    func isSavedLibraries() -> Bool {
+        !dependencies.storegeClient.libraries.isEmpty
     }
 
-    func isSavedNearLibraries() -> Bool {
-        !dependencies.storegeClient.libraryIds.isEmpty
-    }
-
-    func libraryIds() -> [String] {
-        dependencies.storegeClient.libraryIds
+    func libraries() -> [Library] {
+        let datas = dependencies.storegeClient.libraries
+        var libraries: [Library] = []
+        for data in datas {
+            do {
+                let library = try JSONDecoder().decode(Library.self, from: data)
+                libraries.append(library)
+            } catch {
+                return []
+            }
+        }
+        return libraries
     }
 
     func featchSearchHistoryWords() {

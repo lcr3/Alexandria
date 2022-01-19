@@ -60,7 +60,7 @@ struct PreviewStorageClient: StorageClientProtocol {
 
     func saveIsHaveStarted() {}
 
-    func resetLibraryIds() {}
+    func resetLibraries() {}
 
     func deleteSearchHistory(index _: Int) {}
 
