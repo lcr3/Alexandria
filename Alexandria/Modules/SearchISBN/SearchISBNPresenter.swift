@@ -6,6 +6,7 @@ import SwiftUI
 protocol SearchISBNPresenterProtocol {
     var searchISBNBookName: String { get set }
     var books: [ISBNBook] { get set }
+    var libraries: [Library] {get set }
     var searchHistoryWords: [String] { get }
     var isSearching: Bool { get set }
     var isShowModal: Bool { get set }
@@ -36,12 +37,14 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var isShowDeleteLocationAlert = false
     @Published var error: ErrorInfo?
     @Published var searchHistoryWords: [String] = []
+    var libraries: [Library]
 
     private let interactor: SearchISBNInteractorProtocol
 
     init(interactor: SearchISBNInteractorProtocol) {
         self.interactor = interactor
         isShowModal = !interactor.isSavedLibraries()
+        libraries = interactor.libraries()
     }
 }
 
