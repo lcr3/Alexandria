@@ -83,6 +83,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                                         SearchBookResultWireFrame.makeSearchBookResultView(
                                             title: book.title,
                                             isbn: book.isbn,
+                                            libraries: [],
                                             calilClient: CalilClient(apiKey: "ee9d6e54dd4601e91d0d962975ff704d")
                                         )
                                     )

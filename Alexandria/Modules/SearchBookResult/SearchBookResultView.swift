@@ -81,12 +81,12 @@ struct SearchBookResultView: View, SearchBookResultViewProtocol {
     }
 }
 
-struct AboutMeView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBookResultWireFrame.makeSearchBookResultView(
-            title: "サンプル",
-            isbn: "test",
-            calilClient: PreviewCalilClient()
-        )
-    }
-}
+//struct AboutMeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchBookResultWireFrame.makeSearchBookResultView(
+//            title: "サンプル",
+//            isbn: "test",
+//            calilClient: PreviewCalilClient()
+//        )
+//    }
+//}

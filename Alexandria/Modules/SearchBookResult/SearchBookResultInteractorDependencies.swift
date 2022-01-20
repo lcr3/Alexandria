@@ -3,7 +3,6 @@ import StorageClient
 
 protocol SearchBookResultInteractorDependenciesProtocol {
     var calilClient: CalilClientProtocol { get }
-    var storageClient: StorageClientProtocol { get }
 }
 
 struct SearchBookResultInteractorDependencies: SearchBookResultInteractorDependenciesProtocol {

@@ -32,7 +32,7 @@ extension MockSearchBookResultInteractor: SearchBookResultInteractorProtocol {
 
 final class MockSearchBookResultPresenter: SearchBookResultPresenterProtocol {
     var isbn: String
-    var libraryIds: [String]
+    var libraries: [Library]
     var title: String
     var libraryBooks: [LibraryBook]
     var isLoading: Bool
@@ -41,14 +41,19 @@ final class MockSearchBookResultPresenter: SearchBookResultPresenterProtocol {
     var selectedBookUrl: URL?
     private let interactor: SearchBookResultInteractorProtocol
 
-    init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
+    init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraries: [Library] = []) {
         self.interactor = interactor
         self.isbn = isbn
-        self.libraryIds = libraryIds
+        self.libraries = libraries
         self.title = title
         libraryBooks = []
         isLoading = true
-        interactor.searchForBooksInTheLibraries(isbn: isbn, libraryIds: libraryIds)
+        interactor.searchForBooksInTheLibraries(
+            isbn: isbn,
+            libraryIds: libraries.compactMap { library in
+                library.systemId
+            }
+        )
     }
 
     func errorAlertOkButtonTapped() {}

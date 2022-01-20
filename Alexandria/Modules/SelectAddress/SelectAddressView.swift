@@ -89,10 +89,10 @@ struct SelectAddressView: View, SelectAddressViewProtocol {
     }
 }
 
-struct SelectAdressView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectAddressWireFrame.makeSelectAddressView(isPresented: .constant(false),
-                                                     calilClient: PreviewCalilClient(),
-                                                     locationClient: MockLocationClient())
-    }
-}
+// struct SelectAdressView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectAddressWireFrame.makeSelectAddressView(isPresented: .constant(false),
+//                                                     calilClient: PreviewCalilClient(),
+//                                                     locationClient: MockLocationClient())
+//    }
+// }

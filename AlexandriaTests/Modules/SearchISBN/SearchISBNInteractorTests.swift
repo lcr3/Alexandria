@@ -87,27 +87,27 @@ class SearchISBNInteractorTests: XCTestCase {
         XCTAssertEqual(presenter.books, [])
     }
 
-    func testDeleteLocation() {
-        // setup
-        let expectLibraryIds = ["1", "2"]
-        storageClient.mockLibraryIds = expectLibraryIds
-        XCTAssertEqual(interctor.libraryIds(), expectLibraryIds)
-
-        // execute
-        interctor.deleteLocation()
-
-        // verify
-        XCTAssertEqual(interctor.libraryIds(), [])
-    }
-
-    func testIsSavedNearLibraries() {
-        // setup
-        XCTAssertEqual(interctor.isSavedNearLibraries(), false)
-
-        // execute
-        storageClient.mockLibraryIds = ["1", "2"]
-
-        // verify
-        XCTAssertEqual(interctor.isSavedNearLibraries(), true)
-    }
+//    func testDeleteLocation() {
+//        // setup
+//        let expectLibraryIds = ["1", "2"]
+//        storageClient.mockLibraryIds = expectLibraryIds
+//        XCTAssertEqual(interctor.libraryIds(), expectLibraryIds)
+//
+//        // execute
+//        interctor.deleteLocation()
+//
+//        // verify
+//        XCTAssertEqual(interctor.libraryIds(), [])
+//    }
+//
+//    func testIsSavedNearLibraries() {
+//        // setup
+//        XCTAssertEqual(interctor.isSavedNearLibraries(), false)
+//
+//        // execute
+//        storageClient.mockLibraryIds = ["1", "2"]
+//
+//        // verify
+//        XCTAssertEqual(interctor.isSavedNearLibraries(), true)
+//    }
 }

@@ -4,9 +4,8 @@ import Foundation
 
 protocol SearchBookResultPresenterProtocol {
     var isbn: String { get }
-    var libraryIds: [String] { get }
     var title: String { get }
-
+    var libraries: [Library] { get set }
     var libraryBooks: [LibraryBook] { get set }
     var isLoading: Bool { get set }
     var selectedBookUrl: URL? { get }
@@ -17,8 +16,8 @@ protocol SearchBookResultPresenterProtocol {
 
 final class SearchBookResultPresenter: ObservableObject {
     let isbn: String
-    let libraryIds: [String]
     let title: String
+    var libraries: [Library]
 
     @Published var libraryBooks: [LibraryBook]
     @Published var isLoading: Bool
@@ -27,14 +26,20 @@ final class SearchBookResultPresenter: ObservableObject {
 
     private let interactor: SearchBookResultInteractorProtocol
 
-    init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraryIds: [String] = []) {
+    init(interactor: SearchBookResultInteractorProtocol, title: String, isbn: String = "", libraries: [Library]) {
         self.interactor = interactor
         self.isbn = isbn
-        self.libraryIds = libraryIds
+        self.libraries = libraries
         self.title = title
         libraryBooks = []
         isLoading = true
-        interactor.searchForBooksInTheLibraries(isbn: isbn, libraryIds: libraryIds)
+        // TODO: Libraries nil check
+        interactor.searchForBooksInTheLibraries(
+            isbn: isbn,
+            libraryIds: libraries.compactMap { library in
+                library.systemId
+            }
+        )
     }
 }
 
