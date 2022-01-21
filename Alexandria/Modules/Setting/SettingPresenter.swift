@@ -6,6 +6,7 @@ protocol SettingPresenterProtocol {
     var error: SettingError? { get set }
 
     func getSaveLibraries()
+    func resetButtonTouched()
 }
 
 final class SettingPresenter: SettingPresenterProtocol, ObservableObject {
@@ -21,6 +22,10 @@ final class SettingPresenter: SettingPresenterProtocol, ObservableObject {
 
     func getSaveLibraries() {
         interactor.getSaveLibraries()
+    }
+
+    func resetButtonTouched() {
+        print("reset")
     }
 }
 

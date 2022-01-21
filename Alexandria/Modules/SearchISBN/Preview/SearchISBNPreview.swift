@@ -6,6 +6,7 @@
 //
 //
 
+import CalilClient
 import Foundation
 import ISBNClient
 import StorageClient
@@ -51,6 +52,24 @@ struct PreviewStorageClient: StorageClientProtocol {
         libraries = []
         searchHistoryWords = ["履歴"]
         isHaveStarted = true
+        let libs = [
+            Library(
+                name: "あああ",
+                systemId: "aa_aa"
+            ),
+            Library(
+                name: "sssss",
+                systemId: "bb_bb"
+            )
+        ]
+        libs.forEach { library in
+            do {
+                let data = try JSONEncoder().encode(library)
+                libraries.append(data)
+            } catch {
+                fatalError()
+            }
+        }
     }
 
     func saveLibraries(_: [Data]) {}

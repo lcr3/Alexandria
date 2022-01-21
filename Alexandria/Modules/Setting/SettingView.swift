@@ -13,14 +13,27 @@ struct SettingView: View, SettingViewProtocol {
     @ObservedObject private var presenter: SettingPresenter
 
     var body: some View {
-        List {
-            Section("登録されている図書館") {
-                ForEach(presenter.savedLibraries) { library in
-                    Text(library.name)
+        NavigationView {
+
+            List {
+                Section("登録されている図書館") {
+                    ForEach(presenter.savedLibraries) { library in
+                        Text(library.name)
+                    }
                 }
+                Section() {
+                    HStack {
+                        Spacer()
+                        Text("登録図書館をリセットする")
+                            .foregroundColor(.red)
+                        Spacer()
+                    }
+                }.onTapGesture {
+                    presenter.resetButtonTouched()
+                }
+            }.onAppear {
+                presenter.getSaveLibraries()
             }
-        }.onAppear {
-            presenter.getSaveLibraries()
         }
     }
 
