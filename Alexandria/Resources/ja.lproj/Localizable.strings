@@ -12,6 +12,9 @@
 "recentSearchText" = "最近の検索";
 "locationNotSelectAlertTitle" = "位置情報が設定されていません";
 "SetButtonTitle" = "設定する";
+"locationDeleteButtonTitle" = "登録図書館をリセットする";
+"settingViewTitle" = "設定";
+"settingLibrariesSectionTitle" = "登録されている図書館";
 "locationDeleteAlertTitle" = "設定されている位置情報を削除しますか？";
 "cancelButtonTitle" = "キャンセル";
 "deleteButtonTitle" = "削除する";

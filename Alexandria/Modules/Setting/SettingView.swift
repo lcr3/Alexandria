@@ -14,9 +14,8 @@ struct SettingView: View, SettingViewProtocol {
 
     var body: some View {
         NavigationView {
-
             List {
-                Section("登録されている図書館") {
+                Section(L10n.settingLibrariesSectionTitle) {
                     ForEach(presenter.savedLibraries) { library in
                         Text(library.name)
                     }
@@ -24,7 +23,7 @@ struct SettingView: View, SettingViewProtocol {
                 Section() {
                     HStack {
                         Spacer()
-                        Text("登録図書館をリセットする")
+                        Text(L10n.locationDeleteButtonTitle)
                             .foregroundColor(.red)
                         Spacer()
                     }
@@ -35,6 +34,8 @@ struct SettingView: View, SettingViewProtocol {
                 presenter.getSaveLibraries()
             }
         }
+        .navigationTitle(L10n.settingViewTitle)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     init(presenter: SettingPresenter) {
