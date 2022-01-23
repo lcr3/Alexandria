@@ -112,7 +112,7 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     Button {
                         presenter.locationDeleteButtonTapped()
                     } label: {
-                        Image(systemName: "location.slash")
+                        Image(systemName: "gearshape")
                     }
                 }
             }

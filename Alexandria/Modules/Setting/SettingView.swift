@@ -56,9 +56,8 @@ struct SettingView: View, SettingViewProtocol {
                     }
                 }
             }
+            .navigationTitle(L10n.settingViewTitle)
         }
-        .navigationTitle(L10n.settingViewTitle)
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     init(presenter: SettingPresenter) {
