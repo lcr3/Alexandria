@@ -13,16 +13,19 @@ struct SettingError: Error, Identifiable {
 protocol SettingInteractorProtocol {
     var output: SettingInteractorOutput? { get set }
     func getSaveLibraries()
+    func deleteSaveLibraries()
 }
 
-final class SettingInteractor: SettingInteractorProtocol {
+final class SettingInteractor {
     private var dependencies: SettingInteractorDependenciesProtocol
     weak var output: SettingInteractorOutput?
 
     init(dependencies: SettingInteractorDependenciesProtocol) {
         self.dependencies = dependencies
     }
+}
 
+extension SettingInteractor: SettingInteractorProtocol {
     func getSaveLibraries() {
         let datas = dependencies.storegeClient.libraries
         var libraries: [Library] = []
@@ -38,7 +41,8 @@ final class SettingInteractor: SettingInteractorProtocol {
         }
         self.output?.successGet(libraries: libraries)
     }
-}
 
-//extension SettingInteractor: SettingInteractorProtocol {
-//}
+    func deleteSaveLibraries() {
+        dependencies.storegeClient.resetLibraries()
+    }
+}

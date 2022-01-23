@@ -34,7 +34,8 @@ final class SettingPresenter: SettingPresenterProtocol, ObservableObject {
 
     func locationDeleteAlertButtonTapped() {
         isShowDeleteLocationAlert = false
-        // delete
+        interactor.deleteSaveLibraries()
+        getSaveLibraries()
     }
 }
 

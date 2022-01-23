@@ -48,6 +48,8 @@ internal enum L10n {
   internal static let setButtonTitle = L10n.tr("Localizable", "SetButtonTitle")
   /// 登録されている図書館
   internal static let settingLibrariesSectionTitle = L10n.tr("Localizable", "settingLibrariesSectionTitle")
+  /// 登録されている図書館はありません
+  internal static let settingNoLibrariesSectionTitle = L10n.tr("Localizable", "settingNoLibrariesSectionTitle")
   /// 設定
   internal static let settingViewTitle = L10n.tr("Localizable", "settingViewTitle")
 }

@@ -15,6 +15,7 @@
 "locationDeleteButtonTitle" = "登録図書館をリセットする";
 "settingViewTitle" = "設定";
 "settingLibrariesSectionTitle" = "登録されている図書館";
+"settingNoLibrariesSectionTitle" = "登録されている図書館はありません";
 "locationDeleteAlertTitle" = "設定されている位置情報を削除しますか？";
 "cancelButtonTitle" = "キャンセル";
 "deleteButtonTitle" = "削除する";

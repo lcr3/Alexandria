@@ -15,9 +15,15 @@ struct SettingView: View, SettingViewProtocol {
     var body: some View {
         NavigationView {
             List {
-                Section(L10n.settingLibrariesSectionTitle) {
-                    ForEach(presenter.savedLibraries) { library in
-                        Text(library.name)
+                if presenter.savedLibraries.isEmpty {
+                    Section() {
+                        Text(L10n.settingNoLibrariesSectionTitle)
+                    }
+                } else {
+                    Section(L10n.settingLibrariesSectionTitle) {
+                        ForEach(presenter.savedLibraries) { library in
+                            Text(library.name)
+                        }
                     }
                 }
                 Section() {
