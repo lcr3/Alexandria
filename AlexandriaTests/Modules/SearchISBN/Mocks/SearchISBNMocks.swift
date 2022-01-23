@@ -74,6 +74,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     init(interactor: SearchISBNInteractorProtocol) {
         self.interactor = interactor
         books = []
+        libraries = []
         searchHistoryWords = []
         searchISBNBookName = ""
         isCurrentLocationNotSet = false
@@ -85,6 +86,7 @@ final class MockSearchISBNPresenter: SearchISBNPresenterProtocol {
     }
 
     var books: [ISBNBook]
+    var libraries: [Library]
     var searchHistoryWords: [String]
     var isSearching: Bool
     var isShowSetting: Bool

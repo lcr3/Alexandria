@@ -33,6 +33,23 @@ struct SettingView: View, SettingViewProtocol {
             }.onAppear {
                 presenter.getSaveLibraries()
             }
+            .alert(
+                L10n.locationDeleteAlertTitle,
+                isPresented: $presenter.isShowDeleteLocationAlert
+            ) {
+                VStack {
+                    Button(
+                        L10n.cancelButtonTitle,
+                        role: .cancel
+                    ) {}
+                    Button(
+                        L10n.deleteButtonTitle,
+                        role: .destructive
+                    ) {
+                        presenter.locationDeleteAlertButtonTapped()
+                    }
+                }
+            }
         }
         .navigationTitle(L10n.settingViewTitle)
         .navigationViewStyle(StackNavigationViewStyle())

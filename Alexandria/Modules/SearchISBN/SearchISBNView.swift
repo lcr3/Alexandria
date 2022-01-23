@@ -129,23 +129,6 @@ struct SearchISBNView: View, SearchISBNViewProtocol {
                     }
                 }
             }
-            .alert(
-                L10n.locationDeleteAlertTitle,
-                isPresented: $presenter.isShowDeleteLocationAlert
-            ) {
-                VStack {
-                    Button(
-                        L10n.cancelButtonTitle,
-                        role: .cancel
-                    ) {}
-                    Button(
-                        L10n.deleteButtonTitle,
-                        role: .destructive
-                    ) {
-                        presenter.locationDeleteAlertButtonTapped()
-                    }
-                }
-            }
             .alert(item: $presenter.error) {
                 Alert(
                     title: Text($0.title),
