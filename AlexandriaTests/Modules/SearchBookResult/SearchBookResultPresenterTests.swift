@@ -41,7 +41,7 @@ class SearchBookResultPresenterTests: XCTestCase {
             interactor: interactor,
             title: "title",
             isbn: "123456789",
-            libraryIds: ["1", "2", "3"]
+            libraries: [Library(), Library(), Library()]
         )
         interactor.output = presenter
 

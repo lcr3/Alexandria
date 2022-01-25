@@ -39,37 +39,36 @@ class SearchISBNPresenterTests: XCTestCase {
         XCTAssertEqual(presenter.searchISBNBookName, "")
     }
 
-//    func testWhenLocationNotSetSearchButtonTapped() throws {
-//        // setup
-//        interactor.mockIsSavedNearLibraries = false
-//        XCTAssertEqual(presenter.isCurrentLocationNotSet, false)
-//
-//        // execute
-//        presenter.searchButtonTapped()
-//
-//        // verify
-//        XCTAssertEqual(presenter.isCurrentLocationNotSet, true)
-//        XCTAssertEqual(interactor.searchBooksCalledCount, 0)
-//    }
-//
-//    func testWhenSearchISBMBookNameEmptySearchButtonTapped() throws {
-//        // setup
-//        interactor.mockIsSavedNearLibraries = true
-//        presenter.editSeachBookName("")
-//
-//        // execute
-//        presenter.searchButtonTapped()
-//
-//        // verify
-//        XCTAssertEqual(interactor.searchBooksCalledCount, 0)
-//
-//        // execute
-//        presenter.editSeachBookName("abcdefg")
-//        presenter.searchButtonTapped()
-//
-//        // verify
-//        XCTAssertEqual(interactor.searchBooksCalledCount, 1)
-//    }
+    func testWhenLocationNotSetSearchButtonTapped() throws {
+        // setup
+        XCTAssertEqual(presenter.isCurrentLocationNotSet, false)
+
+        // execute
+        presenter.searchButtonTapped()
+
+        // verify
+        XCTAssertEqual(presenter.isCurrentLocationNotSet, true)
+        XCTAssertEqual(interactor.searchBooksCalledCount, 0)
+    }
+
+    func testWhenSearchISBMBookNameEmptySearchButtonTapped() throws {
+        // setup
+        interactor.mockIsSavedLibraries = true
+        presenter.editSeachBookName("")
+
+        // execute
+        presenter.searchButtonTapped()
+
+        // verify
+        XCTAssertEqual(interactor.searchBooksCalledCount, 0)
+
+        // execute
+        presenter.editSeachBookName("abcdefg")
+        presenter.searchButtonTapped()
+
+        // verify
+        XCTAssertEqual(interactor.searchBooksCalledCount, 1)
+    }
 
     func testDeleteButtonTapped() throws {
         // setup
@@ -97,17 +96,6 @@ class SearchISBNPresenterTests: XCTestCase {
         XCTAssertEqual(presenter.isShowModal, true)
     }
 
-    func testLocationDeleteButtonTapped() throws {
-        // setup
-        XCTAssertEqual(presenter.isShowDeleteLocationAlert, false)
-
-        // execute
-        presenter.locationDeleteButtonTapped()
-
-        // verify
-        XCTAssertEqual(presenter.isShowDeleteLocationAlert, true)
-    }
-
     func testLocationDeleteAlertButtonTapped() throws {
         // setup
         presenter.isCurrentLocationNotSet = true
@@ -118,21 +106,7 @@ class SearchISBNPresenterTests: XCTestCase {
         presenter.locationDeleteAlertButtonTapped()
 
         // verify
-        XCTAssertEqual(interactor.deleteLocationCalledCount, 1)
         XCTAssertEqual(presenter.isCurrentLocationNotSet, false)
         XCTAssertEqual(presenter.isShowModal, true)
     }
-
-//    func testLibraryIds() throws {
-//        // setup
-//        let libraryIds = ["1", "2", "3"]
-//
-//        // execute
-//        interactor.mockLibraryIds = []
-//
-//        // verify
-//        XCTAssertEqual(presenter.libraryIds(), [])
-//        interactor.mockLibraryIds = libraryIds
-//        XCTAssertEqual(presenter.libraryIds(), libraryIds)
-//    }
 }

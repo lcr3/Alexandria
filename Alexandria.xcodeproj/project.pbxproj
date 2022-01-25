@@ -16,6 +16,9 @@
 		0F8BEF202795A1FB0087F141 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF1F2795A1FB0087F141 /* SettingInteractor.swift */; };
 		0F8BEF222795A7190087F141 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF212795A7190087F141 /* SettingPresenter.swift */; };
 		0F8BEF242795AAD00087F141 /* SettingWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8BEF232795AAD00087F141 /* SettingWireFrame.swift */; };
+		0FE721E027A1037700DB958F /* SettingMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE721DF27A1037700DB958F /* SettingMocks.swift */; };
+		0FE721E227A1053600DB958F /* SettingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE721E127A1053600DB958F /* SettingPresenterTests.swift */; };
+		0FE721E627A10EA800DB958F /* SettingInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE721E527A10EA800DB958F /* SettingInteractorTests.swift */; };
 		2935B7D7270ECED600145B4F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2935B7D6270ECED600145B4F /* ActivityIndicator.swift */; };
 		29493301271569C800B4724E /* StateIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29493300271569C800B4724E /* StateIcon.swift */; };
 		2949E06E26FC233E000BCB0F /* AlexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2949E06D26FC233E000BCB0F /* AlexandriaApp.swift */; };
@@ -87,6 +90,9 @@
 		0F8BEF1F2795A1FB0087F141 /* SettingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInteractor.swift; sourceTree = "<group>"; };
 		0F8BEF212795A7190087F141 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
 		0F8BEF232795AAD00087F141 /* SettingWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWireFrame.swift; sourceTree = "<group>"; };
+		0FE721DF27A1037700DB958F /* SettingMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMocks.swift; sourceTree = "<group>"; };
+		0FE721E127A1053600DB958F /* SettingPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenterTests.swift; sourceTree = "<group>"; };
+		0FE721E527A10EA800DB958F /* SettingInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingInteractorTests.swift; sourceTree = "<group>"; };
 		2935B7D6270ECED600145B4F /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		29493300271569C800B4724E /* StateIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateIcon.swift; sourceTree = "<group>"; };
 		2949E06A26FC233E000BCB0F /* Alexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +196,24 @@
 				0F8BEF232795AAD00087F141 /* SettingWireFrame.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		0FE721DD27A1034B00DB958F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				0FE721DE27A1036200DB958F /* Mocks */,
+				0FE721E127A1053600DB958F /* SettingPresenterTests.swift */,
+				0FE721E527A10EA800DB958F /* SettingInteractorTests.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		0FE721DE27A1036200DB958F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0FE721DF27A1037700DB958F /* SettingMocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		294932FF271569B900B4724E /* SubViews */ = {
@@ -374,6 +398,7 @@
 		29F92C22271BCA760065117C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0FE721DD27A1034B00DB958F /* Setting */,
 				2952A1772722A0C900A67F57 /* SearchBookResult */,
 				29F92C23271BCA880065117C /* SearchISBN */,
 			);
@@ -624,13 +649,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE721E027A1037700DB958F /* SettingMocks.swift in Sources */,
 				2952A17A2722A10200A67F57 /* SearchBookResultMocks.swift in Sources */,
 				29F92C25271BCABD0065117C /* SearchISBNPresenterTests.swift in Sources */,
 				2949E07F26FC2342000BCB0F /* AlexandriaTests.swift in Sources */,
 				2952A17E272538C100A67F57 /* SearchBookResultPresenterTests.swift in Sources */,
 				29F92C28271D1B240065117C /* SearchISBNInteractorTests.swift in Sources */,
+				0FE721E227A1053600DB958F /* SettingPresenterTests.swift in Sources */,
 				2952A17C2722DA2200A67F57 /* SearchBookResultInteractorTests.swift in Sources */,
 				29F92C2A271D1B3D0065117C /* SearchISBNMocks.swift in Sources */,
+				0FE721E627A10EA800DB958F /* SettingInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

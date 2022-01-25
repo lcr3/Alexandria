@@ -12,7 +12,6 @@ protocol SearchISBNPresenterProtocol {
     var isShowModal: Bool { get set }
     var isShowSetting: Bool { get set }
     var isCurrentLocationNotSet: Bool { get set }
-    var isShowDeleteLocationAlert: Bool { get set }
     var error: ErrorInfo? { get set }
 
     func onAppear()
@@ -34,7 +33,6 @@ final class SearchISBNPresenter: SearchISBNPresenterProtocol, ObservableObject {
     @Published var isShowModal = false
     @Published var isShowSetting = false
     @Published var isCurrentLocationNotSet = false
-    @Published var isShowDeleteLocationAlert = false
     @Published var error: ErrorInfo?
     @Published var searchHistoryWords: [String] = []
     var libraries: [Library]
