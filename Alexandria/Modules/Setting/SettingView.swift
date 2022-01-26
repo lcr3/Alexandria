@@ -22,7 +22,12 @@ struct SettingView: View, SettingViewProtocol {
                 } else {
                     Section(L10n.settingLibrariesSectionTitle) {
                         ForEach(presenter.savedLibraries) { library in
-                            Text(library.name)
+                            HStack {
+                                Image(systemName: "mappin.circle.fill")
+                                    .foregroundColor(.red)
+
+                                Text(library.name)
+                            }
                         }
                     }
                 }
