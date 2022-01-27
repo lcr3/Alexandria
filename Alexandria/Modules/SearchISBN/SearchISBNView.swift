@@ -164,7 +164,7 @@ struct SearchISBNView_Previews: PreviewProvider {
     static var previews: some View {
         SearchISBNWireFrame.makeSearchISBNView(
             isbnClient: PreviewISBNClient(),
-            storegeClient: PreviewStorageClient()
+            storegeClient: PreviewStorageClient(isSaved: true)
         )
     }
 }

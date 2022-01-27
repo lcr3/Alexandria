@@ -72,8 +72,13 @@ struct SettingView: View, SettingViewProtocol {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingWireFrame.makeSettingView(
-            storegeClient: PreviewStorageClient()
-        )
+        Group {
+            SettingWireFrame.makeSettingView(
+                storegeClient: PreviewStorageClient(isSaved: true)
+            )
+            SettingWireFrame.makeSettingView(
+                storegeClient: PreviewStorageClient(isSaved: false)
+            )
+        }
     }
 }

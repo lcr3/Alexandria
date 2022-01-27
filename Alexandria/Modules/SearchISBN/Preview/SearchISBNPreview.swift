@@ -47,28 +47,35 @@ struct PreviewStorageClient: StorageClientProtocol {
     var libraryIds: [String]
     var isHaveStarted: Bool
 
-    init() {
-        libraryIds = ["1234"]
-        libraries = []
-        searchHistoryWords = ["履歴"]
-        isHaveStarted = true
-        let libs = [
-            Library(
-                name: "あああ",
-                systemId: "aa_aa"
-            ),
-            Library(
-                name: "sssss",
-                systemId: "bb_bb"
-            )
-        ]
-        libs.forEach { library in
-            do {
-                let data = try JSONEncoder().encode(library)
-                libraries.append(data)
-            } catch {
-                fatalError()
+    init(isSaved: Bool) {
+        if isSaved {
+            libraryIds = ["1234"]
+            libraries = []
+            searchHistoryWords = ["履歴"]
+            isHaveStarted = true
+            let libs = [
+                Library(
+                    name: "国立国会図書館",
+                    systemId: "aa_aa"
+                ),
+                Library(
+                    name: "千代田区立図書館",
+                    systemId: "bb_bb"
+                )
+            ]
+            libs.forEach { library in
+                do {
+                    let data = try JSONEncoder().encode(library)
+                    libraries.append(data)
+                } catch {
+                    fatalError()
+                }
             }
+        } else {
+            libraryIds = []
+            libraries = []
+            searchHistoryWords = []
+            isHaveStarted = true
         }
     }
 
