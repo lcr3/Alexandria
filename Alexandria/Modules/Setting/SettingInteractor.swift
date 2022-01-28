@@ -3,12 +3,18 @@ import Foundation
 
 protocol SettingInteractorOutput: AnyObject {
     func successGet(libraries: [Library])
-    func failureGet(_: SettingError)
+    func failureGet(_: SettingInteractorError)
 }
 
-struct SettingError: Error, Identifiable {
-    var id = UUID()
+enum SettingInteractorError: Error {
+    case unknow
+    case failedDecode
 }
+
+extension SettingInteractorError: Identifiable {
+    var id: Self { self }
+}
+
 
 protocol SettingInteractorProtocol {
     var output: SettingInteractorOutput? { get set }
@@ -35,7 +41,7 @@ extension SettingInteractor: SettingInteractorProtocol {
                 let library = try JSONDecoder().decode(Library.self, from: data)
                 libraries.append(library)
             } catch {
-                self.output?.failureGet(SettingError())
+                self.output?.failureGet(.failedDecode)
                 break
             }
         }

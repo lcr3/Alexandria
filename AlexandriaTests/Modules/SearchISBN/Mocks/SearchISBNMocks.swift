@@ -163,7 +163,7 @@ class MockStorageClient: StorageClientProtocol {
     }
 
     var libraries: [Data] {
-        []
+        mockLibraries
     }
 
     var searchHistoryWords: [String] {

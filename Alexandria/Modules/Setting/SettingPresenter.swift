@@ -4,7 +4,7 @@ import SwiftUI
 protocol SettingPresenterProtocol {
     var savedLibraries: [Library] { get set }
     var isShowDeleteLocationAlert: Bool { get set }
-    var error: SettingError? { get set }
+    var error: SettingInteractorError? { get set }
 
     func getSaveLibraries()
     func resetButtonTouched()
@@ -14,7 +14,7 @@ protocol SettingPresenterProtocol {
 final class SettingPresenter: SettingPresenterProtocol, ObservableObject {
     @Published var savedLibraries: [Library]
     @Published var isShowDeleteLocationAlert: Bool
-    @Published var error: SettingError?
+    @Published var error: SettingInteractorError?
 
     private let interactor: SettingInteractorProtocol
 
@@ -44,7 +44,7 @@ extension SettingPresenter: SettingInteractorOutput {
         self.savedLibraries = libraries
     }
 
-    func failureGet(_ error: SettingError) {
+    func failureGet(_ error: SettingInteractorError) {
         self.error = error
     }
 }

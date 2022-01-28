@@ -11,11 +11,16 @@ import CalilClient
 final class MockSettingInteractor {
     init() {}
     var output: SettingInteractorOutput?
+    var mockError: SettingInteractorError?
     var mockLibraries: [Library] = []
 }
 
 extension MockSettingInteractor: SettingInteractorProtocol {
     func getSaveLibraries() {
+        if let error = mockError {
+            output?.failureGet(error)
+            return
+        }
         output?.successGet(libraries: mockLibraries)
     }
 
@@ -27,7 +32,7 @@ extension MockSettingInteractor: SettingInteractorProtocol {
 final class MockSettingPresenter {
     var savedLibraries: [Library] = []
     var isShowDeleteLocationAlert = false
-    var error: SettingError?
+    var error: SettingInteractorError?
     init() {}
 }
 
@@ -46,10 +51,10 @@ extension MockSettingPresenter: SettingPresenterProtocol {
 
 extension MockSettingPresenter: SettingInteractorOutput {
     func successGet(libraries: [Library]) {
-        savedLibraries
+        savedLibraries = libraries
     }
 
-    func failureGet(_: SettingError) {
-        error
+    func failureGet(_ error: SettingInteractorError) {
+        self.error = error
     }
 }

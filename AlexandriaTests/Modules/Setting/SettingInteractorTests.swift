@@ -45,7 +45,8 @@ class SettingInteractorTests: XCTestCase {
         super.tearDown()
     }
 
-    func test() {
+    func testSuccessGetSavedLibraries() {
+        // setup
         let expectLibraries = [
             Library(name: "1"),
             Library(name: "2")
@@ -60,8 +61,24 @@ class SettingInteractorTests: XCTestCase {
             }
         }
         storageClient.mockLibraries = dataLibs
+
+        // execute
         interactor.getSaveLibraries()
 
+        // verify
         XCTAssertEqual(presenter.savedLibraries, expectLibraries)
+    }
+
+    func testFailureGetLibraries() {
+        let expectError = SettingInteractorError.failedDecode
+        storageClient.mockLibraries = [Data()]
+
+
+        // execute
+        interactor.getSaveLibraries()
+
+        // verify
+        XCTAssertEqual(presenter.savedLibraries, [])
+        XCTAssertEqual(presenter.error, expectError)
     }
 }

@@ -54,12 +54,13 @@ class SettingPresenterTests: XCTestCase {
 
     func testLocationDeleteAlertButtonTapped() throws {
         // setup
-        XCTAssertEqual(presenter.isShowDeleteLocationAlert, false)
+        presenter.resetButtonTouched()
+        XCTAssertEqual(presenter.isShowDeleteLocationAlert, true)
 
         // execute
         presenter.locationDeleteAlertButtonTapped()
 
         // verify
-        XCTAssertEqual(presenter.isShowDeleteLocationAlert, true)
+        XCTAssertEqual(presenter.isShowDeleteLocationAlert, false)
     }
 }
