@@ -17,21 +17,6 @@ class SettingInteractorTests: XCTestCase {
     override func setUpWithError() throws {
         super.setUp()
         storageClient = MockStorageClient()
-        let expectLibraries = [
-            Library(name: "1"),
-            Library(name: "2")
-        ]
-        var dataLibs: [Data] = []
-        expectLibraries.forEach { library in
-            do {
-                let data = try JSONEncoder().encode(library)
-                dataLibs.append(data)
-            } catch {
-                fatalError()
-            }
-        }
-        storageClient.mockLibraries = dataLibs
-
         interactor = SettingInteractor(
             dependencies: SettingInteractorDependencies(
                 storegeClient: storageClient
